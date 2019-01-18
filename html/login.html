@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录界面</title>
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			body{width: 1920px; height: 1080px; margin: 0 auto;}
+			
+			.back{width: 1920px; height: 1080px; background-image: url(/img/login2.jpg); 
+			      background-repeat: no-repeat; /*padding: 172px 483px; position: absolute;*/}
+			.main{width: 956px; height: 620px; background-color:rgba(255,255,255,0.35);
+			     border-radius: 20px; box-shadow: 10px 10px 15px rgba(0,0,0,0.5); position: relative; left: 483px; top: 172px;}
+			     
+			   .option{width: 660px; height: 47px; float: left; position: relative; left: 170px; top: 68px;}
+			      a{display: block; float: left; text-decoration: none; color: white; font-size: 40px; position: relative; left: ;}
+			      #second{position: relative; left:240px;}
+			      .option p{text-shadow: 10px 6px 5px rgba(0,0,0,0.4);}
+			     
+			     form{position: relative; top: 135px; display: block;}
+			     input{display: block; width: 695px; height: 80px; margin:0px 129px; font-size: 30px; color: white; 
+			         border-left: hidden; border-top: hidden; border-right: hidden; border-width: 1.8px; background-color: rgba(0,0,0,0);}
+			         #password{ position: relative; top: 50px;}
+			     #butn{width: 290px; height: 70px; background-color:#4196ff; border-radius: 15px; color: white; position: relative; top: 100px; left:215px;}
+			     #butn:active{background-color:#3e80c3;}
+			     
+			     .beizhu{width: 956px; height: 24px;}
+			     .beizhu a{font-size: 20px;}
+			     .beizhu p{position: relative; left: 42px; top: 275px; letter-spacing: 5px;}
+			     #beizhu2{position: relative; left: 670px;}
+			     
+			    #footer{width: 1920;height: 40px; text-align: center; margin:430px 850px 0 ;}
+                   #footer a{letter-spacing: 6px; font-size: 13px;}
+		</style>
+	</head>
+	<body>
+		<div class="back">
+			<div class="main">
+				<div class="option">
+					<p><a href="##">账号登录</a></p>
+					<p id="second"><a href="##" >第三方登录</a></p>
+				</div>
+				<form action="" method="post">
+					<input type="text" name="number" id="num" placeholder="请输入账号" />
+					<input type="password" name="password" id="password" placeholder="请输入密码"/>
+					<input type="button" onclick="alert('该登陆接口还在建设中，敬请期待')" id="butn" value="立即登录" />
+				</form>
+				<div class="beizhu">
+					<p><a href="##" onclick="alert('抱歉，对于您粗心忘记密码，我们也表示无能为力。')">忘记密码？</a></p>
+					<p id="beizhu2"><a href="##" onclick="alert('都说了还在建设中啦，没法注册的。')">注册登录</a></p>
+			    </div>
+			</div>
+			
+			<div id="footer"><a target="_blank" href="http://www.miitbeian.gov.cn">蒙ICP备18003283号</a></div>
+		</div>
+	</body>
+</html>

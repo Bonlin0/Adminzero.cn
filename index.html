@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>AZ的全栈学习网站</title>
+		<link rel="stylesheet" type="text/css" href="css/AZ2decoration.css"/>
+		<script>
+			function telltime()
+			{
+				var out = "";
+				var now = new Date();
+				out += "\n Year: " + now.getFullYear();
+				out +="\n Month: " + (now.getMonth()+1);
+				out +="\n Date: " + now.getDate();
+				out +="\n Hours: " + now.getHours();
+				out +="\n Minutes:" + now.getMinutes();
+				out +="\n Seconds:" + now.getSeconds();
+				return out;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="tag">
+			<p><a href="#show1"><b>发现新大陆</b></a></p>
+		</div>
+		
+		<div class="tag1">
+			<p><a href="#" onclick="alert('The current date and time are:'+telltime())"><b>时间</b></a></p>
+		</div>
+		
+		<div id="background">
+			<div id="navigate">
+				<div id="nav1"><p class="wel">欢迎来到AZ的全栈学习网站</p></div>
+				<div id="login"><p class="log"><a href="login.html" target="_blank">登录</a>  &nbsp; &nbsp;<a href="##">注册</a></p></div>
+			</div>
+			<div id="screen1">
+			</div>
+			<div id="screen2">
+				<div id="mulu">
+					<ul>
+						<li><a href="##"><img src="img/apple.png"/><h1>前端设计</h1></a></li>
+						<li><a href="##"><img src="img/lizhi.png"/><h1>作品欣赏</h1></a></li>
+						<li><a href="##"><img src="img/orange.png"/><h1>后端开发</h1></a></li>
+						<li><a href="##"><img src="img/shiliu.png"/><h1>代码编程</h1></a></li>
+				    </ul>
+				</div>
+			</div>
+			
+			<div id="screen3">
+				<div id="title3">
+					<img src="img/designShare.png"/ align="center">
+				</div>
+				<div id="showzero">
+					<div class="show" id="show1">
+						<a target="_blank" href="javascript;:"><img src="img/smallBannerA.jpg" alt="smallBannerA"
+							onmouseover="this.src='img/smallBannerB.jpg';" onmouseout="this.src='img/smallBannerA.jpg';"/></a>
+						<div class="descript">
+							2018/6/9 <br /><br />
+							把每天去食堂，去上课，去宿舍的路，走成去散步的路。我觉得这才叫生活。
+						</div>
+					</div>
+				    <div class="show" id="show2">
+				    	<a target="_self" href="javascript;:"><img src="img/manalH.png" alt="manalH"
+				    		onmouseover="this.src='img/manalR.jpg';" onmouseout="this.src='img/manalH.png';"/></a>
+				    	<div class="descript">
+				    		2018/6/18 <br /><br />
+							曾几何时，我们做了世上那最柔情的人，为一朵花低眉，为一片云驻足，为一滴雨感动。
+				    	</div>
+				    </div>
+				    <div class="show" id="show3">
+				    	<a target="_blank" href="javascript;:"><img src="img/coffee1.jpg" alt="coffee1"/ 
+				    		onmouseover="this.src='img/coffee2.png';" onmouseout="this.src='img/coffee1.jpg';"></a>
+					    <div class="descript">
+					    	2018/6/25 <br /><br />
+							曾经以为念念不忘的事情，就在我们念念不忘的过程，被我们遗忘了。
+					    </div>
+				    </div>
+				</div>
+			</div>
+			
+			<div id="screen4">
+				<div class="title34" id="title4">
+					<img src="img/programShare.png"/>
+				</div>
+				<div id="gamezero">
+					<div class="game">
+						<div class="playText"><h3><a href="##">试玩一下>></a></h4></div>
+						<a target="_blank" href="##"><img src="img/game.png"/></a>
+						<div class="playText2">
+							<h3><a href="##">代码展示>></a></h3>
+							<div class="dropdownContent">
+								<p>该游戏代码展示:</p>
+								<p>此处等待填充。。。</p>
+							</div>
+						</div>
+				    </div>
+				    <div class="game">
+				    	<div class="playText"><h3><a href="##">试玩一下>></a></h4></div>
+						<a target="_blank" href="#"><img src="img/game.png"/></a>
+						<div class="playText2">
+							<span><h3><a href="##">代码展示>></a></h3></span>
+							<div class="dropdownContent">
+								<p>该游戏代码展示:</p>
+								<p>此处等待填充。。。</p>
+							</div>
+						</div>
+				    </div>
+				</div>
+			</div>
+			
+			<div id="screen5">
+				<form name="search" action="" method="post">
+					<input type="text" name="textfield" class="enter" placeholder="站内搜索..." /><input formtarget="_blank" type="submit" value="搜索"/ class="sub">
+				</form>
+			</div>
+			<div id="footer"><a target="_blank" href="http://www.miitbeian.gov.cn">蒙ICP备18003283号</a></div>
+		</div>
+	</body>
+</html>

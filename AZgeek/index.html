@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="shortcut icon" href="./img/favicon.ico">
+
+    <title>Home - My Docs</title>
+
+    <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.018/css/hack.min.css">
+    <link href='//fonts.loli.net/css?family=PT+Sans:400,400italic,700,700italic&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='//fonts.loli.net/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="./css/base.css" rel="stylesheet">
+    <link href="./css/cinder.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/highlight.css">
+    <link href="//fonts.loli.net/css?family=EB+Garamond|Play" rel="stylesheet"> 
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="https://ajax.loli.net/ajax/libs/webfont/1.5.18/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans', 'PT Sans']
+        }
+    });
+    </script>
+
+    
+</head>
+
+<body class="homepage" >
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href=".">My Docs</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fa fa-search"></i> Search
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#welcome-to-azgeek">Welcome to AZgeek!</a></li>
+            <li class="second-level"><a href="#useful-websites">Useful websites</a></li>
+                
+            <li class="second-level"><a href="#some-notes">Some notes</a></li>
+                
+                <li class="third-level"><a href="#php">PHP</a></li>
+                <li class="third-level"><a href="#javascript">Javascript</a></li>
+                <li class="third-level"><a href="#probability-and-mathematical-statistic">Probability and Mathematical Statistic</a></li>
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h1 id="welcome-to-azgeek">Welcome to AZgeek!</h1>
+<hr />
+<h2 id="useful-websites">Useful websites</h2>
+<ul>
+<li><a href="https://www.google.com.hk/" target="_blank">Google</a></li>
+<li><a href="http://php.net/manual/zh/" target="_blank">PHP manual</a></li>
+<li><a href="http://www.runoob.com/" target="_blank">Runoob</a></li>
+<li><a href="https://1024tools.com/hmac" target="_blank">HMAC computing</a></li>
+<li><a href="https://ctf-wiki.github.io/ctf-wiki/" target="_blank">CTF-wiki</a></li>
+<li><a href="https://www.codecademy.com/" target="_blank">Codecademy</a>      </li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/learn" target="_blank">MDN Learn Web</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">MDN CORS</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank">MDN CORS_cn</a>       </li>
+<li><a href="https://www.jianshu.com/p/d433d9f89102" target="_blank">PHP black magic Jianshu</a></li>
+<li><a href="http://www.am0s.com/ctf/128.html" target="_blank">PHP CTF black</a></li>
+<li><a href="https://coolshell.cn/articles/5426.html" target="_blank">Learn Vim</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank">Javascript Tutorial from Liaoxuefeng</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank">Python3 Tutorial from Liaoxuefeng</a></li>
+<li><a href="http://linux.vbird.org/" target="_blank">Linux Vbird</a></li>
+<li><a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank">MarkDown grammer</a></li>
+</ul>
+<hr />
+<h2 id="some-notes">Some notes</h2>
+<h3 id="php">PHP</h3>
+<p><img src="img/new-php-logo.png" alt="PHP logo"><br />
+PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。<br />
+PHP float to int:向下取整。<br />
+PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。<br />
+发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  </p>
+<h3 id="javascript">Javascript</h3>
+<p>Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它自己。</p>
+<h3 id="probability-and-mathematical-statistic">Probability and Mathematical Statistic</h3>
+<p><img src="img/useful_power_series.png" alt="useful_power_series"></p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p></small>
+    </footer>
+
+    <script src="./js/jquery-1.10.2.min.js"></script>
+    <script src="./js/bootstrap-3.0.3.min.js"></script>
+    <script src="./js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+    var base_url = '.';
+    </script>
+    <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        From here you can search these documents. Enter your search terms below.
+                    </p>
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                        </div>
+                    </form>
+                    <div id="mkdocs-search-results"></div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2018-11-29 08:27:50
+-->
