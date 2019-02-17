@@ -1,119 +1,318 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title>AZ的全栈学习网站</title>
-		<link rel="stylesheet" type="text/css" href="css/AZ2decoration.css"/>
-		<script>
-			function telltime()
-			{
-				var out = "";
-				var now = new Date();
-				out += "\n Year: " + now.getFullYear();
-				out +="\n Month: " + (now.getMonth()+1);
-				out +="\n Date: " + now.getDate();
-				out +="\n Hours: " + now.getHours();
-				out +="\n Minutes:" + now.getMinutes();
-				out +="\n Seconds:" + now.getSeconds();
-				return out;
-			}
-		</script>
 	</head>
+	<link rel="stylesheet" type="text/css" href="css/AZ3-2deco.css" />
+	<link rel="stylesheet" type="text/css" href="js/swiper-4.3.5.min.css" />
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-4.3.5.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/AZ3testAction.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/three.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/OrbitControls.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/OBJLoader.js" type="text/javascript" charset="utf-8"></script>
+
 	<body>
-		<div class="tag">
-			<p><a href="#show1"><b>发现新大陆</b></a></p>
-		</div>
-		
-		<div class="tag1">
-			<p><a href="#" onclick="alert('The current date and time are:'+telltime())"><b>时间</b></a></p>
-		</div>
-		
-		<div id="background">
-			<div id="navigate">
-				<div id="nav1"><p class="wel">欢迎来到AZ的全栈学习网站</p></div>
-				<div id="login"><p class="log"><a href="login.html" target="_blank">登录</a>  &nbsp; &nbsp;<a href="##">注册</a></p></div>
+		<!--screen1-->
+		<div class="screen1">
+			<div class="screen1_content">
+				<ul class="tagc1">
+					<li><img src="img/screen1/AZ3(1)_03.png" /></li>
+					<li><img src="img/screen1/AZ3(1)_05.png" /></li>
+					<div style="clear: both;"></div>
+				</ul>
+
+				<!--无法解决浮动塌陷-->
+				<!--<div class="tagc1">
+					<div id="tagc1_1"><img src="img/screen1/AZ3(1)_03.png" href="##"/></div>
+					<div id="tagc1_2"><img src="img/screen1/AZ3(1)_05.png" href="##"/></div>
+					<div style="clear: both;"></div>
+				</div>-->
+
+				<div class="welcome">
+					<div id="wel"><img src="img/screen1/welcome.png" /></div>
+					<div><img src="img/screen1/AZ3(1)_06.png" /></div>
+				</div>
+				<div class="desc">
+					<p>来这里一起感受梦幻星辰的奇妙、探索人类知识的绚丽...</p>
+				</div>
 			</div>
-			<div id="screen1">
+		</div>
+
+		<!--screen2-->
+		<div class="screen2">
+			<div id="float_img">
+				<img src="img/screen3/game1.png" />
 			</div>
-			<div id="screen2">
-				<div id="mulu">
+			<div class="screen2_first_content">
+				<div class="tagc2">
 					<ul>
-						<li><a href="##"><img src="img/apple.png"/><h1>前端设计</h1></a></li>
-						<li><a href="##"><img src="img/lizhi.png"/><h1>作品欣赏</h1></a></li>
-						<li><a href="##"><img src="img/orange.png"/><h1>后端开发</h1></a></li>
-						<li><a href="##"><img src="img/shiliu.png"/><h1>代码编程</h1></a></li>
-				    </ul>
+						<li>
+							<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">Java</a>
+						</li>
+						<li>
+							<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">JavaScript</a>
+						</li>
+						<li>
+							<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">Android</a>
+						</li>
+						<li id="last_tagc2" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">
+							<a href="#">PHP</a>
+						</li>
+						<div style="clear: both;"></div>
+					</ul>
 				</div>
 			</div>
-			
-			<div id="screen3">
-				<div id="title3">
-					<img src="img/designShare.png"/ align="center">
+			<!--<div class="banner_c2">
+				<img src="img/screen2/AZ3(1)_banner01.png" />
+			</div>-->
+
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="img/screen2/banner01.png" alt="" /></div>
+					<div class="swiper-slide"><img src="img/screen2/banner02.png" alt="" /></div>
+					<div class="swiper-slide"><img src="img/screen2/banner03.png" alt="" /></div>
+					<div class="swiper-slide"><img src="img/screen2/banner01.png" alt="" /></div>
+					<div class="swiper-slide"><img src="img/screen2/banner02.png" alt="" /></div>
+					<div class="swiper-slide"><img src="img/screen2/banner03.png" alt="" /></div>
 				</div>
-				<div id="showzero">
-					<div class="show" id="show1">
-						<a target="_blank" href="javascript;:"><img src="img/smallBannerA.jpg" alt="smallBannerA"
-							onmouseover="this.src='img/smallBannerB.jpg';" onmouseout="this.src='img/smallBannerA.jpg';"/></a>
-						<div class="descript">
-							2018/6/9 <br /><br />
-							把每天去食堂，去上课，去宿舍的路，走成去散步的路。我觉得这才叫生活。
-						</div>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+
+			<div class="screen2_second_content">
+				<div class="tagc2_2">
+					<ul>
+						<li>
+							<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">HTML&CSS</a</li>
+								<li>
+									<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">C&C++</a>
+								</li>
+								<li>
+									<a href="#" onmouseover="displayImg()" onmouseout="vanishImg()" onmousemove="displayImg()">Web Design</a>
+								</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!--screen3-->
+		<div class="screen3">
+			<div class="screen3_content">
+				<div class="tagc3">
+					<img src="img/screen3/tag3.png" />
+				</div>
+				<div>
+					<ul>
+						<li><img src="img/screen3/game1.png" alt="game" /></li>
+						<li id="game_2"><img src="img/screen3/game2.png" alt="game" /></li>
+					</ul>
+				</div>
+				<div class="square_image">
+					<!--<div class="square_image_content">-->
+					<canvas id="canvas" width="450px" height="670px" style="overflow: hidden;">
+						<img id="square1" src="img/screen3/images/1.png" />
+						<img src="img/screen3/images/2.png" />
+						<img src="img/screen3/images/3.png" />
+						<img src="img/screen3/images/4.png" />
+						<img src="img/screen3/images/5.png" />
+						<img src="img/screen3/images/6.png" />
+						<img src="img/screen3/images/7.png" />
+						<img src="img/screen3/images/8.png" />
+						<img src="img/screen3/images/9.png" />
+						<img src="img/screen3/images/10.png" />
+						<img src="img/screen3/images/11.png" />
+						<img src="img/screen3/images/12.png" />
+						<img src="img/screen3/images/13.png" />
+						<img src="img/screen3/images/14.png" />
+						<img src="img/screen3/images/15.png" />
+						<img src="img/screen3/images/16.png" />
+						<img src="img/screen3/images/17.png" />
+						<img src="img/screen3/images/18.png" />
+						<img src="img/screen3/images/19.png" />
+						<img src="img/screen3/images/20.png" />
+						<img src="img/screen3/images/21.png" />
+						<img src="img/screen3/images/22.png" />
+						</canvas>
+					<!--</div>-->
+				</div>
+			</div>
+		</div>
+
+		<!--screen4-->
+		<div class="screen4">
+			<div class="screen4_inkBackground">
+				<div class="screen4_content">
+					<div class="screen4_3dshow">
+						<canvas class="canvas" id="canvas1" width="430" height="460"></canvas>
+						<canvas class="canvas" id="canvas2" width="430" height="460"></canvas>
 					</div>
-				    <div class="show" id="show2">
-				    	<a target="_self" href="javascript;:"><img src="img/manalH.png" alt="manalH"
-				    		onmouseover="this.src='img/manalR.jpg';" onmouseout="this.src='img/manalH.png';"/></a>
-				    	<div class="descript">
-				    		2018/6/18 <br /><br />
-							曾几何时，我们做了世上那最柔情的人，为一朵花低眉，为一片云驻足，为一滴雨感动。
-				    	</div>
-				    </div>
-				    <div class="show" id="show3">
-				    	<a target="_blank" href="javascript;:"><img src="img/coffee1.jpg" alt="coffee1"/ 
-				    		onmouseover="this.src='img/coffee2.png';" onmouseout="this.src='img/coffee1.jpg';"></a>
-					    <div class="descript">
-					    	2018/6/25 <br /><br />
-							曾经以为念念不忘的事情，就在我们念念不忘的过程，被我们遗忘了。
-					    </div>
-				    </div>
 				</div>
 			</div>
-			
-			<div id="screen4">
-				<div class="title34" id="title4">
-					<img src="img/programShare.png"/>
+		</div>
+
+		<!--screen5-->
+		<div class="screen5">
+			<div class="screen5_content">
+				<div class="tagc5">
+					<img src="img/screen5/tag5.png" />
 				</div>
-				<div id="gamezero">
-					<div class="game">
-						<div class="playText"><h3><a href="##">试玩一下>></a></h4></div>
-						<a target="_blank" href="##"><img src="img/game.png"/></a>
-						<div class="playText2">
-							<h3><a href="##">代码展示>></a></h3>
-							<div class="dropdownContent">
-								<p>该游戏代码展示:</p>
-								<p>此处等待填充。。。</p>
-							</div>
-						</div>
-				    </div>
-				    <div class="game">
-				    	<div class="playText"><h3><a href="##">试玩一下>></a></h4></div>
-						<a target="_blank" href="#"><img src="img/game.png"/></a>
-						<div class="playText2">
-							<span><h3><a href="##">代码展示>></a></h3></span>
-							<div class="dropdownContent">
-								<p>该游戏代码展示:</p>
-								<p>此处等待填充。。。</p>
-							</div>
-						</div>
-				    </div>
+				<div class="wangye">
+					<div class="web" id="web01"><img src="img/screen5/web01.png" /></div>
+					<div class="web" id="web02"><img src="img/screen5/web02.png" /></div>
+					<div class="web" id="web03"><img src="img/screen5/web03.png" /></div>
 				</div>
 			</div>
-			
-			<div id="screen5">
-				<form name="search" action="" method="post">
-					<input type="text" name="textfield" class="enter" placeholder="站内搜索..." /><input formtarget="_blank" type="submit" value="搜索"/ class="sub">
-				</form>
+		</div>
+
+		<!--screen6-->
+		<div class="screen6">
+			<div class="screen6_content">
+				<img src="img/screen6/girlsun.png" onmouseover="this.src='img/screen6/girl.png';" onmouseout="this.src='img/screen6/girlsun.png';" />
 			</div>
-			<div id="footer"><a target="_blank" href="http://www.miitbeian.gov.cn">蒙ICP备18003283号</a></div>
+		</div>
+
+		<!--screen7-->
+		<div class="screen7">
+			<div class="screen7_content">
+
+			</div>
 		</div>
 	</body>
+	
+	<!--threejs动画-->
+	<script type="text/javascript">
+		init();
+		init3();
+		initControls();
+		animate();
+	</script>
+	
+	<!--轮播图-->
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			autoplay: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+	<script type="text/javascript">
+		var squareUrl = new Array();
+		for(i = 0; i < 22; i++) {
+			squareUrl[i] = document.getElementsByClassName("square_image").getElementsByTagName('img')[i].src;
+		}
+
+		function showSquare() {
+
+		}
+	</script>
+	<script type="text/javascript">
+		var c = document.getElementById("screen3_img");
+		var ctx = c.getContext("2d");
+		img = document.getElementById("square1");
+		img.onload = function() {
+			ctx.drawImage(img, 10, 10);
+		}
+	</script>
+	<script type="text/javascript">
+		//显示图片
+		function displayImg() {
+			var img = document.getElementById("float_img");
+			var x = event.clientX + document.body.scrollLeft + 20;
+			var y = event.clientY + document.body.scrollTop - 5;
+
+			img.style.left = x + "px";
+			img.style.top = y + "px";
+			img.style.display = "block";
+		}
+
+		//图片消失
+		function vanishImg() {
+			var img = document.getElementById("float_img");
+			img.style.display = "none";
+		}
+	</script>
+
+	<script type="text/javascript">
+		//黑客帝国效果
+		(function(window, factory) {
+			if(typeof define === "function" && define.amd) {
+				define(factory)
+			} else {
+				if(typeof module === "object" && module.exports) {
+					module.exports = factory()
+				} else {
+					window.martrix = factory()
+				}
+			}
+		}(typeof window !== "undefined" ? window : this, function() {
+			var martrix = function(selector, userOptions) {
+				var options = {
+					cW: 1368,
+					cH: 600,
+					wordColor: "#33ff33",
+					fontSize: 16,
+					speed: 0.13,
+					words: "0123456789qwertyuiopasdfghjklzxcvbnm,./;'[]QWERTYUIOP{}ASDFGHJHJKL:ZXCVBBNM<>?"
+				};
+				var canvas, ctx, W, H, clumns, wordsArr, drops = [];
+				var mergeOptions = function(userOptions, options) {
+					Object.keys(userOptions).forEach(function(key) {
+						options[key] = userOptions[key]
+					})
+				};
+				var draw = function() {
+					ctx.save();
+					ctx.fillStyle = options.wordColor;
+					ctx.font = options.fontSize + "px arial";
+					ctx.fontWeight = options.fontWeight;
+					for(var i = 0; i < drops.length; i++) {
+						var text = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+						ctx.fillText(text, i * options.fontSize, drops[i] * options.fontSize);
+						if(drops[i] * options.fontSize > H && Math.random() > 0.98) {
+							drops[i] = 0
+						}
+						drops[i]++
+					}
+					ctx.restore()
+				};
+				var initSetup = function(selector, userOptions) {
+					mergeOptions(userOptions, options);
+					canvas = document.getElementById(selector);
+					ctx = canvas.getContext("2d");
+					canvas.height = H = options.cH;
+					canvas.width = W = options.cW;
+					clumns = options.cW / options.fontSize;
+					wordsArr = options.words.split("");
+					for(var i = 0; i < clumns; i++) {
+						drops[i] = 1
+					}(function drawFrame() {
+						window.requestAnimationFrame(drawFrame);
+						ctx.fillStyle = "rgba(0,0,0," + options.speed + ")";
+						ctx.fillRect(0, 0, W, H);
+						draw()
+					}())
+				};
+				initSetup(selector, userOptions)
+			};
+			return martrix
+		}));
+
+		//instance
+		martrix('canvas', {
+			//			cW: 2000,
+			//			cH: 700,
+			cW: 450,
+			cH: 450,
+			wordColor: '#FFFC3A',
+			fontSize: 15,
+			speed: 0.13,
+		});
+	</script>
+
 </html>
