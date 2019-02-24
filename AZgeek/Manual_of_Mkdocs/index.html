@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Mkdocs manual - AZ_geek</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mkdocs manual";
+    var mkdocs_page_input_path = "Manual_of_Mkdocs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AZ_geek</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Mkdocs manual</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#mkdocs">MkDocs 配置 使用指南</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#windows">安装与配置（Windows）</a></li>
+        
+            <li><a class="toctree-l3" href="#_1">学习基本使用</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handwriting/">Handwriting blog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../calculator/">calculator</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AZ_geek</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Mkdocs manual</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="mkdocs">MkDocs 配置 使用指南</h1>
+<p>使用 MkDocs 的记录，以避免之后每次使用都要重新浏览MkDocs的主页。更新于11：30 2019/2/24。 BY hell05</p>
+<hr />
+<h2 id="windows">安装与配置（Windows）</h2>
+<p><strong>安装python</strong></p>
+<p>首先应检查是否已经安装已兼容版本的 python，在书写本文时（2/24/2019），MkDocs supports Python versions 2.7, 3.4, 3.5, 3.6, 3.7 and pypy. 详见<a href="https://www.mkdocs.org/">Mkdocs官网</a>。安装python的过程不再详述（<a href="http:www.python.org">python官网</a>)。</p>
+<p><strong>安装python的包管理工具(package manager): pip</strong></p>
+<p>一般来说在安装python后已经会安装有pip，但是你可能需要将其升级至最新版本。</p>
+<pre><code>pip install --upgrade pip
+</code></pre>
+
+<p>PS：有可能会被提示使用其他的指令，这时请按照提示的指令更新即可。</p>
+<p><strong>安装Mkdocs</strong></p>
+<p>使用pip来安装Mkdocs。</p>
+<pre><code>pip install mkdocs
+</code></pre>
+
+<p>安装完毕后可以使用<code>mkdocs --version</code>来确认是否安装成功以及安装的版本。</p>
+<h2 id="_1">学习基本使用</h2>
+<p>Mkdocs很容易使用。在命令行窗口下输入如下指令，将会在你当前目录新建一个对应的项目文件夹，并做好了基本配置。</p>
+<pre><code>mkdocs new my-project
+cd my-project
+</code></pre>
+
+<p>文件夹中可以看到自动生成的配置文件 <code>mkdocs.yml</code> 和 文件夹<code>docs</code> ，在文件夹中有一个markdown文件 <code>index.md</code> 。现在可以开始测试了，确保你的命令行窗口当前所在目录为生成的项目文件夹，输入指令 <code>mkdocs serve</code> 。这时你应该会看到如下的输出。</p>
+<pre><code>INFO    -  Building documentation...
+INFO    -  Cleaning site directory
+[I 190224 09:47:25 server:298] Serving on http://127.0.0.1:8000
+[I 190224 09:47:25 handlers:59] Start watching changes
+[I 190224 09:47:25 handlers:61] Start detecting changes
+</code></pre>
+
+<p>好了，现在打开浏览器，在地址栏中输入<code>127.0.0.1:8000</code>（即本机的8000端口），那么你应该可以看到自动生成的网页了。这个服务器会自动检测你的每次文件更改，所以每当你保存文件后，浏览器中的页面会自动更新。接下来你可以打开<code>index.md</code>做一些小更改，并自己检查会在浏览器中的界面中造成哪些改变。你也可以在<code>docs</code>文件夹中新建一个md文件，并仿照index.md文件进行编辑，保存后打开浏览器看看发生了什么更改。如果你不熟悉Markdown语法，可以搜索一下相关的教程，这里附上一个<a href="https://www.jianshu.com/p/191d1e21f7ed">简书上的markdown教程</a>。</p>
+<p>接下来你需要认识mkdocs中的配置文件<code>mkdocs.yml</code>，打开它，对<code>site_name</code>后面的值进行更改，你将会发现浏览器中网站名发生了改变。</p>
+<p>要改变页面的导航栏，需要在<code>site_name</code>一行下，加入数行代码，最终<code>mkdocs.yml</code>文件内容可能会像下面这样：</p>
+<pre><code>site_name: Mysite
+nav:
+    - Home: index.md
+    - About: newfile.md
+</code></pre>
+
+<p>保存后你就可以看到导航栏出现了变化。此外Mkdocs提供了不错的搜索功能，可以检查一下。</p>
+<p><strong>更改主题</strong></p>
+<p>在配置文件的末尾再添一行代码<code>theme: readthedocs</code>可以实现主题的更改。</p>
+<pre><code>site_name: Mysite
+nav:
+    - Home: index.md
+    - About: newfile.md
+theme: readthedocs
+</code></pre>
+
+<p><strong>更换图标</strong></p>
+<p>你可以通过在<code>doc</code>s文件夹下创建<code>img</code>文件夹，并在其中添加你自己的<code>favicon.ico</code>文件来自定义你的图标。</p>
+<p><strong>生成网站文件夹(site/)</strong></p>
+<p>只需一行指令，就会在项目文件夹下自动生成你的网站文件夹<code>site</code>。</p>
+<pre><code>mkdocs build
+</code></pre>
+
+<p><strong>Help</strong></p>
+<p>通过help指令来寻求帮助。</p>
+<pre><code>mkdocs --help
+</code></pre>
+
+<p>除此之外，对于特定的指令你也可以使用这种方式寻求帮助。举个栗子。当你不熟悉build指令时，你可以这样做。</p>
+<pre><code>mkdocs build --help
+</code></pre>
+
+<p>当你有更多的问题时，极力推荐参考<a href="https://www.mkdocs.org">Mkdocs官网</a>，本文只是简单翻译了官网文档并将对于笔者来说最基本最重要的部分予以保留。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../handwriting/" class="btn btn-neutral float-right" title="Handwriting blog">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../handwriting/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
