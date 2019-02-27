@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Linux - AZ_geek</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linux";
+    var mkdocs_page_input_path = "LinuxNotes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> AZ_geek</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Manual_of_Mkdocs/">Mkdocs manual</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../handwriting/">Handwriting blog</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../calculator/">calculator</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../zhigedesign/">Zhige design</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Linux</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#linux">Linux 的学习笔记</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#tar">tar相关</a></li>
+        
+            <li><a class="toctree-l3" href="#_1">查看文件权限</a></li>
+        
+            <li><a class="toctree-l3" href="#linux-kernel">编译Linux kernel， 添加系统调用</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">AZ_geek</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Linux</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="linux">Linux 的学习笔记</h1>
+<h2 id="tar">tar相关</h2>
+<p><code>tar</code> 是 tape archive 的缩写，最早是用于将多个文件打包为单一文件以方便录入磁带中。单一的tar后缀名表示未经过压缩的tar文件，一般会见到以tar.xz、tar.gz结尾的文件，则是以相应的压缩算法压缩后的文件。</p>
+<h3 id="tar_1">tar语法</h3>
+<p>语法：tar [主选项+辅选项] 文件或目录</p>
+<p>使用该命令时，主选项必须有，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。</p>
+<p>主选项：【一条命令以下5个参数只能有一个】</p>
+<ul>
+<li>
+<p>-c: --create 新建一个压缩文档，即打包</p>
+</li>
+<li>
+<p>-x: --extract,--get解压文件</p>
+</li>
+<li>
+<p>-t: --list,查看压缩文档里的所有内容</p>
+</li>
+<li>
+<p>-r:--append 向压缩文档里追加文件</p>
+</li>
+<li>
+<p>-u:--update 更新原压缩包中的文件</p>
+</li>
+</ul>
+<p>辅助选项：</p>
+<ul>
+<li>
+<p>-z:是否同时具有gzip的属性？即是否需要用gzip压缩或解压？一般格式为xxx.tar.gz或xx.tgz</p>
+</li>
+<li>
+<p>-j：是否同时具有bzip2的属性？即是否需要用bzip2压缩或解压？一般格式为xx.tar.bz2</p>
+</li>
+<li>
+<p>-v:显示操作过程！这个参数很常用</p>
+</li>
+<li>
+<p>-f：使用文档名，注意，在f之后要立即接文档名，不要再加其他参数！</p>
+</li>
+<li>
+<p>-C:切换到指定目录</p>
+</li>
+<li>
+<p>--exclude FILE:在压缩过程中，不要将FILE打包</p>
+</li>
+</ul>
+<h3 id="tarxz">tar.xz 解压方法</h3>
+<p>对于<code>xz</code>指令有</p>
+<pre><code>xz -z filename   #压缩
+</code></pre>
+
+<pre><code>xz -d filename   #解压
+</code></pre>
+
+<p>故分两步先使用 <code>xz -d filename.tar.xz</code> ，再使用 <code>tar -xvf filename.tar</code>。</p>
+<p>也可以直接使用 <code>tar -jxvf filename.tar.xz</code> 一步解压两层。</p>
+<h2 id="_1">查看文件权限</h2>
+<p>在对应文件夹下打开终端，输入<code>ls -l</code>即可查看当前目录下所有文件的详细信息，其中最左栏第一列为文件类型，第2-10列为权限信息。</p>
+<h3 id="linux_1">Linux 七种文件类型</h3>
+<ul>
+<li>
+<p>普通文件类型：Linux中最多的一种文件类型, 包括 纯文本文件(ASCII)；二进制文件(binary)；数据格式的文件(data);各种压缩文件.第一个属性为 [-]</p>
+</li>
+<li>
+<p>目录文件，就是目录<code>directory</code>。第一个属性为 [d]</p>
+</li>
+<li>
+<p>块设备文件<code>block</code> ： 就是存储数据以供系统存取的接口设备，第一个属性为 [b]</p>
+</li>
+<li>
+<p>字符设备文件<code>character</code>：一般置于/dev目录下，一次传输一个字节的设备被称为字符设备，如键盘、字符终端等，传输数据的最小单位为一个字节。第一个属性为 [c]</p>
+</li>
+<li>
+<p>套接字文件<code>socket</code>： 这类文件通常用在网络数据连接。可以启动一个程序来监听客户端的要求，客户端就可以通过套接字来进行数据通信。第一个属性为 [s]，最常在 /var/run目录中看到这种文件类型</p>
+</li>
+<li>
+<p>管道文件<code>pipe</code>： FIFO也是一种特殊的文件类型，它主要的目的是，解决多个程序同时存取一个文件所造成的错误。FIFO是first-in-first-out(先进先出)的缩写。第一个属性为 [p]</p>
+</li>
+<li>
+<p>链接文件<code>link</code> ： 类似Windows下面的快捷方式。第一个属性为 [l]。</p>
+</li>
+</ul>
+<h3 id="_2">权限信息</h3>
+<p>权限信息中，每三列一组，依次为所有者权限，组织权限，其他人权限。</p>
+<hr />
+<h2 id="linux-kernel">编译Linux kernel， 添加系统调用</h2>
+<p><a href="https://blog.csdn.net/u010371710/article/details/80382968">Linux编译内核及添加系统调用 By 会飞的马</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../zhigedesign/" class="btn btn-neutral" title="Zhige design"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../zhigedesign/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
