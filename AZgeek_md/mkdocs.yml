@@ -1,0 +1,9 @@
+site_name: AZ_geek
+theme: readthedocs
+nav:
+- Home: index.md
+- Mkdocs manual: Manual_of_Mkdocs.md
+- Handwriting blog: handwriting.md
+- calculator: calculator.md
+- Zhige design: zhigedesign.md
+- Linux: LinuxNotes.md
