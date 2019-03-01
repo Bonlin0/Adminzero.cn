@@ -13,6 +13,19 @@
 <button onclick="calculator_gcd_detail_main()">点击计算最大公因数</button>
 <br/>
 <button onclick="calculator_lcm_main()">点击计算最小公倍数</button>
-
+<br/>
+<button onclick="calculator_Bezout_main()">点击求Bezout等式</button>
+<br/>
 <p id="show_gcd"></p>
 <p id="show_lcm"></p>
+<p id="show_Bezout"></p>
+
+## 进制转换
+
+输入二进制请以0b开头，使用八进制请以0开头，使用十六进制请以0x开头，使用十进制不需要前缀。
+
+<input type="number" name="number03" value="" id="number3">
+<br/>
+<button onclick="calculator_base_conversion()">进制转换</button>
+<br/>
+<p id="show_base_conversion"></p>

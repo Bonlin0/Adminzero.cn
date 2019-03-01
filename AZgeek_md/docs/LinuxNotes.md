@@ -92,7 +92,7 @@ xz -d filename   #解压
 
 /kernel/sys.c                                 //定义系统调用函数
 
-**安装`gcc`,`make`,`ncurses`,`bison`,`flex`,`libssl-dev`**
+**安装`gcc` , `make` , `ncurses` , `bison` , `flex` , `libssl-dev`**
 
 ```
 sudo make mrproper
