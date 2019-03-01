@@ -70,6 +70,12 @@
             
     <li class="toctree-l2"><a href="#_1">信息安全数学基础工具</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_2">最大公因数和最小公倍数</a></li>
+        
+        </ul>
+    
 
     </ul>
 	    </li>
@@ -117,7 +123,7 @@
             <div class="section">
               
                 <h1 id="_1">信息安全数学基础工具</h1>
-<p>一些计算器工具</p>
+<h2 id="_2">最大公因数和最小公倍数</h2>
 <form>
 第一个数字:<br>
 <input type="text" name="number01" value="" id="number1">
@@ -127,9 +133,12 @@
 <br><br>
 </form>
 
-<p><button onclick="calculator_gcd_main()">点击计算最大公因数</button></p>
-<p><br/>
-<p id="show_gcd"></p></p>
+<p><button onclick="calculator_gcd_detail_main()">点击计算最大公因数</button>
+<br/>
+<button onclick="calculator_lcm_main()">点击计算最小公倍数</button></p>
+<p id="show_gcd"></p>
+
+<p id="show_lcm"></p>
               
             </div>
           </div>
