@@ -102,3 +102,69 @@ mkdocs build --help
 ```
 
 当你有更多的问题时，极力推荐参考[Mkdocs官网](https://www.mkdocs.org)，本文只是简单翻译了官网文档并将对于笔者来说最基本最重要的部分予以保留。
+
+---
+# MkDocs User Guide
+
+## 文件布局
+
+你的源文件都应该被放在默认的`Docs`文件夹下，你可以将你的markdown源文件放在`Docs`下的文件夹下。比如下面这样。
+
+```
+docs/
+    index.md
+    user-guide/getting-started.md
+    user-guide/configuration-options.md
+    license.md
+```
+
+嵌套的文件夹下的文件会生成对应的URL如下：
+
+```
+/
+/user-guide/getting-started/
+/user-guide/configuration-options/
+/license/
+```
+
+### index 文件
+
+由于部分网站repository会在根目录放置README.md，你可以不使用`index.md`，而使用`README.md`，mkdocs会自动将其生成为`index.html`，当`index.md`和`README.md`同时存在时，只有`index.md`会被生成为`index.html`，而`README.md`会被忽略。
+
+### 调节Navigation（导航栏）
+
+一般的导航栏书写格式如下：
+
+```
+nav:
+- Home: 'index.md'
+- About: 'about.md'
+```
+
+而导航栏中的题目也可以进行分块，如下：
+
+```
+nav:
+- Home: 'index.md'
+- User Guide:
+    - 'Writing your docs': 'writing-your-docs.md'
+    - 'Styling your docs': 'styling-your-docs.md'
+- About:
+    - 'License': 'license.md'
+    - 'Release Notes': 'release-notes.md'
+```
+
+分块可以嵌套，理论上你可以嵌套任意多层。注意分块本身（如`User Guide`）是不能链接文档的。只有他下层的页面可以链接文档。
+
+你没有书写在导航栏里的文档也会被导入`site`文件夹但是他不会出现在任何导航栏中，也不能通过next和previous链接进入。*这样的页面除非你直接链接否则将是不可见的。*
+
+## 使用markdown书写
+
+mkdocs使用[Python-Markdown](https://python-markdown.github.io/)实现，基本完全与[参考实现](https://daringfireball.net/projects/markdown/)相同，除了一些[细微差距](https://python-markdown.github.io/#differences)。Mkdocs对Python-Markdown extensions提供支持。可以查看[https://www.mkdocs.org/user-guide/configuration/#markdown_extensions](https://www.mkdocs.org/user-guide/configuration/#markdown_extensions)来调试如何打开这些功能。
+
+### 内部link
+
+你的图片应当放在`docs`下的`img`文件夹下。
+
+大多数的官方提示的语法都可以在百度中找到并基本全部适用。
+

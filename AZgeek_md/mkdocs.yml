@@ -7,3 +7,6 @@ nav:
 - calculator: calculator.md
 - Zhige design: zhigedesign.md
 - Linux: LinuxNotes.md
+
+extra_javascript:
+  - js/calculator.js

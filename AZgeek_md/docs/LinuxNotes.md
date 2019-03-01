@@ -81,3 +81,38 @@ xz -d filename   #解压
 ## 编译Linux kernel， 添加系统调用
 
 [Linux编译内核及添加系统调用 By 会飞的马](https://blog.csdn.net/u010371710/article/details/80382968)
+
+[Linux系统添加系统调用 By nsnvainva](https://blog.csdn.net/weixin_39924920/article/details/80413571)
+
+**修改内核源码中与系统调用有关的文件信息，以下三个文件**
+
+/arch/x86/entry/syscalls/syscall_64.tbl      //设置系统调用号，如果是32位就用syscall_32.tbl
+
+/include/linux/syscalls.h                     //系统调用的头文件
+
+/kernel/sys.c                                 //定义系统调用函数
+
+**安装`gcc`,`make`,`ncurses`,`bison`,`flex`,`libssl-dev`**
+
+```
+sudo make mrproper
+
+sudo make clean
+
+sudo make menuconfig
+
+sudo make -j4   #j4是4线程
+
+```
+
+```
+sudo make modules_install  
+
+sudo make install
+```
+
+
+
+## 杂项
+
+`Win键`即Linux下的`super键`。
