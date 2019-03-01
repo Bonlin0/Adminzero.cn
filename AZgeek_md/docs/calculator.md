@@ -24,7 +24,7 @@
 
 输入二进制请以0b开头，使用八进制请以0开头，使用十六进制请以0x开头，使用十进制不需要前缀。
 
-<input type="number" name="number03" value="" id="number3">
+<input type="text" name="number03" value="" id="number3">
 <br/>
 <button onclick="calculator_base_conversion()">进制转换</button>
 <br/>

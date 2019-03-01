@@ -107,7 +107,7 @@ function calculator_Bezout(s0, t0, q, r0, s1, t1, r1) // a > b      s * a + t * 
 function calculator_base_conversion() {
     var number = Number(document.getElementById("number3").value);
     if (!(Number.isInteger(number))) {
-        alert("请输入整数。")
+        alert("请检查输入是否合法并且为整数。")
         return;
     }
     var bin = number.toString(2);
