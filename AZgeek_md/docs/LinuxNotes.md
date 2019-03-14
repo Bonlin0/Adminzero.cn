@@ -116,3 +116,7 @@ sudo make install
 ## 杂项
 
 `Win键`即Linux下的`super键`。
+
+重启命令 `sudo reboot`
+
+关机命令 `sudo poweroff`
