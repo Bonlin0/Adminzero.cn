@@ -118,3 +118,16 @@ function calculator_base_conversion() {
     document.getElementById("show_base_conversion").innerHTML = base_conversion_str;
     return;
 }
+
+function calculator_log2() {
+    var number = Number(document.getElementById("number4").value);
+    if (number <= 0) {
+        alert("请检查输入是否为正数。")
+        return;
+    }
+    var log_result = Math.log(number) / Math.log(2);
+    
+    var log_result_str = "log2 (  " + number+ ") = "+ log_result +"<br/>";
+    document.getElementById("show_log2").innerHTML = log_result_str;
+    return;
+}
