@@ -5,6 +5,9 @@
 ##Useful websites
 	
 * <a href="https://www.google.com.hk/" target="_blank">Google</a>
+* <a href="https://www.baidu.com/" target="_blank">Baidu</a>
+* <a href="https://mail.163.com/" target="_blank">163 email log in</a>
+* <a href="https://github.com/" target="_blank">Github</a>
 * <a href="http://php.net/manual/zh/" target="_blank">PHP manual</a>
 * <a href="http://www.runoob.com/" target="_blank">Runoob</a>
 * <a href="https://1024tools.com/hmac" target="_blank">HMAC computing</a>
@@ -20,7 +23,7 @@
 * <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank">Python3 Tutorial from Liaoxuefeng</a>
 * <a href="http://linux.vbird.org/" target="_blank">Linux Vbird</a>
 * <a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank">MarkDown grammer</a>
----
+* <a href="http://www-cs-students.stanford.edu/~blynn//" target="_blank">Homepage of A  Stanford computer science student Ben Lynn</a>
 $x=y^2$
 ##Some notes
 

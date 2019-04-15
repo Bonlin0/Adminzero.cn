@@ -36,6 +36,6 @@
 
 <input type="text" name="number04" value="" id="number4">
 <br/>
-<button onclick="calculator_log2()">求对数</button>
+<button onclick="calculator_base_conversion()">进制转换</button>
 <br/>
-<p id="show_log2"></p>
+<p id="show_base_conversion"></p>
