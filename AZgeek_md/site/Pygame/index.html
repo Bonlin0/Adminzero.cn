@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Misc - AZ_geek</title>
+  <title>Pygame - AZ_geek</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Misc";
-    var mkdocs_page_input_path = "Misc.md";
+    var mkdocs_page_name = "Pygame";
+    var mkdocs_page_input_path = "Pygame.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -83,30 +83,28 @@
     <a class="" href="../PBClearn/">PBC</a>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../Pygame/">Pygame</a>
-	    </li>
-          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Misc</a>
+    <a class="current" href="./">Pygame</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#_1">杂项</a></li>
+    <li class="toctree-l2"><a href="#pygame">Pygame 使用笔记</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#_2">理解傅里叶变换</a></li>
+            <li><a class="toctree-l3" href="#_1">安装</a></li>
         
-            <li><a class="toctree-l3" href="#c">C中复杂声明</a></li>
-        
-            <li><a class="toctree-l3" href="#virutalbox60-centos7">VirutalBox6.0 安装 CentOS7 鼠标不显示问题</a></li>
+            <li><a class="toctree-l3" href="#_2">使用</a></li>
         
         </ul>
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Misc/">Misc</a>
 	    </li>
           
         </ul>
@@ -131,7 +129,7 @@
     
       
     
-    <li>Misc</li>
+    <li>Pygame</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,14 +139,17 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">杂项</h1>
-<p>一些暂时不足以建立单独分类的内容。可能与所学课程有关。</p>
-<h3 id="_2">理解傅里叶变换</h3>
-<p>最近通信原理课程让我想起一篇很久以前看到的教程，简单易懂。<a href="https://zhuanlan.zhihu.com/p/19763358">https://zhuanlan.zhihu.com/p/19763358</a></p>
-<h3 id="c">C中复杂声明</h3>
-<p>一篇解读C语言中复杂声明的博客。其实一般情况下看上去比较让人一头雾水的声明基本都是函数指针的声明。<a href="https://blog.csdn.net/hshl1214/article/details/5647591">https://blog.csdn.net/hshl1214/article/details/5647591</a></p>
-<h3 id="virutalbox60-centos7">VirutalBox6.0 安装 CentOS7 鼠标不显示问题</h3>
-<p><a href="https://www.jianshu.com/p/16c03bfbef29">https://www.jianshu.com/p/16c03bfbef29</a> 这篇文章可以解决问题。但是明显感觉鼠标移动卡顿且呈跳跃性移动。但是总比没有鼠标要强。</p>
+                <h1 id="pygame">Pygame 使用笔记</h1>
+<h2 id="_1">安装</h2>
+<p>略。</p>
+<h2 id="_2">使用</h2>
+<pre><code>pygame.init() # You need do it every time when you start a game.
+
+size = width, height = 1366, 768
+black = 0, 0, 0 # a tuple used to clear the screen with `screen.fill(black)`
+screen = pygame.display.set_mode(size)  # screen is a surface instance.
+
+</code></pre>
               
             </div>
           </div>
@@ -156,8 +157,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../Misc/" class="btn btn-neutral float-right" title="Misc">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../Pygame/" class="btn btn-neutral" title="Pygame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../PBClearn/" class="btn btn-neutral" title="PBC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -183,8 +186,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Pygame/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../PBClearn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../Misc/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

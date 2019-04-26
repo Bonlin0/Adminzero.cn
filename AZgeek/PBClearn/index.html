@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Misc - AZ_geek</title>
+  <title>PBC - AZ_geek</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Misc";
-    var mkdocs_page_input_path = "Misc.md";
+    var mkdocs_page_name = "PBC";
+    var mkdocs_page_input_path = "PBClearn.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -78,9 +78,27 @@
     <a class="" href="../LinuxNotes/">Linux</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../PBClearn/">PBC</a>
+    <a class="current" href="./">PBC</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#pbc">PBC 学习使用笔记</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_1">引言</a></li>
+        
+            <li><a class="toctree-l3" href="#pbc_1">PBC的配置和安装</a></li>
+        
+            <li><a class="toctree-l3" href="#openssl">Openssl配置安装</a></li>
+        
+            <li><a class="toctree-l3" href="#_2">经验之谈</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -88,25 +106,9 @@
     <a class="" href="../Pygame/">Pygame</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Misc</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#_1">杂项</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#_2">理解傅里叶变换</a></li>
-        
-            <li><a class="toctree-l3" href="#c">C中复杂声明</a></li>
-        
-            <li><a class="toctree-l3" href="#virutalbox60-centos7">VirutalBox6.0 安装 CentOS7 鼠标不显示问题</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../Misc/">Misc</a>
 	    </li>
           
         </ul>
@@ -131,7 +133,7 @@
     
       
     
-    <li>Misc</li>
+    <li>PBC</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,14 +143,41 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">杂项</h1>
-<p>一些暂时不足以建立单独分类的内容。可能与所学课程有关。</p>
-<h3 id="_2">理解傅里叶变换</h3>
-<p>最近通信原理课程让我想起一篇很久以前看到的教程，简单易懂。<a href="https://zhuanlan.zhihu.com/p/19763358">https://zhuanlan.zhihu.com/p/19763358</a></p>
-<h3 id="c">C中复杂声明</h3>
-<p>一篇解读C语言中复杂声明的博客。其实一般情况下看上去比较让人一头雾水的声明基本都是函数指针的声明。<a href="https://blog.csdn.net/hshl1214/article/details/5647591">https://blog.csdn.net/hshl1214/article/details/5647591</a></p>
-<h3 id="virutalbox60-centos7">VirutalBox6.0 安装 CentOS7 鼠标不显示问题</h3>
-<p><a href="https://www.jianshu.com/p/16c03bfbef29">https://www.jianshu.com/p/16c03bfbef29</a> 这篇文章可以解决问题。但是明显感觉鼠标移动卡顿且呈跳跃性移动。但是总比没有鼠标要强。</p>
+                <h1 id="pbc">PBC 学习使用笔记</h1>
+<p>一些关于PBC（paring based crptography）库学习使用的笔记，以方便日后查阅。</p>
+<h2 id="_1">引言</h2>
+<p><a href="https://crypto.stanford.edu/pbc/download.html">PBC库</a>是一位斯坦福大学的密码学家Ben Lynn所开发维护的一个C语言库。该库需要使用GMP支持。</p>
+<h2 id="pbc_1">PBC的配置和安装</h2>
+<p>要使用PBC，首先需要配置好PBC。</p>
+<p>目前唯一调通的教程。 <a href="https://blog.csdn.net/u013699902/article/details/58319928">https://blog.csdn.net/u013699902/article/details/58319928</a></p>
+<h2 id="openssl">Openssl配置安装</h2>
+<h3 id="plan-a">PLAN A</h3>
+<p>在使用VS的时候发现没有openssl库，Visual studio自动给了提示如下。</p>
+<p><img src="../img/vcpkg_openssl_tips.png" alt="vcpkg_openssl_tips"> </p>
+<p>vcpkg是一个包管理工具。于是根据详细的教程下载安装成功。但是接下来使用该工具下载库时却因为从Github上下载极其不稳定屡次失败。</p>
+<p>于是按照教程，先使用浏览器下载。<a href="https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win32-x86.zip">https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win32-x86.zip</a>下载成功后将其放到vcpkg的安装目录的downloads文件夹下，重新下载新的库。</p>
+<h3 id="plan-b">PLAN B</h3>
+<p>因为PLAN　A　太慢了，又找到了其他安装 OPENSSL 的方法。参考下面的网站，第一个为教程，第二个为下载地址。</p>
+<ul>
+<li><a href="https://www.jb51.net/article/119025.htm">https://www.jb51.net/article/119025.htm</a></li>
+<li><a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a></li>
+</ul>
+<h2 id="_2">经验之谈</h2>
+<p>今日和老师讨论，讲述了自己在windows环境下配置PBC、openssl的“艰苦历程”，老师讲到，其实很多时候不需要去mingw这样的平台尝试去用windows仿真linux，既然在Windows编程，就去使用VS就可以。Visual Studio已经是如今行业规范，所以很多库都会为方便Visual Studio有各种各样的便捷通路。之后在Windows上从事这类开发，可以直接搜索如何将相关库整合至VS上即可。可以省区很多无用之功，少走一些弯路。当然，老师用Linux。（笑</p>
+<hr />
+<p>施工中 以下为未整理信息 请无视</p>
+<p>首先下载源代码</p>
+<p>安装mingw</p>
+<p>使用msys</p>
+<p>切换到对应文件夹</p>
+<p>$ ./configure -disable-static -enable-shared</p>
+<p>make</p>
+<p>make install</p>
+<p>先安装gmp 在安装pbc 然后openssl</p>
+<p>安装结束后在C:\MinGW\msys\1.0\local 中将对应文件拷贝至 C:\MinGW 对应文件夹中</p>
+<p>openssl：bin/openssl.exe  include/openssl/<em> lib/openssl/</em> </p>
+<p>Linux:
+flex   openssl  gcc  make  libssl-dev libgmp-dev bison</p>
               
             </div>
           </div>
@@ -156,8 +185,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../Pygame/" class="btn btn-neutral float-right" title="Pygame">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../Pygame/" class="btn btn-neutral" title="Pygame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../LinuxNotes/" class="btn btn-neutral" title="Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -183,8 +214,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Pygame/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../LinuxNotes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../Pygame/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
