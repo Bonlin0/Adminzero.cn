@@ -31,6 +31,18 @@ vcpkg是一个包管理工具。于是根据详细的教程下载安装成功。
 * [https://www.jb51.net/article/119025.htm](https://www.jb51.net/article/119025.htm)
 * [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html)
 
+## 总结在VS下调用PBC与openssl的项目配置方法
+
+1.  首先将教程中的[https://blog.csdn.net/u013699902/article/details/58319928](https://blog.csdn.net/u013699902/article/details/58319928)下载完全。将内部内容直接装入项目文件夹会方便一些，如果项目本身不太复杂。
+2.  安装好openssl（32位）。
+3.  新建vs项目，笔者使用的是VS2019环境。
+4.  点击标题菜单“项目”-“属性”。在弹出窗口的左上角的“配置”下拉菜单中选择“所有配置”以防debug和release版本不一。**注意教程中使用的编译好的PBC只有32位版本故只能编写32位程序！**
+5.  选择“VC++目录”项，选中右侧的“包含目录”的下拉按钮，点击编辑。将openssl的安装目录下的`include`文件夹和下载下来的PBC的`include`文件夹加入。
+6.  同样的方法，将openssl安装文件夹的`lib`文件夹和下载下来的pbc.lib所在文件夹加入“库目录”。
+7.  在左侧选择“连接器”-“输入”，在右侧的附加依赖项中加入`libssl.lib`、`libcrypto.lib`和`pbc.lib`。
+8.  将OpenSSL安装目录下bin文件夹中的“libcrypto-1_1.dll”和“libssl-1_1.dll”（名字后面的版本号可能因更新而不同）复制到项目目录下。
+9.  将PBC下载文件夹中的pbc.dll复制到项目目录下。
+10. 大功告成！
 
 ## 经验之谈
 
@@ -38,7 +50,7 @@ vcpkg是一个包管理工具。于是根据详细的教程下载安装成功。
 
 ---
 
-施工中 以下为未整理信息 请无视
+施工中 以下为未整理信息
 
 首先下载源代码
 

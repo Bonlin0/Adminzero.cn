@@ -93,6 +93,8 @@
         
             <li><a class="toctree-l3" href="#openssl">Openssl配置安装</a></li>
         
+            <li><a class="toctree-l3" href="#vspbcopenssl">总结在VS下调用PBC与openssl的项目配置方法</a></li>
+        
             <li><a class="toctree-l3" href="#_2">经验之谈</a></li>
         
         </ul>
@@ -162,10 +164,23 @@
 <li><a href="https://www.jb51.net/article/119025.htm">https://www.jb51.net/article/119025.htm</a></li>
 <li><a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a></li>
 </ul>
+<h2 id="vspbcopenssl">总结在VS下调用PBC与openssl的项目配置方法</h2>
+<ol>
+<li>首先将教程中的<a href="https://blog.csdn.net/u013699902/article/details/58319928">https://blog.csdn.net/u013699902/article/details/58319928</a>下载完全。将内部内容直接装入项目文件夹会方便一些，如果项目本身不太复杂。</li>
+<li>安装好openssl（32位）。</li>
+<li>新建vs项目，笔者使用的是VS2019环境。</li>
+<li>点击标题菜单“项目”-“属性”。在弹出窗口的左上角的“配置”下拉菜单中选择“所有配置”以防debug和release版本不一。<strong>注意教程中使用的编译好的PBC只有32位版本故只能编写32位程序！</strong></li>
+<li>选择“VC++目录”项，选中右侧的“包含目录”的下拉按钮，点击编辑。将openssl的安装目录下的<code>include</code>文件夹和下载下来的PBC的<code>include</code>文件夹加入。</li>
+<li>同样的方法，将openssl安装文件夹的<code>lib</code>文件夹和下载下来的pbc.lib所在文件夹加入“库目录”。</li>
+<li>在左侧选择“连接器”-“输入”，在右侧的附加依赖项中加入<code>libssl.lib</code>、<code>libcrypto.lib</code>和<code>pbc.lib</code>。</li>
+<li>将OpenSSL安装目录下bin文件夹中的“libcrypto-1_1.dll”和“libssl-1_1.dll”（名字后面的版本号可能因更新而不同）复制到项目目录下。</li>
+<li>将PBC下载文件夹中的pbc.dll复制到项目目录下。</li>
+<li>大功告成！</li>
+</ol>
 <h2 id="_2">经验之谈</h2>
 <p>今日和老师讨论，讲述了自己在windows环境下配置PBC、openssl的“艰苦历程”，老师讲到，其实很多时候不需要去mingw这样的平台尝试去用windows仿真linux，既然在Windows编程，就去使用VS就可以。Visual Studio已经是如今行业规范，所以很多库都会为方便Visual Studio有各种各样的便捷通路。之后在Windows上从事这类开发，可以直接搜索如何将相关库整合至VS上即可。可以省区很多无用之功，少走一些弯路。当然，老师用Linux。（笑</p>
 <hr />
-<p>施工中 以下为未整理信息 请无视</p>
+<p>施工中 以下为未整理信息</p>
 <p>首先下载源代码</p>
 <p>安装mingw</p>
 <p>使用msys</p>
