@@ -96,6 +96,8 @@
         
             <li><a class="toctree-l3" href="#_2">使用</a></li>
         
+            <li><a class="toctree-l3" href="#_3">光影效果</a></li>
+        
         </ul>
     
 
@@ -143,12 +145,232 @@
 <h2 id="_1">安装</h2>
 <p>略。</p>
 <h2 id="_2">使用</h2>
+<p><a href="http://www.pymunk.org/en/master/pymunk.html">Pymunk API</a>
+<a href="https://www.pygame.org/docs/">Pygame Doc</a></p>
 <pre><code>pygame.init() # You need do it every time when you start a game.
 
 size = width, height = 1366, 768
 black = 0, 0, 0 # a tuple used to clear the screen with `screen.fill(black)`
 screen = pygame.display.set_mode(size)  # screen is a surface instance.
 
+</code></pre>
+
+<h2 id="_3">光影效果</h2>
+<p><a href="https://ncase.me/sight-and-light/">https://ncase.me/sight-and-light/</a>一个关于光影效果的教程。
+<a href="https://www.redblobgames.com/articles/visibility/">https://www.redblobgames.com/articles/visibility/</a>一个关于光影效果的教程。</p>
+<p><a href="http://www.pygame.org/project-Overhead+Shooter-2233-.html">http://www.pygame.org/project-Overhead+Shooter-2233-.html</a> 在这个网站中可以看到以下advice:</p>
+<pre><code>- Your angle issues might be helped by using the Vec2d implementation from pymunk http://code.google.com/p/pymun.... This implements a number of useful geometric functions and in particular does all the right kind of things for angle manipulation, which can be a bit tricky.
+- For AI it looks like you considered going with an underlying grid. This worked well for me and allowed me to use the networkx (http://networkx.lanl.gov/ library for pathfinding. This is fast and flexible. 
+- For shooting based on line-of-sight, the Vec2d library above is useful because you can easily use get_angle_between and get_distance to work out if your enemies can see the player and then decide on which angle to shoot at. The API reference is here http://pymunk.googlecode.com/s...
+- In your blog posts you mentioned more general physics for particle simulation. The pymunk library is very powerful. http://code.google.com/p/pymun...
+</code></pre>
+
+<pre><code> ''' 
+ SIGHT &amp; LIGHT by ncase (https://github.com/ncase/sight-and-light) 
+ Ported to Python/PyGame by Marcus Møller (https://github.com/marcusmoller) 
+ '''
+import pygame
+import pygame.gfxdraw
+import math
+
+
+class SightAndLight():
+
+    def __init__(self):
+        # initialize pygame
+        pygame.init()
+        # Screen size
+        self.screen_width = 1366
+        self.screen_height = 768
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        pygame.display.set_caption(&quot; Simple shoot game-by whl&quot;)
+        # mouse position
+        self.mouse_pos = (0, 0)
+        # general
+        self.fps_clock = pygame.time.Clock()
+        self.running = True
+        self.update_shadows = True  # only call update on mouse movement
+        # segments
+        self.segments = [
+            # Border
+            {&quot; a &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 0}, &quot; b &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 0}},
+            {&quot; a &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 0}, &quot; b &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 360}},
+            {&quot; a &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 360}, &quot; b &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 360}},
+            {&quot; a &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 360}, &quot; b &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 0}},
+            # Polygon #1
+            {&quot; a &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 50}},
+            {&quot; a &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 50}, &quot; b &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 80}},
+            {&quot; a &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 80}, &quot; b &quot;: {&quot; x &quot;: 140, &quot; y &quot;: 210}},
+            {&quot; a &quot;: {&quot; x &quot;: 140, &quot; y &quot;: 210}, &quot; b &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 150}},
+            # Polygon #2
+            {&quot; a &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 200}, &quot; b &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 250}},
+            {&quot; a &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 250}, &quot; b &quot;: {&quot; x &quot;: 60, &quot; y &quot;: 300}},
+            {&quot; a &quot;: {&quot; x &quot;: 60, &quot; y &quot;: 300}, &quot; b &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 200}},
+            # Polygon #3
+            {&quot; a &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 260}, &quot; b &quot;: {&quot; x &quot;: 220, &quot; y &quot;: 150}},
+            {&quot; a &quot;: {&quot; x &quot;: 220, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 300, &quot; y &quot;: 200}},
+            {&quot; a &quot;: {&quot; x &quot;: 300, &quot; y &quot;: 200}, &quot; b &quot;: {&quot; x &quot;: 350, &quot; y &quot;: 320}},
+            {&quot; a &quot;: {&quot; x &quot;: 350, &quot; y &quot;: 320}, &quot; b &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 260}},
+            # Polygon #4
+            {&quot; a &quot;: {&quot; x &quot;: 340, &quot; y &quot;: 60}, &quot; b &quot;: {&quot; x &quot;: 360, &quot; y &quot;: 40}},
+            {&quot; a &quot;: {&quot; x &quot;: 360, &quot; y &quot;: 40}, &quot; b &quot;: {&quot; x &quot;: 370, &quot; y &quot;: 70}},
+            {&quot; a &quot;: {&quot; x &quot;: 370, &quot; y &quot;: 70}, &quot; b &quot;: {&quot; x &quot;: 340, &quot; y &quot;: 60}},
+            # Polygon #5
+            {&quot; a &quot;: {&quot; x &quot;: 450, &quot; y &quot;: 190}, &quot; b &quot;: {&quot; x &quot;: 560, &quot; y &quot;: 170}},
+            {&quot; a &quot;: {&quot; x &quot;: 560, &quot; y &quot;: 170}, &quot; b &quot;: {&quot; x &quot;: 540, &quot; y &quot;: 270}},
+            {&quot; a &quot;: {&quot; x &quot;: 540, &quot; y &quot;: 270}, &quot; b &quot;: {&quot; x &quot;: 430, &quot; y &quot;: 290}},
+            {&quot; a &quot;: {&quot; x &quot;: 430, &quot; y &quot;: 290}, &quot; b &quot;: {&quot; x &quot;: 450, &quot; y &quot;: 190}},
+            # Polygon #6
+            {&quot; a &quot;: {&quot; x &quot;: 400, &quot; y &quot;: 95}, &quot; b &quot;: {&quot; x &quot;: 580, &quot; y &quot;: 50}},
+            {&quot; a &quot;: {&quot; x &quot;: 580, &quot; y &quot;: 50}, &quot; b &quot;: {&quot; x &quot;: 480, &quot; y &quot;: 150}},
+            {&quot; a &quot;: {&quot; x &quot;: 480, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 400, &quot; y &quot;: 95}}
+        ]
+        # Intersects
+        self.intersects = []
+        # Points
+        self.points = []
+
+    def run(self):
+        while self.running:
+            self.main_loop()
+
+    def main_loop(self):
+        self.handle_input()
+        if self.update_shadows:
+            self.update()
+        self.update_shadows = False
+        self.render_frame()
+
+    def update(self):
+        # Clear old points
+        self.points = []
+        # Get all unique points
+        for segment in self.segments:
+            self.points.append((segment[' a '], segment[' b ']))
+        unique_points = []
+        for point in self.points:
+            if point not in unique_points:
+                unique_points.append(point)
+        # Get all angles
+        unique_angles = []
+        for point in unique_points:
+            angle = math.atan2(point[0][&quot; y &quot;] - self.mouse_pos[1], point[0][&quot; x &quot;] - self.mouse_pos[0])
+            point[0][&quot; angle &quot;] = angle
+            unique_angles.append(angle - 0.00001)
+            unique_angles.append(angle)
+            unique_angles.append(angle + 0.00001)
+        # RAYS IN ALL DIRECTIONS
+        self.intersects = []
+        for angle in unique_angles:
+            # Calculate dx &amp; dy from angle
+            dx = math.cos(angle)
+            dy = math.sin(angle)
+            # Ray from center of screen to mouse
+            ray = {
+                &quot; a &quot;: {&quot; x &quot;: self.mouse_pos[0], &quot; y &quot;: self.mouse_pos[1]},
+                &quot; b &quot;: {&quot; x &quot;: self.mouse_pos[0] + dx, &quot; y &quot;: self.mouse_pos[1] + dy}
+            }
+            # Find CLOSEST intersection
+            closest_intersect = None
+            for segment in self.segments:
+                intersect = self.get_intersection(ray, segment)
+                if not intersect: continue
+                if not closest_intersect or intersect[&quot; param &quot;] &lt; closest_intersect[&quot; param &quot;]:
+                    closest_intersect = intersect
+            # Intersect angle
+            if not closest_intersect: continue
+            closest_intersect[&quot; angle &quot;] = angle
+            # Add to list of intersects
+            self.intersects.append(closest_intersect)
+        # Sort intersects by angle
+        self.intersects = sorted(self.intersects, key=lambda k: k[' angle '])
+
+    def render_frame(self):
+        self.screen.fill((255, 255, 255))
+        # draw segments
+        for segment in self.segments:
+            pygame.draw.aaline(self.screen, (153, 153, 153), (segment[' a '][' x '], segment[' a '][' y ']),
+                               (segment[' b '][' x '], segment[' b '][' y ']))
+        self.draw_polygon(self.intersects, (221, 56, 56))
+        # draw debug lines
+        for intersect in self.intersects:
+            pygame.draw.aaline(self.screen, (255, 85, 85), self.mouse_pos, (intersect[' x '], intersect[' y ']))
+        # limit fps
+        self.fps_clock.tick(60)
+        # update screen
+        pygame.display.update()
+
+    def handle_input(self):
+        pygame.event.pump()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                print(&quot; quit &quot;)
+                break
+            # KEYBOARD
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE or event.key == pygame.K_q:
+                    self.running = False
+            # MOUSE
+            elif event.type == pygame.MOUSEMOTION:
+                self.mouse_pos = event.pos
+            self.update_shadows = True
+
+    def get_intersection(self, ray, segment):
+        ''' Find intersection of RAY &amp; SEGMENT '''
+
+        # RAY in parametric: Point + Direction*T1
+        r_px = ray[' a '][' x ']
+        r_py = ray[' a '][' y ']
+        r_dx = ray[' b '][' x '] - ray[' a '][' x ']
+        r_dy = ray[' b '][' y '] - ray[' a '][' y ']
+        # SEGMENT in parametric: Point + Direction*T2
+        s_px = segment[' a '][' x ']
+        s_py = segment[' a '][' y ']
+        s_dx = segment[' b '][' x '] - segment[' a '][' x ']
+        s_dy = segment[' b '][' y '] - segment[' a '][' y ']
+        # Are they parallel?  If so, no intersect
+        r_mag = math.sqrt(r_dx * r_dx + r_dy * r_dy)
+        s_mag = math.sqrt(s_dx * s_dx + s_dy * s_dy)
+        if r_dx / r_mag == s_dx / s_mag and r_dy / r_mag == s_dy / s_mag:
+            return None
+        # SOLVE FOR T1 &amp; T2
+        # r_px+r_dx*T1 = s_px+s_dx*T2 &amp;&amp; r_py+r_dy*T1 = s_py+s_dy*T2
+        # ==&gt; T1 = (s_px+s_dx*T2-r_px)/r_dx = (s_py+s_dy*T2-r_py)/r_dy
+        # ==&gt; s_px*r_dy + s_dx*T2*r_dy - r_px*r_dy = s_py*r_dx + s_dy*T2*r_dx - r_py*r_dx
+        # ==&gt; T2 = (r_dx*(s_py-r_py) + r_dy*(r_px-s_px))/(s_dx*r_dy - s_dy*r_dx)
+        # todo: fix zerodivision error handling
+        try:
+            T2 = (r_dx * (s_py - r_py) + r_dy * (r_px - s_px)) / (s_dx * r_dy - s_dy * r_dx)
+        except ZeroDivisionError:
+            T2 = (r_dx * (s_py - r_py) + r_dy * (r_px - s_px)) / (s_dx * r_dy - s_dy * r_dx - 0.01)
+        try:
+            T1 = (s_px + s_dx * T2 - r_px) / r_dx
+        except ZeroDivisionError:
+            T1 = (s_px + s_dx * T2 - r_px) / (r_dx - 0.01)
+        # Must be within parametic whatevers for RAY/SEGMENT
+        if T1 &lt; 0: return None
+        if T2 &lt; 0 or T2 &gt; 1: return None
+        # Return the POINT OF INTERSECTION
+        return {
+            &quot; x &quot;: r_px + r_dx * T1,
+            &quot; y &quot;: r_py + r_dy * T1,
+            &quot; param &quot;: T1
+        }
+
+    def draw_polygon(self, polygon, color):
+        # collect coordinates for a giant polygon
+        points = []
+        for intersect in polygon:
+            points.append((intersect[' x '], intersect[' y ']))
+        # draw as a giant polygon
+        pygame.gfxdraw.aapolygon(self.screen, points, color)
+        pygame.gfxdraw.filled_polygon(self.screen, points, color)
+
+
+
+demo = SightAndLight()
+demo.run() 
 </code></pre>
               
             </div>
