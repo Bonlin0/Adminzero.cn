@@ -46,7 +46,7 @@ vcpkg是一个包管理工具。于是根据详细的教程下载安装成功。
 
 ## 经验之谈
 
-今日和老师讨论，讲述了自己在windows环境下配置PBC、openssl的“艰苦历程”，老师讲到，其实很多时候不需要去mingw这样的平台尝试去用windows仿真linux，既然在Windows编程，就去使用VS就可以。Visual Studio已经是如今行业规范，所以很多库都会为方便Visual Studio有各种各样的便捷通路。之后在Windows上从事这类开发，可以直接搜索如何将相关库整合至VS上即可。可以省区很多无用之功，少走一些弯路。当然，老师用Linux。（笑
+其实很多时候不需要去mingw这样的平台尝试去用windows仿真linux，既然在Windows编程，就去使用VS就可以。Visual Studio已经是如今行业规范，所以很多库都会为方便Visual Studio有各种各样的便捷通路。之后在Windows上从事这类开发，可以直接搜索如何将相关库整合至VS上即可。可以省去很多无用之功，少走一些弯路。
 
 ---
 

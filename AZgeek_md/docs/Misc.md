@@ -24,3 +24,13 @@
 例如NUMBER(38,3)中总位数是38，小数点后精确到3位，
 
 参考网址 [https://www.cnblogs.com/oumyye/p/4448656.html](https://www.cnblogs.com/oumyye/p/4448656.html)
+
+### 俄语字母表
+
+<img src="../img/Russian_alphabets.jpg" alt="Russian_alphabets"> 
+
+<img src="../img/Russian_alphabet_with_hints.jpg" alt="Russian_alphabet_with_hints"> 
+
+### 日语五十音表
+
+<img src="../img/Japanese_50.jpg" alt="Japanese_50"> 
