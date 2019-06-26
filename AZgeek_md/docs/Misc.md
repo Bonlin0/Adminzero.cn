@@ -25,12 +25,16 @@
 
 参考网址 [https://www.cnblogs.com/oumyye/p/4448656.html](https://www.cnblogs.com/oumyye/p/4448656.html)
 
-### 俄语字母表
+## 安卓部分
 
-<img src="../img/Russian_alphabets.jpg" alt="Russian_alphabets"> 
+### 活动生命周期
 
-<img src="../img/Russian_alphabet_with_hints.jpg" alt="Russian_alphabet_with_hints"> 
-
-### 日语五十音表
-
-<img src="../img/Japanese_50.jpg" alt="Japanese_50"> 
+|方法|何时调用|下一个方法|
+|-|-|-|
+|onCreate()|活动第一次创建时调用这个方法。用于正常的静态设置，如创建视图。它还可以传递一个Bundle，其中包含之前保存的活动状态。|onStart()|
+|onRestart()|活动停止并再次启动之前会调用这个方法。|onStart()|
+|onStart()|活动变得可见时调用这个方法。如果活动进入前台，接下来会调用onResume(),如果活动变得不可见，接下来会调用onStop()。|onResume()或onStop()|
+|onResume()|活动在前台时调用这个方法。|onPause()|
+|onPause()|由于另一个活动恢复运行而导致这个活动不再在前台时调用这个方法。在这个方法完成之前，不会恢复继续运行时下一个活动。所以这个方法中的所有代码需要很快地运行。如果活动返回到前台，接下来会调用onResume()方法，如果活动变得不可见，接下来会调用onStop()。|onResume()或onStop()|
+|onStop()|活动不再可见时调用这个方法。这可能是因为拎一个活动把它盖住了，或者是因为这个活动被撤销，接下来会调用onRestart(),或者如果活动将被撤销，接下来将会调用onDestroy()。|onRestart()或onDestroy()|
+|onDestroy()|活动将被撤销或者活动将要完成时会调用这个方法。|无|

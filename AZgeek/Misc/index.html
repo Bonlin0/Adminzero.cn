@@ -105,14 +105,17 @@
         
             <li><a class="toctree-l3" href="#oracle-number">Oracle NUMBER类型</a></li>
         
-            <li><a class="toctree-l3" href="#_3">俄语字母表</a></li>
-        
-            <li><a class="toctree-l3" href="#_4">日语五十音表</a></li>
+            <li><a class="toctree-l3" href="#_3">安卓部分</a></li>
         
         </ul>
     
 
     </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../LanguageLearning/">LanguageLearning</a>
 	    </li>
           
         </ul>
@@ -163,17 +166,62 @@
 </ul>
 <p>例如NUMBER(38,3)中总位数是38，小数点后精确到3位，</p>
 <p>参考网址 <a href="https://www.cnblogs.com/oumyye/p/4448656.html">https://www.cnblogs.com/oumyye/p/4448656.html</a></p>
-<h3 id="_3">俄语字母表</h3>
-<p><img src="../img/Russian_alphabets.jpg" alt="Russian_alphabets"> </p>
-<p><img src="../img/Russian_alphabet_with_hints.jpg" alt="Russian_alphabet_with_hints"> </p>
-<h3 id="_4">日语五十音表</h3>
-<p><img src="../img/Japanese_50.jpg" alt="Japanese_50"> </p>
+<h2 id="_3">安卓部分</h2>
+<h3 id="_4">活动生命周期</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>何时调用</th>
+<th>下一个方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>onCreate()</td>
+<td>活动第一次创建时调用这个方法。用于正常的静态设置，如创建视图。它还可以传递一个Bundle，其中包含之前保存的活动状态。</td>
+<td>onStart()</td>
+</tr>
+<tr>
+<td>onRestart()</td>
+<td>活动停止并再次启动之前会调用这个方法。</td>
+<td>onStart()</td>
+</tr>
+<tr>
+<td>onStart()</td>
+<td>活动变得可见时调用这个方法。如果活动进入前台，接下来会调用onResume(),如果活动变得不可见，接下来会调用onStop()。</td>
+<td>onResume()或onStop()</td>
+</tr>
+<tr>
+<td>onResume()</td>
+<td>活动在前台时调用这个方法。</td>
+<td>onPause()</td>
+</tr>
+<tr>
+<td>onPause()</td>
+<td>由于另一个活动恢复运行而导致这个活动不再在前台时调用这个方法。在这个方法完成之前，不会恢复继续运行时下一个活动。所以这个方法中的所有代码需要很快地运行。如果活动返回到前台，接下来会调用onResume()方法，如果活动变得不可见，接下来会调用onStop()。</td>
+<td>onResume()或onStop()</td>
+</tr>
+<tr>
+<td>onStop()</td>
+<td>活动不再可见时调用这个方法。这可能是因为拎一个活动把它盖住了，或者是因为这个活动被撤销，接下来会调用onRestart(),或者如果活动将被撤销，接下来将会调用onDestroy()。</td>
+<td>onRestart()或onDestroy()</td>
+</tr>
+<tr>
+<td>onDestroy()</td>
+<td>活动将被撤销或者活动将要完成时会调用这个方法。</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../LanguageLearning/" class="btn btn-neutral float-right" title="LanguageLearning">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../Pygame/" class="btn btn-neutral" title="Pygame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -204,6 +252,8 @@
       
         <span><a href="../Pygame/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../LanguageLearning/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
