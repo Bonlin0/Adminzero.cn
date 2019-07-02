@@ -38,3 +38,35 @@
 |onPause()|由于另一个活动恢复运行而导致这个活动不再在前台时调用这个方法。在这个方法完成之前，不会恢复继续运行时下一个活动。所以这个方法中的所有代码需要很快地运行。如果活动返回到前台，接下来会调用onResume()方法，如果活动变得不可见，接下来会调用onStop()。|onResume()或onStop()|
 |onStop()|活动不再可见时调用这个方法。这可能是因为拎一个活动把它盖住了，或者是因为这个活动被撤销，接下来会调用onRestart(),或者如果活动将被撤销，接下来将会调用onDestroy()。|onRestart()或onDestroy()|
 |onDestroy()|活动将被撤销或者活动将要完成时会调用这个方法。|无|
+
+### 安卓网络编程
+
+1.  安卓主线程不能用Socket！
+2.  安卓只能用主线程更新视图！
+3.  安卓的服务如果直接使用Socket也会得到主线程不能使用Socket的异常！
+4.  直接使用Handler处理网络也会得到主线程不能使用Socket的异常！
+
+
+---
+
+$$x=y^2$$
+
+##Some notes
+
+###PHP
+
+PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。  
+PHP float to int:向下取整。
+
+PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。  
+
+发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  
+
+###Javascript
+
+Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它自己。
+
+###Probability and Mathematical Statistic
+
+<img src="../img/useful_power_series.png" alt="useful_power_series">
+

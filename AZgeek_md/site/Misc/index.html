@@ -107,6 +107,8 @@
         
             <li><a class="toctree-l3" href="#_3">安卓部分</a></li>
         
+            <li><a class="toctree-l3" href="#some-notes">Some notes</a></li>
+        
         </ul>
     
 
@@ -214,6 +216,25 @@
 </tr>
 </tbody>
 </table>
+<h3 id="_5">安卓网络编程</h3>
+<ol>
+<li>安卓主线程不能用Socket！</li>
+<li>安卓只能用主线程更新视图！</li>
+<li>安卓的服务如果直接使用Socket也会得到主线程不能使用Socket的异常！</li>
+<li>直接使用Handler处理网络也会得到主线程不能使用Socket的异常！</li>
+</ol>
+<hr />
+<p>$$x=y^2$$</p>
+<h2 id="some-notes">Some notes</h2>
+<h3 id="php">PHP</h3>
+<p>PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。<br />
+PHP float to int:向下取整。</p>
+<p>PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。  </p>
+<p>发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  </p>
+<h3 id="javascript">Javascript</h3>
+<p>Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它自己。</p>
+<h3 id="probability-and-mathematical-statistic">Probability and Mathematical Statistic</h3>
+<p><img src="../img/useful_power_series.png" alt="useful_power_series"></p>
               
             </div>
           </div>

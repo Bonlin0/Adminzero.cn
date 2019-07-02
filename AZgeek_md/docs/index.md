@@ -2,6 +2,10 @@
 
 ---
 
+Carpe diem.
+
+---
+
 ##Useful websites
 	
 * <a href="https://www.google.com.hk/" target="_blank">Google</a>
@@ -24,27 +28,8 @@
 * <a href="http://linux.vbird.org/" target="_blank">Linux Vbird</a>
 * <a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank">MarkDown grammer</a>
 * <a href="http://www-cs-students.stanford.edu/~blynn//" target="_blank">Homepage of A  Stanford computer science student Ben Lynn</a>
+* <a href="https://translate.google.cn" target="_blank">Google translate</a>
 
 ---
 
-$$x=y^2$$
-
-##Some notes
-
-###PHP
-<img src="img/new-php-logo.png" alt="PHP logo">  
-PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。  
-PHP float to int:向下取整。
-
-PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。  
-
-发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  
-
-###Javascript
-
-Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它自己。
-
-###Probability and Mathematical Statistic
-
-<img src="img/useful_power_series.png" alt="useful_power_series">
-
+本网站主要由Bonlin0进行维护，如有内容侵犯了您的版权，请邮件联系Bonlin0@outlook.com，我们会在24小时内删除。
