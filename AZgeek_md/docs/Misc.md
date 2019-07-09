@@ -46,14 +46,25 @@
 3.  安卓的服务如果直接使用Socket也会得到主线程不能使用Socket的异常！
 4.  直接使用Handler处理网络也会得到主线程不能使用Socket的异常！
 
+### 安卓图标大小及更换
+
+安卓图标位于`src\main\res\`下，有对应表格如下
+
+|文件夹|图标尺寸|
+|-|-|
+|mipmap-mdpi|48*48|
+|mipmap-hdpi|72*72|
+|mipmap-xhdpi|96*96|
+|mipmap-xxhdpi|144*144|
+|mipmap-xxxhdpi|192*192|
 
 ---
 
 $$x=y^2$$
 
-##Some notes
+## Some notes
 
-###PHP
+### PHP
 
 PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。  
 PHP float to int:向下取整。
@@ -62,11 +73,18 @@ PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 
 
 发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  
 
-###Javascript
+### Javascript
 
 Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它自己。
 
-###Probability and Mathematical Statistic
+### Probability and Mathematical Statistic
 
 <img src="../img/useful_power_series.png" alt="useful_power_series">
 
+### Chinese Copywriting Guidelines 中文排版指北
+
+[Chinese Copywriting Guidelines 中文排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines) ， 一个关于中文文档内容书写的规范，努力达成！
+
+### Docker 官网镜像
+
+[https://hub.docker.com/search/?type=image&image_filter=official](https://hub.docker.com/search/?type=image&image_filter=official)
