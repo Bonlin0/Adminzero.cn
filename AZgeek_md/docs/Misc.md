@@ -25,7 +25,35 @@
 
 参考网址 [https://www.cnblogs.com/oumyye/p/4448656.html](https://www.cnblogs.com/oumyye/p/4448656.html)
 
+## Java
+
+泛型不可以是原始类型（ int, char, double... ），需要在泛型中使用原始类型需要使用其包装类型。
+
+|基本类型|包装类|
+|-|-|
+|boolean|Boolean|
+|byte|Byte|
+|short|Short|
+|int|Integer|
+|long|Long|
+|float|Float|
+|double|Double|
+|char|Character|
+
+Java Random类的nextInt(x)是前闭后开，即可能会返回0，但最大为x-1 。
+
+
 ## 安卓部分
+
+### Gradle 下载依赖不稳定、Gradle Sync project failed 解决方案
+
+`File` - `Settings` ， 搜索 `Remote Jar Repositories` ， 点击右方 `Add` 按钮，将以下两个 URL 依次加入。
+
+http://maven.oschina.net/content/groups/public/
+
+http://maven.aliyun.com/nexus/content/groups/public
+
+点击 `OK` 确认，下载速度就可以提高几个量级！感谢开源中国与阿里云的镜像服务！
 
 ### 活动生命周期
 
@@ -57,6 +85,40 @@
 |mipmap-xhdpi|96*96|
 |mipmap-xxhdpi|144*144|
 |mipmap-xxxhdpi|192*192|
+
+### 安卓字符串中的and符号
+
+遇到报错信息`Unescaped & or nonterminated character/entity reference`, `&`需要改写为`&amp;`。
+
+### 安卓自动填充服务
+
+[https://developer.android.google.cn/guide/topics/text/autofill.html#custom_views_with_standard_view_structure](https://developer.android.google.cn/guide/topics/text/autofill.html#custom_views_with_standard_view_structure)
+
+[https://developer.android.google.cn/guide/topics/text/autofill-services](https://developer.android.google.cn/guide/topics/text/autofill-services)
+
+以下内容翻译自第二个网址。
+
+要实现自动填充服务，必须声明并实现该服务。你的manifest文件中必须要有`<service>`元素，且该元素要包括以下属性。
+
+* `android:name` 实现了`AutofillService`的子类.
+* `android:permission` 需要声明 `BIND_AUTOFILL_SERVICE`
+* `intent-filter`元素包括强制`<action>`赋值`android.service.autofill.AutofillService`
+  
+  以下为示例代码
+
+```
+    <service
+        android:name=".MyAutofillService"
+        android:label="My Autofill Service"
+        android:permission="android.permission.BIND_AUTOFILL_SERVICE">
+        <intent-filter>
+            <action android:name="android.service.autofill.AutofillService" />
+        </intent-filter>
+        <meta-data
+            android:name="android.autofill"
+            android:resource="@xml/service_configuration" />
+    </service>
+```
 
 ---
 

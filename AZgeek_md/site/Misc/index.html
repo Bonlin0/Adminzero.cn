@@ -105,6 +105,8 @@
         
             <li><a class="toctree-l3" href="#oracle-number">Oracle NUMBER类型</a></li>
         
+            <li><a class="toctree-l3" href="#java">Java</a></li>
+        
             <li><a class="toctree-l3" href="#_3">安卓部分</a></li>
         
             <li><a class="toctree-l3" href="#some-notes">Some notes</a></li>
@@ -168,7 +170,57 @@
 </ul>
 <p>例如NUMBER(38,3)中总位数是38，小数点后精确到3位，</p>
 <p>参考网址 <a href="https://www.cnblogs.com/oumyye/p/4448656.html">https://www.cnblogs.com/oumyye/p/4448656.html</a></p>
+<h2 id="java">Java</h2>
+<p>泛型不可以是原始类型（ int, char, double... ），需要在泛型中使用原始类型需要使用其包装类型。</p>
+<table>
+<thead>
+<tr>
+<th>基本类型</th>
+<th>包装类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boolean</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>Byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td>Short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>long</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>char</td>
+<td>Character</td>
+</tr>
+</tbody>
+</table>
+<p>Java Random类的nextInt(x)是前闭后开，即可能会返回0，但最大为x-1 。</p>
 <h2 id="_3">安卓部分</h2>
+<h3 id="gradle-gradle-sync-project-failed">Gradle 下载依赖不稳定、Gradle Sync project failed 解决方案</h3>
+<p><code>File</code> - <code>Settings</code> ， 搜索 <code>Remote Jar Repositories</code> ， 点击右方 <code>Add</code> 按钮，将以下两个 URL 依次加入。</p>
+<p>http://maven.oschina.net/content/groups/public/</p>
+<p>http://maven.aliyun.com/nexus/content/groups/public</p>
+<p>点击 <code>OK</code> 确认，下载速度就可以提高几个量级！感谢开源中国与阿里云的镜像服务！</p>
 <h3 id="_4">活动生命周期</h3>
 <table>
 <thead>
@@ -255,6 +307,32 @@
 </tr>
 </tbody>
 </table>
+<h3 id="and">安卓字符串中的and符号</h3>
+<p>遇到报错信息<code>Unescaped &amp; or nonterminated character/entity reference</code>, <code>&amp;</code>需要改写为<code>&amp;amp;</code>。</p>
+<h3 id="_7">安卓自动填充服务</h3>
+<p><a href="https://developer.android.google.cn/guide/topics/text/autofill.html#custom_views_with_standard_view_structure">https://developer.android.google.cn/guide/topics/text/autofill.html#custom_views_with_standard_view_structure</a></p>
+<p><a href="https://developer.android.google.cn/guide/topics/text/autofill-services">https://developer.android.google.cn/guide/topics/text/autofill-services</a></p>
+<p>以下内容翻译自第二个网址。</p>
+<p>要实现自动填充服务，必须声明并实现该服务。你的manifest文件中必须要有<code>&lt;service&gt;</code>元素，且该元素要包括以下属性。</p>
+<ul>
+<li><code>android:name</code> 实现了<code>AutofillService</code>的子类.</li>
+<li><code>android:permission</code> 需要声明 <code>BIND_AUTOFILL_SERVICE</code></li>
+<li><code>intent-filter</code>元素包括强制<code>&lt;action&gt;</code>赋值<code>android.service.autofill.AutofillService</code></li>
+</ul>
+<p>以下为示例代码</p>
+<pre><code>    &lt;service
+        android:name=&quot;.MyAutofillService&quot;
+        android:label=&quot;My Autofill Service&quot;
+        android:permission=&quot;android.permission.BIND_AUTOFILL_SERVICE&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.service.autofill.AutofillService&quot; /&gt;
+        &lt;/intent-filter&gt;
+        &lt;meta-data
+            android:name=&quot;android.autofill&quot;
+            android:resource=&quot;@xml/service_configuration&quot; /&gt;
+    &lt;/service&gt;
+</code></pre>
+
 <hr />
 <p>$$x=y^2$$</p>
 <h2 id="some-notes">Some notes</h2>
