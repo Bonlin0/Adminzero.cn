@@ -241,3 +241,180 @@ class SightAndLight():
 demo = SightAndLight()
 demo.run() 
 ```
+
+## 志哥的 war of aircraft
+
+### 主文件
+
+```
+import pygame
+from AircraftBattle_sprites import *
+
+
+class AircraftGame(object):
+    def __init__(self):
+        print('~~游戏初始化~~')
+        # pygame.init()
+        self.screen = pygame.display.set_mode(SEREEN_RECT.size) #该方法返回的是surface对象
+        self.__create_sprites()
+        self.clock = pygame.time.Clock()
+        pygame.time.set_timer(CREAT_ENEMY_EVENT,1000)
+        pygame.time.set_timer(MYAIRCRAFT_FIRE,500)
+
+    def start_game(self):
+        print('开始游戏')
+        while True:
+            self.clock.tick(FRAME_PER_SECOND)
+            self.__event_listen()
+            self.__collide_detect()
+            self.__update_sprites()
+            pygame.display.update()
+
+    def __create_sprites(self):
+        bg1 = Background()
+        bg2 = Background(True)
+        self.bg_group = pygame.sprite.Group(bg1, bg2)
+        self.enemy_group = pygame.sprite.Group()
+        self.myAircraft = MyAircraft()
+        self.myAircraft_group = pygame.sprite.Group(self.myAircraft)
+
+    def __collide_detect(self):
+        pygame.sprite.groupcollide(self.enemy_group, self.myAircraft.bullet_group, True, True)
+        enemy_list = pygame.sprite.spritecollide(self.myAircraft, self.enemy_group, True)
+        if len(enemy_list):
+            self.myAircraft.kill()
+            self.__game_over()
+
+    def __event_listen(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.__game_over()
+            elif event.type == CREAT_ENEMY_EVENT:
+                enemy = Enemy()
+                self.enemy_group.add(enemy)
+            elif event.type == MYAIRCRAFT_FIRE:
+                self.myAircraft.fire()
+        event_list = pygame.key.get_pressed()
+        if event_list[pygame.K_RIGHT]:
+            self.myAircraft.speedx = 3
+        elif event_list[pygame.K_LEFT]:
+            self.myAircraft.speedx = -3
+        elif event_list[pygame.K_UP]:
+            self.myAircraft.speedy = -3
+        elif event_list[pygame.K_DOWN]:
+            self.myAircraft.speedy = 3
+        else:
+            self.myAircraft.speedx = 0
+            self.myAircraft.speedy = 0
+
+    def __update_sprites(self):
+        self.bg_group.update()
+        self.bg_group.draw(self.screen)
+        self.enemy_group.update()
+        self.enemy_group.draw(self.screen)
+        self.myAircraft_group.update()
+        self.myAircraft_group.draw(self.screen)
+        self.myAircraft.bullet_group.update()
+        self.myAircraft.bullet_group.draw(self.screen)
+
+    @staticmethod
+    def __game_over():
+        print('游戏结束')
+        pygame.quit()
+        exit()
+
+
+if __name__ == '__main__':
+    aircraftGame = AircraftGame()
+    aircraftGame.start_game()
+```
+
+### 类文件
+```
+'''游戏精灵类'''
+import random
+import pygame
+
+FRAME_PER_SECOND = 60
+SEREEN_RECT = pygame.Rect(0, 0, 480, 600)
+CREAT_ENEMY_EVENT = pygame.USEREVENT
+MYAIRCRAFT_FIRE = pygame.USEREVENT + 1
+
+
+class GameSprites(pygame.sprite.Sprite):
+    '''所有精灵父级'''
+    def __init__(self, image_src, speed=0):
+        super().__init__()
+        self.image = pygame.image.load(image_src)
+        self.rect = self.image.get_rect()
+        self.speed = speed
+
+    def update(self, *args):
+        self.rect.y += self.speed
+
+
+class Background(GameSprites):
+    '''背景精灵'''
+    def __init__(self, is_alt=False):
+        super().__init__('./images/background.png',2)
+        if is_alt:
+            self.rect.bottom = 0
+
+    def update(self):
+        super().update()
+        if self.rect.top >= SEREEN_RECT.height:
+            self.rect.bottom = 0
+
+
+class Enemy(GameSprites):
+    '''敌机精灵'''
+    def __init__(self):
+        super().__init__('./images/enemy1.png')
+        self.speed = random.randint(1,4)
+        self.rect.x = random.randrange(0 ,SEREEN_RECT.right-self.rect.width)
+        self.rect.y = -self.rect.height
+
+    def update(self, *args):
+        super().update()
+        if self.rect.top >= SEREEN_RECT.height:
+            self.kill()
+
+    def __del__(self):
+        print('enemy is destroyed')
+
+
+class MyAircraft(GameSprites):
+    def __init__(self, speedx=0, speedy=0):
+        super().__init__('./images/me1.png')
+        self.rect.centerx = SEREEN_RECT.centerx
+        self.rect.bottom = SEREEN_RECT.height - 60
+        self.speedx = speedx
+        self.speedy = speedy
+        self.bullet_group = pygame.sprite.Group()
+
+    def update(self, *args):
+        self.rect.x += self.speedx
+        self.rect.y += self.speedy
+        if self.rect.x <= 0:
+            self.rect.x = 0
+        elif self.rect.right >= SEREEN_RECT.right:
+            self.rect.right = SEREEN_RECT.right
+
+    def fire(self):
+        for i in range(3):
+            bullet = Bullet()
+            self.bullet_group.add(bullet)
+            bullet.rect.centerx = self.rect.centerx
+            bullet.rect.bottom = self.rect.top-20*i
+
+
+class Bullet(GameSprites):
+    def __init__(self):
+        super().__init__('./images/bullet1.png', speed=-2)
+
+    def update(self, *args):
+        super().update()
+        if self.rect.bottom <= 0:
+            self.kill()
+```
+
