@@ -1,5 +1,9 @@
 # Linux 的学习笔记
 
+## Vim 练级攻略
+
+[https://coolshell.cn/articles/5426.html](https://coolshell.cn/articles/5426.html)
+
 ## tar相关
 
 `tar` 是 tape archive 的缩写，最早是用于将多个文件打包为单一文件以方便录入磁带中。单一的tar后缀名表示未经过压缩的tar文件，一般会见到以tar.xz、tar.gz结尾的文件，则是以相应的压缩算法压缩后的文件。
