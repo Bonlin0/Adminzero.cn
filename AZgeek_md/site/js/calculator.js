@@ -114,7 +114,7 @@ function calculator_base_conversion() {
     var oct = number.toString(8);
     var dec = number.toString(10);
     var hex = number.toString(16);
-    base_conversion_str = "Binary : "+bin+"<br/>Octal: "+oct+"<br/>Decimal: "+dec+"<br/>Hexadecimal: "+hex+"<br/>";
+    base_conversion_str = "Binary : " + bin + "<br/>Octal: " + oct + "<br/>Decimal: " + dec + "<br/>Hexadecimal: " + hex + "<br/>";
     document.getElementById("show_base_conversion").innerHTML = base_conversion_str;
     return;
 }
@@ -126,8 +126,34 @@ function calculator_log2() {
         return;
     }
     var log_result = Math.log(number) / Math.log(2);
-    
-    var log_result_str = "log2 (  " + number+ ") = "+ log_result +"<br/>";
+
+    var log_result_str = "log2 (  " + number + ") = " + log_result + "<br/>";
     document.getElementById("show_log2").innerHTML = log_result_str;
     return;
 }
+
+//BMI 计算器
+function calculator_BMI() {
+    var height = parseFloat(document.getElementById("BMI_height").value);
+    height = height/100;
+    var weight = parseFloat(document.getElementById("BMI_weight").value);
+    var bmi = weight / (height * height);
+    var bmiClass = "";
+    if (bmi < 18.5) 
+        bmiClass = "过轻";
+    else
+        if (bmi < 25) 
+            bmiClass = "正常";
+        else
+            if (bmi < 28) 
+                bmiClass = "过重";
+            else
+                if (bmi < 32) 
+                    bmiClass = "肥胖";
+                else
+                    bmiClass = "严重肥胖";
+    var bmiResultStr = "您的BMI为"+bmi+"，属于"+bmiClass+ "<br/>";
+    document.getElementById("show_BMI").innerHTML = bmiResultStr;
+    return;
+}
+            

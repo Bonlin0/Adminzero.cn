@@ -68,7 +68,7 @@
     <a class="current" href="./">calculator</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#_1">信息安全数学基础工具</a></li>
+    <li class="toctree-l2"><a href="#_1">奇奇怪怪的计算器</a></li>
     
         <ul>
         
@@ -77,6 +77,8 @@
             <li><a class="toctree-l3" href="#_3">进制转换</a></li>
         
             <li><a class="toctree-l3" href="#_4">求以二为底的对数</a></li>
+        
+            <li><a class="toctree-l3" href="#bmi">BMI计算器</a></li>
         
         </ul>
     
@@ -146,7 +148,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">信息安全数学基础工具</h1>
+                <h1 id="_1">奇奇怪怪的计算器</h1>
 <h2 id="_2">最大公因数和最小公倍数</h2>
 <form>
 第一个数字:<br>
@@ -180,6 +182,19 @@
 <button onclick="calculator_log2()">进制转换</button>
 <br/>
 <p id="show_log2"></p></p>
+<h2 id="bmi">BMI计算器</h2>
+<form>
+身高(cm):<br>
+<input type="text" name="BMI_height" value="" id="BMI_height">
+<br>
+体重(kg):<br>
+<input type="text" name="BMI_weight" value="" id="BMI_weight">
+<br><br>
+</form>
+
+<p><button onclick="calculator_BMI()">点击计算BMI</button>
+<br/></p>
+<p id="show_BMI"></p>
               
             </div>
           </div>

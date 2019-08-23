@@ -1,4 +1,4 @@
-# 信息安全数学基础工具
+# 奇奇怪怪的计算器
 
 ## 最大公因数和最小公倍数
 
@@ -39,3 +39,18 @@
 <button onclick="calculator_log2()">进制转换</button>
 <br/>
 <p id="show_log2"></p>
+
+## BMI计算器
+
+<form>
+身高(cm):<br>
+<input type="text" name="BMI_height" value="" id="BMI_height">
+<br>
+体重(kg):<br>
+<input type="text" name="BMI_weight" value="" id="BMI_weight">
+<br><br>
+</form> 
+<button onclick="calculator_BMI()">点击计算BMI</button>
+<br/>
+
+<p id="show_BMI"></p>
