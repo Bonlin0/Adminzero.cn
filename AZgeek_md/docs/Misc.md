@@ -150,3 +150,7 @@ Javascript中NaN这个特殊的Number与所有其他值都不相等，包括它�
 ### Docker 官网镜像
 
 [https://hub.docker.com/search/?type=image&image_filter=official](https://hub.docker.com/search/?type=image&image_filter=official)
+
+### Web Extension
+
+Mozilla Web 扩展教程： [你的第一个 Web Extension](https://developer.mozilla.org/zh-CN/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension)

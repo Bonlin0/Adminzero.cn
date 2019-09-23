@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>LanguageLearning - AZ_geek</title>
+  <title>Web Spider - AZ_geek</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "LanguageLearning";
-    var mkdocs_page_input_path = "LanguageLearning.md";
+    var mkdocs_page_name = "Web Spider";
+    var mkdocs_page_input_path = "spider.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -88,9 +88,21 @@
     <a class="" href="../Pygame/">Pygame</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../spider/">Web Spider</a>
+    <a class="current" href="./">Web Spider</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#python3-web">Python3 Web 爬虫学习</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#_1">安装</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -103,23 +115,9 @@
     <a class="" href="../Misc/">Misc</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">LanguageLearning</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#_1">语言学习</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#_2">俄语</a></li>
-        
-            <li><a class="toctree-l3" href="#_9">日语</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../LanguageLearning/">LanguageLearning</a>
 	    </li>
           
         </ul>
@@ -144,7 +142,7 @@
     
       
     
-    <li>LanguageLearning</li>
+    <li>Web Spider</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -154,48 +152,29 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">语言学习</h1>
-<p>一些关于语言学习的材料。</p>
-<h2 id="_2">俄语</h2>
-<h3 id="_3">俄语词典</h3>
-<p><a href="http://w.qianyix.com/">千亿词霸</a></p>
-<h3 id="_4">俄语字母表</h3>
-<p><img src="../img/Russian_alphabets.jpg" alt="Russian_alphabets"> </p>
-<p><img src="../img/Russian_alphabet_with_hints.jpg" alt="Russian_alphabet_with_hints"> </p>
-<h3 id="_5">俄语一到六格</h3>
+                <h1 id="python3-web">Python3 Web 爬虫学习</h1>
+<h2 id="_1">安装</h2>
+<p>以下是Windows环境下的安装流程。</p>
 <ol>
-<li>Nominative 主格</li>
-<li>accusative 宾格</li>
-<li>genitive 属格 （Tom's)</li>
-<li>prepositional 前置词的</li>
-<li>dative 与格 （间接宾语）</li>
-<li>instrumental 工具的</li>
+<li>python 安装</li>
+<li>Chrome 安装</li>
+<li>Firefox 安装</li>
+<li>pip3 install requests</li>
+<li>pip3 install selenium</li>
+<li>https://chromedriver.chromium.org/ 进入网站后下载Chrome对应的ChromeDriver。</li>
+<li>将 ChromeDriver 添加至path，或者将其直接拖入Python根目录的Scripts文件夹。</li>
+<li>下载 GeckoDriver https://github.com/mozilla/geckodriver/releases</li>
+<li>将 GeckoDriver 添加至path，或者将其直接拖入Python根目录的Scripts文件夹。</li>
+<li>pip3 install aiohttp cchardet aiodns lxml beautifulsoup4 pyquery</li>
+<li>下载安装 tesseract https://digi.bib.uni-mannheim.de/tesseract/</li>
+<li>安装 tesserocr https://www.cnblogs.com/Jimc/p/9772930.html</li>
+<li>如果第12步出现问题，可能是安装了Anaconda所致， 直接进入该网站 https://github.com/simonflueckiger/tesserocr-windows_build/releases ， 下载对应版本whl文件，将该文件移至 <code>path</code> 中的任意目录后， 使用类似 pip3 install tesserocr-2.4.0-cp37-cp37m-win_amd64.whl 的命令安装。</li>
+<li>试用 tesserocr , https://www.cnblogs.com/Jimc/p/9772930.html , 切记配置好path， </li>
+<li>安装 MySQL</li>
+<li>pip3 install pymsql</li>
+<li>安装 Redis https://github.com/microsoftarchive/redis/releases</li>
+<li></li>
 </ol>
-<h3 id="_6">元音弱化</h3>
-<pre><code>А and О become the same uh-sound
-
-И and Е (Э) become the same sound similar to "i" in "hit"
-
-Я actually becomes an i-like sound, not an uh-like (except in a few words). 
-This also affects "а" after ч,ш,щ,ж or ц in many words (sadly, not all).
-
-So, when a vowel is not stressed, it becomes weaker, somewhat shorter, 
-and also some vowels become indistinguishable.
-
-The unstressed syllable is strongest just before the stress. 
-In all other places it is even weaker than that 
-(though, some long words, especially compounds, may acquire a secondary stress). 
-This makes the system different from the English one, 
-where stronger and weaker syllables tend to alternate.
-</code></pre>
-<p>以上为多邻国俄语（英语）课程对于元音弱化的解释。</p>
-<h3 id="_7">音变</h3>
-<p>俄语中，形容词、数次的阳性单数第二格的“结尾”就是"го"，读作“во”。</p>
-<h3 id="_8">单词</h3>
-<p>уже already</p>
-<h2 id="_9">日语</h2>
-<h3 id="_10">日语五十音表</h3>
-<p><img src="../img/Japanese_50.jpg" alt="Japanese_50"> </p>
               
             </div>
           </div>
@@ -203,8 +182,10 @@ where stronger and weaker syllables tend to alternate.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../Research/" class="btn btn-neutral float-right" title="Research">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../Misc/" class="btn btn-neutral" title="Misc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../Pygame/" class="btn btn-neutral" title="Pygame"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -230,8 +211,10 @@ where stronger and weaker syllables tend to alternate.
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Misc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Pygame/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../Research/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
