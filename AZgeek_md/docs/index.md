@@ -11,6 +11,7 @@ Carpe diem.
 * <a href="https://www.google.com.hk/" target="_blank">Google</a>
 * <a href="https://www.baidu.com/" target="_blank">Baidu</a>
 * <a href="https://mail.163.com/" target="_blank">163 email log in</a>
+* <a href="http://xueshu.baidu.com/" target="_blank">baidu academic</a>
 * <a href="https://github.com/" target="_blank">Github</a>
 * <a href="https://translate.google.cn" target="_blank">Google translate</a>
 * <a href="https://dl.acm.org/dl.cfm" target="_blank">ACM digital library</a>

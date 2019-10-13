@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Research - AZ_geek</title>
+  <title>Web stuff - AZ_geek</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Research";
-    var mkdocs_page_input_path = "Research.md";
+    var mkdocs_page_name = "Web stuff";
+    var mkdocs_page_input_path = "Web.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -93,28 +93,28 @@
     <a class="" href="../spider/">Web Spider</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../Research/">Research</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Research</a>
+    <a class="current" href="./">Web stuff</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#_1">科研纪要</a></li>
+    <li class="toctree-l2"><a href="#web">关于Web</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#jabref">Jabref</a></li>
+            <li><a class="toctree-l3" href="#inside-look-at-chrome">Inside look at Chrome</a></li>
         
-            <li><a class="toctree-l3" href="#site-isolation">Site isolation</a></li>
+            <li><a class="toctree-l3" href="#var-let">var 与 let</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../Web/">Web stuff</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -149,7 +149,7 @@
     
       
     
-    <li>Research</li>
+    <li>Web stuff</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -159,19 +159,22 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="_1">科研纪要</h1>
-<p>在计算机领域，发表在会议上的文章比发表在期刊上的更有价值。
-安全领域最富盛名的四个安全会议被称为四大，它们是S&amp;P、CCS、USENIX Security、NDSS。
-至于其他会议的档次以及期刊的档次，可以查看CCF列表（https://www.ccf.org.cn/xspj/gyml/）。</p>
-<h2 id="jabref">Jabref</h2>
-<p>使用 web search 时，搜索 NDSS 的论文只有在 Crossref 上有收录。</p>
-<h3 id="doi">DOI</h3>
-<p>数字对象标识符（英语：Digital Object Identifier，简称DOI）也称数字对象识别号、数字对象识别符、数字对象标识符、数字对象唯一标识符等，是一套识别数字资源的机制，涵括的对象有影片、报告或书籍等等。它既有一套为资源命名的机制，也有一套将识别号解析为具体地址的协议。 </p>
-<h3 id="bibtex">BibTeX</h3>
-<p><code>[authorsAlpha][shortyear]</code></p>
-<p><a href="https://help.jabref.org/en/BibtexKeyPatterns">BibTex Key Pattern</a></p>
-<h2 id="site-isolation">Site isolation</h2>
-<p><a href="https://www.chromium.org/Home/chromium-security/site-isolation">https://www.chromium.org/Home/chromium-security/site-isolation</a></p>
+                <h1 id="web">关于Web</h1>
+<p>由于从这个学期开始被安排做Web安全了，所以开这个页面记录一些Web相关的知识。</p>
+<h2 id="inside-look-at-chrome">Inside look at Chrome</h2>
+<p>风格很清新的 Chrome 工程师 Mariko 关于浏览器内部框架的介绍。看完后对浏览器内部实现的框架终于能有了基本的概念。</p>
+<p>内容是 Blog 形式，需要一定的 HTML, CSS, Javascript 基础。</p>
+<p>这里还有一个关于其本人关于 Web Workers 的直播讲解。 <a href="https://www.youtube.com/watch?v=X57mh8tKkgE">https://www.youtube.com/watch?v=X57mh8tKkgE</a></p>
+<p><a href="https://developers.google.com/web/updates/2018/09/inside-browser-part1">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>
+<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part2">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>
+<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part3">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a>
+<a href="https://developers.google.com/web/updates/2018/09/inside-browser-part4">https://developers.google.com/web/updates/2018/09/inside-browser-part1</a></p>
+<h2 id="var-let">var 与 let</h2>
+<p><code>var</code> 与 <code>let</code> 都是Javascript中用于声明变量的语句，其中区别参见：
+<a href="https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var">https://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/let</a></p>
+<p>关于为什么要加入 <code>let</code> ，参见：
+<a href="https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/">https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/</a></p>
               
             </div>
           </div>
@@ -179,10 +182,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Web/" class="btn btn-neutral float-right" title="Web stuff">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Misc/" class="btn btn-neutral float-right" title="Misc">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../spider/" class="btn btn-neutral" title="Web Spider"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Research/" class="btn btn-neutral" title="Research"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -208,10 +211,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../spider/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Research/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Web/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Misc/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

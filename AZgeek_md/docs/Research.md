@@ -17,3 +17,7 @@
 `[authorsAlpha][shortyear]`
 
 [BibTex Key Pattern](https://help.jabref.org/en/BibtexKeyPatterns)
+
+## Site isolation
+
+[https://www.chromium.org/Home/chromium-security/site-isolation](https://www.chromium.org/Home/chromium-security/site-isolation)
