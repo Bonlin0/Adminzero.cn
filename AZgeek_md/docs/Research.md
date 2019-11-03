@@ -6,10 +6,10 @@
 
 以下是安全四大会的历年文章列表
 
-* [https://dblp.uni-trier.de/db/conf/sp/](https://dblp.uni-trier.de/db/conf/sp/)
-* [https://dblp.uni-trier.de/db/conf/ccs/](https://dblp.uni-trier.de/db/conf/ccs/)
-* [https://dblp.uni-trier.de/db/conf/uss/](https://dblp.uni-trier.de/db/conf/uss/)
-* [https://dblp.uni-trier.de/db/conf/ndss/](https://dblp.uni-trier.de/db/conf/ndss/)
+* S&P：IEEE Symposium on Security and Privacy [https://dblp.uni-trier.de/db/conf/sp/](https://dblp.uni-trier.de/db/conf/sp/)
+* CCS：ACM Conference on Computer and Communications Security [https://dblp.uni-trier.de/db/conf/ccs/](https://dblp.uni-trier.de/db/conf/ccs/)
+* USENIX Security [https://dblp.uni-trier.de/db/conf/uss/](https://dblp.uni-trier.de/db/conf/uss/)
+* NDSS： Network and Distributed System Security Symposium [https://dblp.uni-trier.de/db/conf/ndss/](https://dblp.uni-trier.de/db/conf/ndss/)
 
 ## Jabref 
 

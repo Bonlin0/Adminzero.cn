@@ -15,6 +15,7 @@ Carpe diem.
 * <a href="https://github.com/" target="_blank">Github</a>
 * <a href="https://translate.google.cn" target="_blank">Google translate</a>
 * <a href="https://dl.acm.org/dl.cfm" target="_blank">ACM digital library</a>
+* <a href="https://ww2.mathworks.cn/help/matlab/" target="_blank">MATLAB DOC</a>
 * <a href="http://www.runoob.com/" target="_blank">Runoob</a>
 * <a href="https://1024tools.com/hmac" target="_blank">HMAC computing</a>
 * <a href="https://www.codecademy.com/" target="_blank">Codecademy</a>		
