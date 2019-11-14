@@ -359,6 +359,35 @@
     &lt;/service&gt;
 </code></pre>
 
+<h3 id="drawable-mipmap">安卓的图像资源： drawable 和 mipmap</h3>
+<pre><code>mipmapxxx/下放置APP启动图标，以及需要高质量缩放动画的图片。
+
+其他图片资源放在drawablexxx/下。
+</code></pre>
+<h3 id="android-material-icon">Android Material Icon</h3>
+<p>Android Material Icon 是一套很好看的ICON集合。要使用其实不需要下载，直接在 Android Studio 中 New-》Vector Asset，进行进一步配置即可使用。</p>
+<p>注意还需要在app模块下的build文件中添加如下代码：</p>
+<pre><code>android {  
+   defaultConfig {  
+     vectorDrawables.useSupportLibrary = true  
+    }  
+ }
+</code></pre>
+
+<h3 id="fonts-and-fontfamily">关于字体 fonts and fontFamily</h3>
+<p>自从安卓8.0之后，安卓开始鼓励使用Downloadable Font，即不在APK中绑定字体资源文件，而是直接标记，在实际应用使用中，各应用发现自己需要使用字体时向手机中的Font provider请求。这样可以减少各应用共同字体的冗余提高效率，并且使得APK更加轻量化。但是我在使用过程中发现，国内的手机因为无法访问fonts.google.com，所以无法正常加载字体。故只能下载ttf文件并放置于fonts文件夹，以离线方式加载。不过一个英语字体文件大小在40K上下不算很占用空间。</p>
+<h3 id="button-onclick">button 和 onclick</h3>
+<p>由于这一部分的代码经常用然而每次使用又经常记不起来，所以还是贴在这里。</p>
+<pre><code>// 该方法必须是public，返回值void，同时有一个View类型的参数
+public void onClickChooseWordsBookButton(View view)
+{
+    //TODO type your code here.
+}
+</code></pre>
+
+<h3 id="viewpager-bottomnavigationview-fragment">ViewPager, BottomNavigationView, Fragment 整合</h3>
+<p>参考下面的链接，主要的工作是设置一个 Adaptor。</p>
+<p><a href="https://blog.csdn.net/qq_33198758/article/details/82753062">https://blog.csdn.net/qq_33198758/article/details/82753062</a></p>
 <hr />
 <h2 id="_8">操作系统实验</h2>
 <h3 id="and_1">$ and $$</h3>
