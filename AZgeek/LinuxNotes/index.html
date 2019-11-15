@@ -538,12 +538,12 @@
               
                 
                 
-                <h1 id="linux">Linux 的学习笔记</h1>
-<h2 id="vim">Vim 练级攻略</h2>
+                <h1 id="linux">Linux 的学习笔记<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<h2 id="vim">Vim 练级攻略<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h2>
 <p><a href="https://coolshell.cn/articles/5426.html">https://coolshell.cn/articles/5426.html</a></p>
-<h2 id="tar">tar相关</h2>
+<h2 id="tar">tar相关<a class="headerlink" href="#tar" title="Permanent link">&para;</a></h2>
 <p><code>tar</code> 是 tape archive 的缩写，最早是用于将多个文件打包为单一文件以方便录入磁带中。单一的tar后缀名表示未经过压缩的tar文件，一般会见到以tar.xz、tar.gz结尾的文件，则是以相应的压缩算法压缩后的文件。</p>
-<h3 id="tar_1">tar语法</h3>
+<h3 id="tar_1">tar语法<a class="headerlink" href="#tar_1" title="Permanent link">&para;</a></h3>
 <p>语法：tar [主选项+辅选项] 文件或目录</p>
 <p>使用该命令时，主选项必须有，它告诉tar要做什么事情，辅选项是辅助使用的，可以选用。</p>
 <p>主选项：【一条命令以下5个参数只能有一个】</p>
@@ -585,19 +585,21 @@
 <p>--exclude FILE:在压缩过程中，不要将FILE打包</p>
 </li>
 </ul>
-<h3 id="tarxz">tar.xz 解压方法</h3>
+<h3 id="tarxz">tar.xz 解压方法<a class="headerlink" href="#tarxz" title="Permanent link">&para;</a></h3>
 <p>对于<code>xz</code>指令有</p>
-<pre><code>xz -z filename   #压缩
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">xz</span> <span class="o">-</span><span class="n">z</span> <span class="n">filename</span>   <span class="o">#</span><span class="err">压缩</span>
+</pre></div>
 
-<pre><code>xz -d filename   #解压
-</code></pre>
+
+<div class="codehilite"><pre><span></span><span class="n">xz</span> <span class="o">-</span><span class="n">d</span> <span class="n">filename</span>   <span class="o">#</span><span class="err">解压</span>
+</pre></div>
+
 
 <p>故分两步先使用 <code>xz -d filename.tar.xz</code> ，再使用 <code>tar -xvf filename.tar</code>。</p>
 <p>也可以直接使用 <code>tar -jxvf filename.tar.xz</code> 一步解压两层。</p>
-<h2 id="_1">查看文件权限</h2>
+<h2 id="_1">查看文件权限<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在对应文件夹下打开终端，输入<code>ls -l</code>即可查看当前目录下所有文件的详细信息，其中最左栏第一列为文件类型，第2-10列为权限信息。</p>
-<h3 id="linux_1">Linux 七种文件类型</h3>
+<h3 id="linux_1">Linux 七种文件类型<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>普通文件类型：Linux中最多的一种文件类型, 包括 纯文本文件(ASCII)；二进制文件(binary)；数据格式的文件(data);各种压缩文件.第一个属性为 [-]。</p>
@@ -621,10 +623,10 @@
 <p>链接文件<code>link</code> ： 类似Windows下面的快捷方式。第一个属性为 [l]。</p>
 </li>
 </ul>
-<h3 id="_2">权限信息</h3>
+<h3 id="_2">权限信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>权限信息中，每三列一组，依次为所有者权限，组织权限，其他人权限。</p>
 <hr />
-<h2 id="linux-kernel">编译Linux kernel， 添加系统调用</h2>
+<h2 id="linux-kernel">编译Linux kernel， 添加系统调用<a class="headerlink" href="#linux-kernel" title="Permanent link">&para;</a></h2>
 <p><a href="https://blog.csdn.net/u010371710/article/details/80382968">Linux编译内核及添加系统调用 By 会飞的马</a></p>
 <p><a href="https://blog.csdn.net/weixin_39924920/article/details/80413571">Linux系统添加系统调用 By nsnvainva</a></p>
 <p><strong>修改内核源码中与系统调用有关的文件信息，以下三个文件</strong></p>
@@ -632,22 +634,23 @@
 <p>/include/linux/syscalls.h                     //系统调用的头文件</p>
 <p>/kernel/sys.c                                 //定义系统调用函数</p>
 <p><strong>安装<code>gcc</code> , <code>make</code> , <code>ncurses</code> , <code>bison</code> , <code>flex</code> , <code>libssl-dev</code></strong></p>
-<pre><code>sudo make mrproper
+<div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">make</span> <span class="n">mrproper</span>
 
-sudo make clean
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">clean</span>
 
-sudo make menuconfig
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">menuconfig</span>
 
-sudo make -j4   #j4是4线程
+<span class="n">sudo</span> <span class="n">make</span> <span class="o">-</span><span class="n">j4</span>   <span class="o">#</span><span class="n">j4是4线程</span>
+</pre></div>
 
-</code></pre>
 
-<pre><code>sudo make modules_install  
+<div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">make</span> <span class="n">modules_install</span>  
 
-sudo make install
-</code></pre>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
 
-<h2 id="_3">杂项</h2>
+
+<h2 id="_3">杂项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>Win键</code>即Linux下的<code>super键</code>。</p>
 <p>重启命令 <code>sudo reboot</code></p>
 <p>关机命令 <code>sudo poweroff</code></p>
@@ -725,6 +728,8 @@ sudo make install
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
         <script src="../js/calculator.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

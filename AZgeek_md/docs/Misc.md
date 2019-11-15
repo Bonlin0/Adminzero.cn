@@ -179,6 +179,8 @@ PS ： LODSB and LODSW
 
 这是块装入指令,把SI指向的存储单元读入累加器,LODSB就读入AL,LODSW就读入AX中,然后SI自动增加或减小1或2.
 
+---
+
 $$x=y^2$$
 
 ## Some notes

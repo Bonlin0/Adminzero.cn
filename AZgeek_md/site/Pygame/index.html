@@ -484,409 +484,412 @@
               
                 
                 
-                <h1 id="pygame">Pygame 使用笔记</h1>
-<h2 id="_1">安装</h2>
+                <h1 id="pygame">Pygame 使用笔记<a class="headerlink" href="#pygame" title="Permanent link">&para;</a></h1>
+<h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>略。</p>
-<h2 id="_2">使用</h2>
+<h2 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.pymunk.org/en/master/pymunk.html">Pymunk API</a>
 <a href="https://www.pygame.org/docs/">Pygame Doc</a></p>
-<pre><code>pygame.init() # You need do it every time when you start a game.
+<div class="codehilite"><pre><span></span><span class="nv">pygame</span>.<span class="nv">init</span><span class="ss">()</span> # <span class="nv">You</span> <span class="nv">need</span> <span class="k">do</span> <span class="nv">it</span> <span class="nv">every</span> <span class="nv">time</span> <span class="nv">when</span> <span class="nv">you</span> <span class="nv">start</span> <span class="nv">a</span> <span class="nv">game</span>.
 
-size = width, height = 1366, 768
-black = 0, 0, 0 # a tuple used to clear the screen with `screen.fill(black)`
-screen = pygame.display.set_mode(size)  # screen is a surface instance.
+<span class="nv">size</span> <span class="o">=</span> <span class="nv">width</span>, <span class="nv">height</span> <span class="o">=</span> <span class="mi">1366</span>, <span class="mi">768</span>
+<span class="nv">black</span> <span class="o">=</span> <span class="mi">0</span>, <span class="mi">0</span>, <span class="mi">0</span> # <span class="nv">a</span> <span class="nv">tuple</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">clear</span> <span class="nv">the</span> <span class="nv">screen</span> <span class="nv">with</span> `<span class="nv">screen</span>.<span class="nv">fill</span><span class="ss">(</span><span class="nv">black</span><span class="ss">)</span>`
+<span class="nv">screen</span> <span class="o">=</span> <span class="nv">pygame</span>.<span class="nv">display</span>.<span class="nv">set_mode</span><span class="ss">(</span><span class="nv">size</span><span class="ss">)</span>  # <span class="nv">screen</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">surface</span> <span class="nv">instance</span>.
+</pre></div>
 
-</code></pre>
 
-<h2 id="_3">光影效果</h2>
+<h2 id="_3">光影效果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><a href="https://ncase.me/sight-and-light/">https://ncase.me/sight-and-light/</a>一个关于光影效果的教程。
 <a href="https://www.redblobgames.com/articles/visibility/">https://www.redblobgames.com/articles/visibility/</a>一个关于光影效果的教程。</p>
 <p><a href="http://www.pygame.org/project-Overhead+Shooter-2233-.html">http://www.pygame.org/project-Overhead+Shooter-2233-.html</a> 在这个网站中可以看到以下advice:</p>
-<pre><code>- Your angle issues might be helped by using the Vec2d implementation from pymunk http://code.google.com/p/pymun.... This implements a number of useful geometric functions and in particular does all the right kind of things for angle manipulation, which can be a bit tricky.
-- For AI it looks like you considered going with an underlying grid. This worked well for me and allowed me to use the networkx (http://networkx.lanl.gov/ library for pathfinding. This is fast and flexible. 
-- For shooting based on line-of-sight, the Vec2d library above is useful because you can easily use get_angle_between and get_distance to work out if your enemies can see the player and then decide on which angle to shoot at. The API reference is here http://pymunk.googlecode.com/s...
-- In your blog posts you mentioned more general physics for particle simulation. The pymunk library is very powerful. http://code.google.com/p/pymun...
-</code></pre>
-
-<pre><code> ''' 
- SIGHT &amp; LIGHT by ncase (https://github.com/ncase/sight-and-light) 
- Ported to Python/PyGame by Marcus Møller (https://github.com/marcusmoller) 
- '''
-import pygame
-import pygame.gfxdraw
-import math
+<div class="codehilite"><pre><span></span><span class="o">-</span> <span class="nv">Your</span> <span class="nv">angle</span> <span class="nv">issues</span> <span class="nv">might</span> <span class="nv">be</span> <span class="nv">helped</span> <span class="nv">by</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">Vec2d</span> <span class="nv">implementation</span> <span class="nv">from</span> <span class="nv">pymunk</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">code</span>.<span class="nv">google</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">p</span><span class="o">/</span><span class="nv">pymun</span>.... <span class="nv">This</span> <span class="nv">implements</span> <span class="nv">a</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">useful</span> <span class="nv">geometric</span> <span class="nv">functions</span> <span class="nv">and</span> <span class="nv">in</span> <span class="nv">particular</span> <span class="nv">does</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">right</span> <span class="nv">kind</span> <span class="nv">of</span> <span class="nv">things</span> <span class="k">for</span> <span class="nv">angle</span> <span class="nv">manipulation</span>, <span class="nv">which</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">a</span> <span class="nv">bit</span> <span class="nv">tricky</span>.
+<span class="o">-</span> <span class="k">For</span> <span class="nv">AI</span> <span class="nv">it</span> <span class="nv">looks</span> <span class="nv">like</span> <span class="nv">you</span> <span class="nv">considered</span> <span class="nv">going</span> <span class="nv">with</span> <span class="nv">an</span> <span class="nv">underlying</span> <span class="nv">grid</span>. <span class="nv">This</span> <span class="nv">worked</span> <span class="nv">well</span> <span class="k">for</span> <span class="nv">me</span> <span class="nv">and</span> <span class="nv">allowed</span> <span class="nv">me</span> <span class="nv">to</span> <span class="nv">use</span> <span class="nv">the</span> <span class="nv">networkx</span> <span class="ss">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">networkx</span>.<span class="nv">lanl</span>.<span class="nv">gov</span><span class="o">/</span> <span class="nv">library</span> <span class="k">for</span> <span class="nv">pathfinding</span>. <span class="nv">This</span> <span class="nv">is</span> <span class="nv">fast</span> <span class="nv">and</span> <span class="nv">flexible</span>. 
+<span class="o">-</span> <span class="k">For</span> <span class="nv">shooting</span> <span class="nv">based</span> <span class="nv">on</span> <span class="nv">line</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">sight</span>, <span class="nv">the</span> <span class="nv">Vec2d</span> <span class="nv">library</span> <span class="nv">above</span> <span class="nv">is</span> <span class="nv">useful</span> <span class="nv">because</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">easily</span> <span class="nv">use</span> <span class="nv">get_angle_between</span> <span class="nv">and</span> <span class="nv">get_distance</span> <span class="nv">to</span> <span class="nv">work</span> <span class="nv">out</span> <span class="k">if</span> <span class="nv">your</span> <span class="nv">enemies</span> <span class="nv">can</span> <span class="nv">see</span> <span class="nv">the</span> <span class="nv">player</span> <span class="nv">and</span> <span class="k">then</span> <span class="nv">decide</span> <span class="nv">on</span> <span class="nv">which</span> <span class="nv">angle</span> <span class="nv">to</span> <span class="nv">shoot</span> <span class="nv">at</span>. <span class="nv">The</span> <span class="nv">API</span> <span class="nv">reference</span> <span class="nv">is</span> <span class="nv">here</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">pymunk</span>.<span class="nv">googlecode</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">s</span>...
+<span class="o">-</span> <span class="nv">In</span> <span class="nv">your</span> <span class="nv">blog</span> <span class="nv">posts</span> <span class="nv">you</span> <span class="nv">mentioned</span> <span class="nv">more</span> <span class="nv">general</span> <span class="nv">physics</span> <span class="k">for</span> <span class="nv">particle</span> <span class="nv">simulation</span>. <span class="nv">The</span> <span class="nv">pymunk</span> <span class="nv">library</span> <span class="nv">is</span> <span class="nv">very</span> <span class="nv">powerful</span>. <span class="nv">http</span>:<span class="o">//</span><span class="nv">code</span>.<span class="nv">google</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">p</span><span class="o">/</span><span class="nv">pymun</span>...
+</pre></div>
 
 
-class SightAndLight():
-
-    def __init__(self):
-        # initialize pygame
-        pygame.init()
-        # Screen size
-        self.screen_width = 1366
-        self.screen_height = 768
-        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
-        pygame.display.set_caption(&quot; Simple shoot game-by whl&quot;)
-        # mouse position
-        self.mouse_pos = (0, 0)
-        # general
-        self.fps_clock = pygame.time.Clock()
-        self.running = True
-        self.update_shadows = True  # only call update on mouse movement
-        # segments
-        self.segments = [
-            # Border
-            {&quot; a &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 0}, &quot; b &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 0}},
-            {&quot; a &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 0}, &quot; b &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 360}},
-            {&quot; a &quot;: {&quot; x &quot;: 640, &quot; y &quot;: 360}, &quot; b &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 360}},
-            {&quot; a &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 360}, &quot; b &quot;: {&quot; x &quot;: 0, &quot; y &quot;: 0}},
-            # Polygon #1
-            {&quot; a &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 50}},
-            {&quot; a &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 50}, &quot; b &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 80}},
-            {&quot; a &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 80}, &quot; b &quot;: {&quot; x &quot;: 140, &quot; y &quot;: 210}},
-            {&quot; a &quot;: {&quot; x &quot;: 140, &quot; y &quot;: 210}, &quot; b &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 150}},
-            # Polygon #2
-            {&quot; a &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 200}, &quot; b &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 250}},
-            {&quot; a &quot;: {&quot; x &quot;: 120, &quot; y &quot;: 250}, &quot; b &quot;: {&quot; x &quot;: 60, &quot; y &quot;: 300}},
-            {&quot; a &quot;: {&quot; x &quot;: 60, &quot; y &quot;: 300}, &quot; b &quot;: {&quot; x &quot;: 100, &quot; y &quot;: 200}},
-            # Polygon #3
-            {&quot; a &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 260}, &quot; b &quot;: {&quot; x &quot;: 220, &quot; y &quot;: 150}},
-            {&quot; a &quot;: {&quot; x &quot;: 220, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 300, &quot; y &quot;: 200}},
-            {&quot; a &quot;: {&quot; x &quot;: 300, &quot; y &quot;: 200}, &quot; b &quot;: {&quot; x &quot;: 350, &quot; y &quot;: 320}},
-            {&quot; a &quot;: {&quot; x &quot;: 350, &quot; y &quot;: 320}, &quot; b &quot;: {&quot; x &quot;: 200, &quot; y &quot;: 260}},
-            # Polygon #4
-            {&quot; a &quot;: {&quot; x &quot;: 340, &quot; y &quot;: 60}, &quot; b &quot;: {&quot; x &quot;: 360, &quot; y &quot;: 40}},
-            {&quot; a &quot;: {&quot; x &quot;: 360, &quot; y &quot;: 40}, &quot; b &quot;: {&quot; x &quot;: 370, &quot; y &quot;: 70}},
-            {&quot; a &quot;: {&quot; x &quot;: 370, &quot; y &quot;: 70}, &quot; b &quot;: {&quot; x &quot;: 340, &quot; y &quot;: 60}},
-            # Polygon #5
-            {&quot; a &quot;: {&quot; x &quot;: 450, &quot; y &quot;: 190}, &quot; b &quot;: {&quot; x &quot;: 560, &quot; y &quot;: 170}},
-            {&quot; a &quot;: {&quot; x &quot;: 560, &quot; y &quot;: 170}, &quot; b &quot;: {&quot; x &quot;: 540, &quot; y &quot;: 270}},
-            {&quot; a &quot;: {&quot; x &quot;: 540, &quot; y &quot;: 270}, &quot; b &quot;: {&quot; x &quot;: 430, &quot; y &quot;: 290}},
-            {&quot; a &quot;: {&quot; x &quot;: 430, &quot; y &quot;: 290}, &quot; b &quot;: {&quot; x &quot;: 450, &quot; y &quot;: 190}},
-            # Polygon #6
-            {&quot; a &quot;: {&quot; x &quot;: 400, &quot; y &quot;: 95}, &quot; b &quot;: {&quot; x &quot;: 580, &quot; y &quot;: 50}},
-            {&quot; a &quot;: {&quot; x &quot;: 580, &quot; y &quot;: 50}, &quot; b &quot;: {&quot; x &quot;: 480, &quot; y &quot;: 150}},
-            {&quot; a &quot;: {&quot; x &quot;: 480, &quot; y &quot;: 150}, &quot; b &quot;: {&quot; x &quot;: 400, &quot; y &quot;: 95}}
-        ]
-        # Intersects
-        self.intersects = []
-        # Points
-        self.points = []
-
-    def run(self):
-        while self.running:
-            self.main_loop()
-
-    def main_loop(self):
-        self.handle_input()
-        if self.update_shadows:
-            self.update()
-        self.update_shadows = False
-        self.render_frame()
-
-    def update(self):
-        # Clear old points
-        self.points = []
-        # Get all unique points
-        for segment in self.segments:
-            self.points.append((segment[' a '], segment[' b ']))
-        unique_points = []
-        for point in self.points:
-            if point not in unique_points:
-                unique_points.append(point)
-        # Get all angles
-        unique_angles = []
-        for point in unique_points:
-            angle = math.atan2(point[0][&quot; y &quot;] - self.mouse_pos[1], point[0][&quot; x &quot;] - self.mouse_pos[0])
-            point[0][&quot; angle &quot;] = angle
-            unique_angles.append(angle - 0.00001)
-            unique_angles.append(angle)
-            unique_angles.append(angle + 0.00001)
-        # RAYS IN ALL DIRECTIONS
-        self.intersects = []
-        for angle in unique_angles:
-            # Calculate dx &amp; dy from angle
-            dx = math.cos(angle)
-            dy = math.sin(angle)
-            # Ray from center of screen to mouse
-            ray = {
-                &quot; a &quot;: {&quot; x &quot;: self.mouse_pos[0], &quot; y &quot;: self.mouse_pos[1]},
-                &quot; b &quot;: {&quot; x &quot;: self.mouse_pos[0] + dx, &quot; y &quot;: self.mouse_pos[1] + dy}
-            }
-            # Find CLOSEST intersection
-            closest_intersect = None
-            for segment in self.segments:
-                intersect = self.get_intersection(ray, segment)
-                if not intersect: continue
-                if not closest_intersect or intersect[&quot; param &quot;] &lt; closest_intersect[&quot; param &quot;]:
-                    closest_intersect = intersect
-            # Intersect angle
-            if not closest_intersect: continue
-            closest_intersect[&quot; angle &quot;] = angle
-            # Add to list of intersects
-            self.intersects.append(closest_intersect)
-        # Sort intersects by angle
-        self.intersects = sorted(self.intersects, key=lambda k: k[' angle '])
-
-    def render_frame(self):
-        self.screen.fill((255, 255, 255))
-        # draw segments
-        for segment in self.segments:
-            pygame.draw.aaline(self.screen, (153, 153, 153), (segment[' a '][' x '], segment[' a '][' y ']),
-                               (segment[' b '][' x '], segment[' b '][' y ']))
-        self.draw_polygon(self.intersects, (221, 56, 56))
-        # draw debug lines
-        for intersect in self.intersects:
-            pygame.draw.aaline(self.screen, (255, 85, 85), self.mouse_pos, (intersect[' x '], intersect[' y ']))
-        # limit fps
-        self.fps_clock.tick(60)
-        # update screen
-        pygame.display.update()
-
-    def handle_input(self):
-        pygame.event.pump()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.running = False
-                print(&quot; quit &quot;)
-                break
-            # KEYBOARD
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE or event.key == pygame.K_q:
-                    self.running = False
-            # MOUSE
-            elif event.type == pygame.MOUSEMOTION:
-                self.mouse_pos = event.pos
-            self.update_shadows = True
-
-    def get_intersection(self, ray, segment):
-        ''' Find intersection of RAY &amp; SEGMENT '''
-
-        # RAY in parametric: Point + Direction*T1
-        r_px = ray[' a '][' x ']
-        r_py = ray[' a '][' y ']
-        r_dx = ray[' b '][' x '] - ray[' a '][' x ']
-        r_dy = ray[' b '][' y '] - ray[' a '][' y ']
-        # SEGMENT in parametric: Point + Direction*T2
-        s_px = segment[' a '][' x ']
-        s_py = segment[' a '][' y ']
-        s_dx = segment[' b '][' x '] - segment[' a '][' x ']
-        s_dy = segment[' b '][' y '] - segment[' a '][' y ']
-        # Are they parallel?  If so, no intersect
-        r_mag = math.sqrt(r_dx * r_dx + r_dy * r_dy)
-        s_mag = math.sqrt(s_dx * s_dx + s_dy * s_dy)
-        if r_dx / r_mag == s_dx / s_mag and r_dy / r_mag == s_dy / s_mag:
-            return None
-        # SOLVE FOR T1 &amp; T2
-        # r_px+r_dx*T1 = s_px+s_dx*T2 &amp;&amp; r_py+r_dy*T1 = s_py+s_dy*T2
-        # ==&gt; T1 = (s_px+s_dx*T2-r_px)/r_dx = (s_py+s_dy*T2-r_py)/r_dy
-        # ==&gt; s_px*r_dy + s_dx*T2*r_dy - r_px*r_dy = s_py*r_dx + s_dy*T2*r_dx - r_py*r_dx
-        # ==&gt; T2 = (r_dx*(s_py-r_py) + r_dy*(r_px-s_px))/(s_dx*r_dy - s_dy*r_dx)
-        # todo: fix zerodivision error handling
-        try:
-            T2 = (r_dx * (s_py - r_py) + r_dy * (r_px - s_px)) / (s_dx * r_dy - s_dy * r_dx)
-        except ZeroDivisionError:
-            T2 = (r_dx * (s_py - r_py) + r_dy * (r_px - s_px)) / (s_dx * r_dy - s_dy * r_dx - 0.01)
-        try:
-            T1 = (s_px + s_dx * T2 - r_px) / r_dx
-        except ZeroDivisionError:
-            T1 = (s_px + s_dx * T2 - r_px) / (r_dx - 0.01)
-        # Must be within parametic whatevers for RAY/SEGMENT
-        if T1 &lt; 0: return None
-        if T2 &lt; 0 or T2 &gt; 1: return None
-        # Return the POINT OF INTERSECTION
-        return {
-            &quot; x &quot;: r_px + r_dx * T1,
-            &quot; y &quot;: r_py + r_dy * T1,
-            &quot; param &quot;: T1
-        }
-
-    def draw_polygon(self, polygon, color):
-        # collect coordinates for a giant polygon
-        points = []
-        for intersect in polygon:
-            points.append((intersect[' x '], intersect[' y ']))
-        # draw as a giant polygon
-        pygame.gfxdraw.aapolygon(self.screen, points, color)
-        pygame.gfxdraw.filled_polygon(self.screen, points, color)
+<div class="codehilite"><pre><span></span> <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd"> SIGHT &amp; LIGHT by ncase (https://github.com/ncase/sight-and-light) </span>
+<span class="sd"> Ported to Python/PyGame by Marcus Møller (https://github.com/marcusmoller) </span>
+<span class="sd"> &#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span> <span class="nn">pygame.gfxdraw</span>
+<span class="kn">import</span> <span class="nn">math</span>
 
 
+<span class="k">class</span> <span class="nc">SightAndLight</span><span class="p">():</span>
 
-demo = SightAndLight()
-demo.run() 
-</code></pre>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># initialize pygame</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="c1"># Screen size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen_width</span> <span class="o">=</span> <span class="mi">1366</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen_height</span> <span class="o">=</span> <span class="mi">768</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">screen_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">screen_height</span><span class="p">))</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot; Simple shoot game-by whl&quot;</span><span class="p">)</span>
+        <span class="c1"># mouse position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># general</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fps_clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># only call update on mouse movement</span>
+        <span class="c1"># segments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="c1"># Border</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">640</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span>
+            <span class="c1"># Polygon #1</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">210</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">140</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">210</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">}},</span>
+            <span class="c1"># Polygon #2</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}},</span>
+            <span class="c1"># Polygon #3</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">260</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">350</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">320</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">350</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">320</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">260</span><span class="p">}},</span>
+            <span class="c1"># Polygon #4</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">360</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">370</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">370</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">340</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}},</span>
+            <span class="c1"># Polygon #5</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">560</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">170</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">560</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">170</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">540</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">270</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">540</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">270</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">430</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">290</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">430</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">290</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">450</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">190</span><span class="p">}},</span>
+            <span class="c1"># Polygon #6</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">580</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">580</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">480</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">}},</span>
+            <span class="p">{</span><span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">480</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span> <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">}}</span>
+        <span class="p">]</span>
+        <span class="c1"># Intersects</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intersects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
 
-<h2 id="war-of-aircraft">志哥的 war of aircraft</h2>
-<h3 id="_4">主文件</h3>
-<pre><code>import pygame
-from AircraftBattle_sprites import *
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">main_loop</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">main_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_input</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">render_frame</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Clear old points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Get all unique points</span>
+        <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">],</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">]))</span>
+        <span class="n">unique_points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">points</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">point</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_points</span><span class="p">:</span>
+                <span class="n">unique_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+        <span class="c1"># Get all angles</span>
+        <span class="n">unique_angles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">unique_points</span><span class="p">:</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot; y &quot;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot; x &quot;</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot; angle &quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle</span>
+            <span class="n">unique_angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span> <span class="o">-</span> <span class="mf">0.00001</span><span class="p">)</span>
+            <span class="n">unique_angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+            <span class="n">unique_angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span> <span class="o">+</span> <span class="mf">0.00001</span><span class="p">)</span>
+        <span class="c1"># RAYS IN ALL DIRECTIONS</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intersects</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">angle</span> <span class="ow">in</span> <span class="n">unique_angles</span><span class="p">:</span>
+            <span class="c1"># Calculate dx &amp; dy from angle</span>
+            <span class="n">dx</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+            <span class="c1"># Ray from center of screen to mouse</span>
+            <span class="n">ray</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot; a &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]},</span>
+                <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dy</span><span class="p">}</span>
+            <span class="p">}</span>
+            <span class="c1"># Find CLOSEST intersection</span>
+            <span class="n">closest_intersect</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
+                <span class="n">intersect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_intersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">segment</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">intersect</span><span class="p">:</span> <span class="k">continue</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">closest_intersect</span> <span class="ow">or</span> <span class="n">intersect</span><span class="p">[</span><span class="s2">&quot; param &quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">closest_intersect</span><span class="p">[</span><span class="s2">&quot; param &quot;</span><span class="p">]:</span>
+                    <span class="n">closest_intersect</span> <span class="o">=</span> <span class="n">intersect</span>
+            <span class="c1"># Intersect angle</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">closest_intersect</span><span class="p">:</span> <span class="k">continue</span>
+            <span class="n">closest_intersect</span><span class="p">[</span><span class="s2">&quot; angle &quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle</span>
+            <span class="c1"># Add to list of intersects</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">intersects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">closest_intersect</span><span class="p">)</span>
+        <span class="c1"># Sort intersects by angle</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intersects</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intersects</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39; angle &#39;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">render_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">((</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+        <span class="c1"># draw segments</span>
+        <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">aaline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">153</span><span class="p">,</span> <span class="mi">153</span><span class="p">,</span> <span class="mi">153</span><span class="p">),</span> <span class="p">(</span><span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">],</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]),</span>
+                               <span class="p">(</span><span class="n">segment</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">],</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">intersects</span><span class="p">,</span> <span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">56</span><span class="p">))</span>
+        <span class="c1"># draw debug lines</span>
+        <span class="k">for</span> <span class="n">intersect</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">intersects</span><span class="p">:</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">aaline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">,</span> <span class="p">(</span><span class="n">intersect</span><span class="p">[</span><span class="s1">&#39; x &#39;</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="s1">&#39; y &#39;</span><span class="p">]))</span>
+        <span class="c1"># limit fps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fps_clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+        <span class="c1"># update screen</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">handle_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pump</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">print</span><span class="p">(</span><span class="s2">&quot; quit &quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="c1"># KEYBOARD</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">KEYDOWN</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_ESCAPE</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_q</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="c1"># MOUSE</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">MOUSEMOTION</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">get_intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ray</span><span class="p">,</span> <span class="n">segment</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39; Find intersection of RAY &amp; SEGMENT &#39;&#39;&#39;</span>
+
+        <span class="c1"># RAY in parametric: Point + Direction*T1</span>
+        <span class="n">r_px</span> <span class="o">=</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span>
+        <span class="n">r_py</span> <span class="o">=</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span>
+        <span class="n">r_dx</span> <span class="o">=</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span>
+        <span class="n">r_dy</span> <span class="o">=</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ray</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span>
+        <span class="c1"># SEGMENT in parametric: Point + Direction*T2</span>
+        <span class="n">s_px</span> <span class="o">=</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span>
+        <span class="n">s_py</span> <span class="o">=</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span>
+        <span class="n">s_dx</span> <span class="o">=</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; x &#39;</span><span class="p">]</span>
+        <span class="n">s_dy</span> <span class="o">=</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; b &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">segment</span><span class="p">[</span><span class="s1">&#39; a &#39;</span><span class="p">][</span><span class="s1">&#39; y &#39;</span><span class="p">]</span>
+        <span class="c1"># Are they parallel?  If so, no intersect</span>
+        <span class="n">r_mag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_dx</span> <span class="o">*</span> <span class="n">r_dx</span> <span class="o">+</span> <span class="n">r_dy</span> <span class="o">*</span> <span class="n">r_dy</span><span class="p">)</span>
+        <span class="n">s_mag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_dx</span> <span class="o">*</span> <span class="n">s_dx</span> <span class="o">+</span> <span class="n">s_dy</span> <span class="o">*</span> <span class="n">s_dy</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r_dx</span> <span class="o">/</span> <span class="n">r_mag</span> <span class="o">==</span> <span class="n">s_dx</span> <span class="o">/</span> <span class="n">s_mag</span> <span class="ow">and</span> <span class="n">r_dy</span> <span class="o">/</span> <span class="n">r_mag</span> <span class="o">==</span> <span class="n">s_dy</span> <span class="o">/</span> <span class="n">s_mag</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="c1"># SOLVE FOR T1 &amp; T2</span>
+        <span class="c1"># r_px+r_dx*T1 = s_px+s_dx*T2 &amp;&amp; r_py+r_dy*T1 = s_py+s_dy*T2</span>
+        <span class="c1"># ==&gt; T1 = (s_px+s_dx*T2-r_px)/r_dx = (s_py+s_dy*T2-r_py)/r_dy</span>
+        <span class="c1"># ==&gt; s_px*r_dy + s_dx*T2*r_dy - r_px*r_dy = s_py*r_dx + s_dy*T2*r_dx - r_py*r_dx</span>
+        <span class="c1"># ==&gt; T2 = (r_dx*(s_py-r_py) + r_dy*(r_px-s_px))/(s_dx*r_dy - s_dy*r_dx)</span>
+        <span class="c1"># todo: fix zerodivision error handling</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">T2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_dx</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_py</span> <span class="o">-</span> <span class="n">r_py</span><span class="p">)</span> <span class="o">+</span> <span class="n">r_dy</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_px</span> <span class="o">-</span> <span class="n">s_px</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">s_dx</span> <span class="o">*</span> <span class="n">r_dy</span> <span class="o">-</span> <span class="n">s_dy</span> <span class="o">*</span> <span class="n">r_dx</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="n">T2</span> <span class="o">=</span> <span class="p">(</span><span class="n">r_dx</span> <span class="o">*</span> <span class="p">(</span><span class="n">s_py</span> <span class="o">-</span> <span class="n">r_py</span><span class="p">)</span> <span class="o">+</span> <span class="n">r_dy</span> <span class="o">*</span> <span class="p">(</span><span class="n">r_px</span> <span class="o">-</span> <span class="n">s_px</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">s_dx</span> <span class="o">*</span> <span class="n">r_dy</span> <span class="o">-</span> <span class="n">s_dy</span> <span class="o">*</span> <span class="n">r_dx</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">T1</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_px</span> <span class="o">+</span> <span class="n">s_dx</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="n">r_px</span><span class="p">)</span> <span class="o">/</span> <span class="n">r_dx</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="n">T1</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_px</span> <span class="o">+</span> <span class="n">s_dx</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="n">r_px</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_dx</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>
+        <span class="c1"># Must be within parametic whatevers for RAY/SEGMENT</span>
+        <span class="k">if</span> <span class="n">T1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">T2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">T2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="bp">None</span>
+        <span class="c1"># Return the POINT OF INTERSECTION</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="n">r_px</span> <span class="o">+</span> <span class="n">r_dx</span> <span class="o">*</span> <span class="n">T1</span><span class="p">,</span>
+            <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="n">r_py</span> <span class="o">+</span> <span class="n">r_dy</span> <span class="o">*</span> <span class="n">T1</span><span class="p">,</span>
+            <span class="s2">&quot; param &quot;</span><span class="p">:</span> <span class="n">T1</span>
+        <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">draw_polygon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polygon</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="c1"># collect coordinates for a giant polygon</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">intersect</span> <span class="ow">in</span> <span class="n">polygon</span><span class="p">:</span>
+            <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">intersect</span><span class="p">[</span><span class="s1">&#39; x &#39;</span><span class="p">],</span> <span class="n">intersect</span><span class="p">[</span><span class="s1">&#39; y &#39;</span><span class="p">]))</span>
+        <span class="c1"># draw as a giant polygon</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">gfxdraw</span><span class="o">.</span><span class="n">aapolygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">gfxdraw</span><span class="o">.</span><span class="n">filled_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
 
 
-class AircraftGame(object):
-    def __init__(self):
-        print('~~游戏初始化~~')
-        # pygame.init()
-        self.screen = pygame.display.set_mode(SEREEN_RECT.size) #该方法返回的是surface对象
-        self.__create_sprites()
-        self.clock = pygame.time.Clock()
-        pygame.time.set_timer(CREAT_ENEMY_EVENT,1000)
-        pygame.time.set_timer(MYAIRCRAFT_FIRE,500)
 
-    def start_game(self):
-        print('开始游戏')
-        while True:
-            self.clock.tick(FRAME_PER_SECOND)
-            self.__event_listen()
-            self.__collide_detect()
-            self.__update_sprites()
-            pygame.display.update()
-
-    def __create_sprites(self):
-        bg1 = Background()
-        bg2 = Background(True)
-        self.bg_group = pygame.sprite.Group(bg1, bg2)
-        self.enemy_group = pygame.sprite.Group()
-        self.myAircraft = MyAircraft()
-        self.myAircraft_group = pygame.sprite.Group(self.myAircraft)
-
-    def __collide_detect(self):
-        pygame.sprite.groupcollide(self.enemy_group, self.myAircraft.bullet_group, True, True)
-        enemy_list = pygame.sprite.spritecollide(self.myAircraft, self.enemy_group, True)
-        if len(enemy_list):
-            self.myAircraft.kill()
-            self.__game_over()
-
-    def __event_listen(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.__game_over()
-            elif event.type == CREAT_ENEMY_EVENT:
-                enemy = Enemy()
-                self.enemy_group.add(enemy)
-            elif event.type == MYAIRCRAFT_FIRE:
-                self.myAircraft.fire()
-        event_list = pygame.key.get_pressed()
-        if event_list[pygame.K_RIGHT]:
-            self.myAircraft.speedx = 3
-        elif event_list[pygame.K_LEFT]:
-            self.myAircraft.speedx = -3
-        elif event_list[pygame.K_UP]:
-            self.myAircraft.speedy = -3
-        elif event_list[pygame.K_DOWN]:
-            self.myAircraft.speedy = 3
-        else:
-            self.myAircraft.speedx = 0
-            self.myAircraft.speedy = 0
-
-    def __update_sprites(self):
-        self.bg_group.update()
-        self.bg_group.draw(self.screen)
-        self.enemy_group.update()
-        self.enemy_group.draw(self.screen)
-        self.myAircraft_group.update()
-        self.myAircraft_group.draw(self.screen)
-        self.myAircraft.bullet_group.update()
-        self.myAircraft.bullet_group.draw(self.screen)
-
-    @staticmethod
-    def __game_over():
-        print('游戏结束')
-        pygame.quit()
-        exit()
+<span class="n">demo</span> <span class="o">=</span> <span class="n">SightAndLight</span><span class="p">()</span>
+<span class="n">demo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
+</pre></div>
 
 
-if __name__ == '__main__':
-    aircraftGame = AircraftGame()
-    aircraftGame.start_game()
-</code></pre>
-
-<h3 id="_5">类文件</h3>
-<pre><code>'''游戏精灵类'''
-import random
-import pygame
-
-FRAME_PER_SECOND = 60
-SEREEN_RECT = pygame.Rect(0, 0, 480, 600)
-CREAT_ENEMY_EVENT = pygame.USEREVENT
-MYAIRCRAFT_FIRE = pygame.USEREVENT + 1
+<h2 id="war-of-aircraft">志哥的 war of aircraft<a class="headerlink" href="#war-of-aircraft" title="Permanent link">&para;</a></h2>
+<h3 id="_4">主文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">AircraftBattle_sprites</span> <span class="kn">import</span> <span class="o">*</span>
 
 
-class GameSprites(pygame.sprite.Sprite):
-    '''所有精灵父级'''
-    def __init__(self, image_src, speed=0):
-        super().__init__()
-        self.image = pygame.image.load(image_src)
-        self.rect = self.image.get_rect()
-        self.speed = speed
+<span class="k">class</span> <span class="nc">AircraftGame</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;~~游戏初始化~~&#39;</span><span class="p">)</span>
+        <span class="c1"># pygame.init()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1">#该方法返回的是surface对象</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__create_sprites</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">CREAT_ENEMY_EVENT</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">MYAIRCRAFT_FIRE</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
 
-    def update(self, *args):
-        self.rect.y += self.speed
+    <span class="k">def</span> <span class="nf">start_game</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;开始游戏&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FRAME_PER_SECOND</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__event_listen</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__collide_detect</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__update_sprites</span><span class="p">()</span>
+            <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__create_sprites</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">bg1</span> <span class="o">=</span> <span class="n">Background</span><span class="p">()</span>
+        <span class="n">bg2</span> <span class="o">=</span> <span class="n">Background</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bg_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="n">bg1</span><span class="p">,</span> <span class="n">bg2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span> <span class="o">=</span> <span class="n">MyAircraft</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__collide_detect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">groupcollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">bullet_group</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">enemy_list</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">spritecollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">enemy_list</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__game_over</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__event_listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__game_over</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">CREAT_ENEMY_EVENT</span><span class="p">:</span>
+                <span class="n">enemy</span> <span class="o">=</span> <span class="n">Enemy</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">enemy</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">MYAIRCRAFT_FIRE</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">fire</span><span class="p">()</span>
+        <span class="n">event_list</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">key</span><span class="o">.</span><span class="n">get_pressed</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">event_list</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_RIGHT</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedx</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="n">event_list</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_LEFT</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+        <span class="k">elif</span> <span class="n">event_list</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_UP</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
+        <span class="k">elif</span> <span class="n">event_list</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">K_DOWN</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedy</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedx</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">speedy</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__update_sprites</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bg_group</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bg_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft_group</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">bullet_group</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">bullet_group</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">screen</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">__game_over</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;游戏结束&#39;</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+        <span class="nb">exit</span><span class="p">()</span>
 
 
-class Background(GameSprites):
-    '''背景精灵'''
-    def __init__(self, is_alt=False):
-        super().__init__('./images/background.png',2)
-        if is_alt:
-            self.rect.bottom = 0
-
-    def update(self):
-        super().update()
-        if self.rect.top &gt;= SEREEN_RECT.height:
-            self.rect.bottom = 0
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">aircraftGame</span> <span class="o">=</span> <span class="n">AircraftGame</span><span class="p">()</span>
+    <span class="n">aircraftGame</span><span class="o">.</span><span class="n">start_game</span><span class="p">()</span>
+</pre></div>
 
 
-class Enemy(GameSprites):
-    '''敌机精灵'''
-    def __init__(self):
-        super().__init__('./images/enemy1.png')
-        self.speed = random.randint(1,4)
-        self.rect.x = random.randrange(0 ,SEREEN_RECT.right-self.rect.width)
-        self.rect.y = -self.rect.height
+<h3 id="_5">类文件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;游戏精灵类&#39;&#39;&#39;</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pygame</span>
 
-    def update(self, *args):
-        super().update()
-        if self.rect.top &gt;= SEREEN_RECT.height:
-            self.kill()
-
-    def __del__(self):
-        print('enemy is destroyed')
+<span class="n">FRAME_PER_SECOND</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">SEREEN_RECT</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">Rect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">CREAT_ENEMY_EVENT</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span>
+<span class="n">MYAIRCRAFT_FIRE</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">USEREVENT</span> <span class="o">+</span> <span class="mi">1</span>
 
 
-class MyAircraft(GameSprites):
-    def __init__(self, speedx=0, speedy=0):
-        super().__init__('./images/me1.png')
-        self.rect.centerx = SEREEN_RECT.centerx
-        self.rect.bottom = SEREEN_RECT.height - 60
-        self.speedx = speedx
-        self.speedy = speedy
-        self.bullet_group = pygame.sprite.Group()
+<span class="k">class</span> <span class="nc">GameSprites</span><span class="p">(</span><span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Sprite</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;所有精灵父级&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_src</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">image_src</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">get_rect</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
 
-    def update(self, *args):
-        self.rect.x += self.speedx
-        self.rect.y += self.speedy
-        if self.rect.x &lt;= 0:
-            self.rect.x = 0
-        elif self.rect.right &gt;= SEREEN_RECT.right:
-            self.rect.right = SEREEN_RECT.right
-
-    def fire(self):
-        for i in range(3):
-            bullet = Bullet()
-            self.bullet_group.add(bullet)
-            bullet.rect.centerx = self.rect.centerx
-            bullet.rect.bottom = self.rect.top-20*i
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speed</span>
 
 
-class Bullet(GameSprites):
-    def __init__(self):
-        super().__init__('./images/bullet1.png', speed=-2)
+<span class="k">class</span> <span class="nc">Background</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;背景精灵&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_alt</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;./images/background.png&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_alt</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
 
-    def update(self, *args):
-        super().update()
-        if self.rect.bottom &lt;= 0:
-            self.kill()
-</code></pre>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">top</span> <span class="o">&gt;=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="k">class</span> <span class="nc">Enemy</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;敌机精灵&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;./images/enemy1.png&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span> <span class="p">,</span><span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">right</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">height</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">top</span> <span class="o">&gt;=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;enemy is destroyed&#39;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MyAircraft</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speedx</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">speedy</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;./images/me1.png&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">centerx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">60</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speedx</span> <span class="o">=</span> <span class="n">speedx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speedy</span> <span class="o">=</span> <span class="n">speedy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bullet_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">speedy</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">right</span> <span class="o">&gt;=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">right</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">right</span>
+
+    <span class="k">def</span> <span class="nf">fire</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">bullet</span> <span class="o">=</span> <span class="n">Bullet</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bullet_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">bullet</span><span class="p">)</span>
+            <span class="n">bullet</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">centerx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">centerx</span>
+            <span class="n">bullet</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">top</span><span class="o">-</span><span class="mi">20</span><span class="o">*</span><span class="n">i</span>
+
+
+<span class="k">class</span> <span class="nc">Bullet</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;./images/bullet1.png&#39;</span><span class="p">,</span> <span class="n">speed</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+</pre></div>
                 
                   
                 
@@ -961,6 +964,8 @@ class Bullet(GameSprites):
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
         <script src="../js/calculator.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

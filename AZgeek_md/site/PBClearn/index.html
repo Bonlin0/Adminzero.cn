@@ -498,26 +498,26 @@
               
                 
                 
-                <h1 id="pbc">PBC 学习使用笔记</h1>
+                <h1 id="pbc">PBC 学习使用笔记<a class="headerlink" href="#pbc" title="Permanent link">&para;</a></h1>
 <p>一些关于PBC（paring based crptography）库学习使用的笔记，以方便日后查阅。</p>
-<h2 id="_1">引言</h2>
+<h2 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><a href="https://crypto.stanford.edu/pbc/download.html">PBC库</a>是一位斯坦福大学的密码学家Ben Lynn所开发维护的一个C语言库。该库需要使用GMP支持。</p>
-<h2 id="pbc_1">PBC的配置和安装</h2>
+<h2 id="pbc_1">PBC的配置和安装<a class="headerlink" href="#pbc_1" title="Permanent link">&para;</a></h2>
 <p>要使用PBC，首先需要配置好PBC。</p>
 <p>目前唯一调通的教程。 <a href="https://blog.csdn.net/u013699902/article/details/58319928">https://blog.csdn.net/u013699902/article/details/58319928</a></p>
-<h2 id="openssl">Openssl配置安装</h2>
-<h3 id="plan-a">PLAN A</h3>
+<h2 id="openssl">Openssl配置安装<a class="headerlink" href="#openssl" title="Permanent link">&para;</a></h2>
+<h3 id="plan-a">PLAN A<a class="headerlink" href="#plan-a" title="Permanent link">&para;</a></h3>
 <p>在使用VS的时候发现没有openssl库，Visual studio自动给了提示如下。</p>
 <p><img src="../img/vcpkg_openssl_tips.png" alt="vcpkg_openssl_tips"> </p>
 <p>vcpkg是一个包管理工具。于是根据详细的教程下载安装成功。但是接下来使用该工具下载库时却因为从Github上下载极其不稳定屡次失败。</p>
 <p>于是按照教程，先使用浏览器下载。<a href="https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win32-x86.zip">https://github.com/Kitware/CMake/releases/download/v3.14.0/cmake-3.14.0-win32-x86.zip</a>下载成功后将其放到vcpkg的安装目录的downloads文件夹下，重新下载新的库。</p>
-<h3 id="plan-b">PLAN B</h3>
+<h3 id="plan-b">PLAN B<a class="headerlink" href="#plan-b" title="Permanent link">&para;</a></h3>
 <p>因为PLAN　A　太慢了，又找到了其他安装 OPENSSL 的方法。参考下面的网站，第一个为教程，第二个为下载地址。</p>
 <ul>
 <li><a href="https://www.jb51.net/article/119025.htm">https://www.jb51.net/article/119025.htm</a></li>
 <li><a href="https://slproweb.com/products/Win32OpenSSL.html">https://slproweb.com/products/Win32OpenSSL.html</a></li>
 </ul>
-<h2 id="vspbcopenssl">总结在VS下调用PBC与openssl的项目配置方法</h2>
+<h2 id="vspbcopenssl">总结在VS下调用PBC与openssl的项目配置方法<a class="headerlink" href="#vspbcopenssl" title="Permanent link">&para;</a></h2>
 <ol>
 <li>首先将教程中的<a href="https://blog.csdn.net/u013699902/article/details/58319928">https://blog.csdn.net/u013699902/article/details/58319928</a>下载完全。将内部内容直接装入项目文件夹会方便一些，如果项目本身不太复杂。</li>
 <li>安装好openssl（32位）。</li>
@@ -530,7 +530,7 @@
 <li>将PBC下载文件夹中的pbc.dll复制到项目目录下。</li>
 <li>大功告成！</li>
 </ol>
-<h2 id="_2">经验之谈</h2>
+<h2 id="_2">经验之谈<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>其实很多时候不需要去mingw这样的平台尝试去用windows仿真linux，既然在Windows编程，就去使用VS就可以。Visual Studio已经是如今行业规范，所以很多库都会为方便Visual Studio有各种各样的便捷通路。之后在Windows上从事这类开发，可以直接搜索如何将相关库整合至VS上即可。可以省去很多无用之功，少走一些弯路。</p>
 <hr />
 <p>施工中 以下为未整理信息</p>
@@ -620,6 +620,8 @@ flex   openssl  gcc  make  libssl-dev libgmp-dev bison</p>
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
         <script src="../js/calculator.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
     
   </body>

@@ -104,7 +104,7 @@ mkdocs build --help
 当你有更多的问题时，极力推荐参考[Mkdocs官网](https://www.mkdocs.org)，本文只是简单翻译了官网文档并将对于笔者来说最基本最重要的部分予以保留。
 
 ---
-# MkDocs User Guide
+## MkDocs User Guide
 
 ## 文件布局
 
@@ -167,4 +167,41 @@ mkdocs使用[Python-Markdown](https://python-markdown.github.io/)实现，基本
 你的图片应当放在`docs`下的`img`文件夹下。
 
 大多数的官方提示的语法都可以在百度中找到并基本全部适用。
+
+## Theme： Material for MkDocs
+
+Date: 2019/11/15
+
+最近在看 [CTF-wiki](https://ctf-wiki.github.io/ctf-wiki/) 时感觉主题真的好看，于是找了一下官方文档将网站也升级使用了这个主题。
+
+[点击这里查看 Material for MkDocs 的主页](https://squidfunk.github.io/mkdocs-material/)
+
+### 安装使用
+
+使用十分简单，尤其是在已经使用`MkDocs`建好的文档可以简单快速的切换主题。
+
+```bash
+pip install mkdocs-material
+```
+
+使用上面的命令安装主题。然后打开`mkdocs.yml`文件，进行修改如下。
+
+```
+theme:
+  name: 'material'
+```
+
+重新build就可以看到新的文档主题了。
+
+### Expansions！
+
+主题好看是一方面，另一方面是在这个主题中找到了一些之前一直需要的插件。
+
+[PyMdown](https://squidfunk.github.io/mkdocs-material/extensions/pymdown/)可以支持很多MarkDown的扩展。
+
+比如 数学公式的解析 [Arithmatex](https://facelessuser.github.io/pymdown-extensions/extensions/arithmatex/)。 
+还有 Emoji :smile:，高亮等等。具体可以在上面给的链接中查看。
+
+
+
 
