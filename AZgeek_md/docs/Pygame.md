@@ -9,7 +9,7 @@
 [Pymunk API](http://www.pymunk.org/en/master/pymunk.html)
 [Pygame Doc](https://www.pygame.org/docs/)
 
-```
+```python
 pygame.init() # You need do it every time when you start a game.
 
 size = width, height = 1366, 768
@@ -33,7 +33,7 @@ screen = pygame.display.set_mode(size)  # screen is a surface instance.
 ```
 
 
-```
+```python
  ''' 
  SIGHT & LIGHT by ncase (https://github.com/ncase/sight-and-light) 
  Ported to Python/PyGame by Marcus Møller (https://github.com/marcusmoller) 
@@ -246,7 +246,7 @@ demo.run()
 
 ### 主文件
 
-```
+```python
 import pygame
 from AircraftBattle_sprites import *
 
@@ -330,7 +330,7 @@ if __name__ == '__main__':
 ```
 
 ### 类文件
-```
+```python
 '''游戏精灵类'''
 import random
 import pygame
