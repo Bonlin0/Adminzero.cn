@@ -1,5 +1,6 @@
 site_name: AZ_geek
-theme: readthedocs
+theme:
+  name: 'material'
 nav:
 - Home: index.md
 - Mkdocs manual: Manual_of_Mkdocs.md
