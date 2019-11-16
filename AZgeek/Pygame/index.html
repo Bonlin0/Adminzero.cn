@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -13,23 +13,23 @@
       
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="lang:clipboard.copy" content="复制">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+        <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
@@ -76,7 +76,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#pygame" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -115,7 +115,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -125,7 +125,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -277,7 +277,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -416,7 +416,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -490,24 +490,22 @@
 <h2 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.pymunk.org/en/master/pymunk.html">Pymunk API</a>
 <a href="https://www.pygame.org/docs/">Pygame Doc</a></p>
-<div class="codehilite"><pre><span></span><span class="nv">pygame</span>.<span class="nv">init</span><span class="ss">()</span> # <span class="nv">You</span> <span class="nv">need</span> <span class="k">do</span> <span class="nv">it</span> <span class="nv">every</span> <span class="nv">time</span> <span class="nv">when</span> <span class="nv">you</span> <span class="nv">start</span> <span class="nv">a</span> <span class="nv">game</span>.
+<div class="codehilite"><pre><span></span><span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span> <span class="c1"># You need do it every time when you start a game.</span>
 
-<span class="nv">size</span> <span class="o">=</span> <span class="nv">width</span>, <span class="nv">height</span> <span class="o">=</span> <span class="mi">1366</span>, <span class="mi">768</span>
-<span class="nv">black</span> <span class="o">=</span> <span class="mi">0</span>, <span class="mi">0</span>, <span class="mi">0</span> # <span class="nv">a</span> <span class="nv">tuple</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">clear</span> <span class="nv">the</span> <span class="nv">screen</span> <span class="nv">with</span> `<span class="nv">screen</span>.<span class="nv">fill</span><span class="ss">(</span><span class="nv">black</span><span class="ss">)</span>`
-<span class="nv">screen</span> <span class="o">=</span> <span class="nv">pygame</span>.<span class="nv">display</span>.<span class="nv">set_mode</span><span class="ss">(</span><span class="nv">size</span><span class="ss">)</span>  # <span class="nv">screen</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">surface</span> <span class="nv">instance</span>.
+<span class="n">size</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1366</span><span class="p">,</span> <span class="mi">768</span>
+<span class="n">black</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1"># a tuple used to clear the screen with `screen.fill(black)`</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># screen is a surface instance.</span>
 </pre></div>
-
 
 <h2 id="_3">光影效果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><a href="https://ncase.me/sight-and-light/">https://ncase.me/sight-and-light/</a>一个关于光影效果的教程。
 <a href="https://www.redblobgames.com/articles/visibility/">https://www.redblobgames.com/articles/visibility/</a>一个关于光影效果的教程。</p>
 <p><a href="http://www.pygame.org/project-Overhead+Shooter-2233-.html">http://www.pygame.org/project-Overhead+Shooter-2233-.html</a> 在这个网站中可以看到以下advice:</p>
-<div class="codehilite"><pre><span></span><span class="o">-</span> <span class="nv">Your</span> <span class="nv">angle</span> <span class="nv">issues</span> <span class="nv">might</span> <span class="nv">be</span> <span class="nv">helped</span> <span class="nv">by</span> <span class="nv">using</span> <span class="nv">the</span> <span class="nv">Vec2d</span> <span class="nv">implementation</span> <span class="nv">from</span> <span class="nv">pymunk</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">code</span>.<span class="nv">google</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">p</span><span class="o">/</span><span class="nv">pymun</span>.... <span class="nv">This</span> <span class="nv">implements</span> <span class="nv">a</span> <span class="nv">number</span> <span class="nv">of</span> <span class="nv">useful</span> <span class="nv">geometric</span> <span class="nv">functions</span> <span class="nv">and</span> <span class="nv">in</span> <span class="nv">particular</span> <span class="nv">does</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">right</span> <span class="nv">kind</span> <span class="nv">of</span> <span class="nv">things</span> <span class="k">for</span> <span class="nv">angle</span> <span class="nv">manipulation</span>, <span class="nv">which</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">a</span> <span class="nv">bit</span> <span class="nv">tricky</span>.
-<span class="o">-</span> <span class="k">For</span> <span class="nv">AI</span> <span class="nv">it</span> <span class="nv">looks</span> <span class="nv">like</span> <span class="nv">you</span> <span class="nv">considered</span> <span class="nv">going</span> <span class="nv">with</span> <span class="nv">an</span> <span class="nv">underlying</span> <span class="nv">grid</span>. <span class="nv">This</span> <span class="nv">worked</span> <span class="nv">well</span> <span class="k">for</span> <span class="nv">me</span> <span class="nv">and</span> <span class="nv">allowed</span> <span class="nv">me</span> <span class="nv">to</span> <span class="nv">use</span> <span class="nv">the</span> <span class="nv">networkx</span> <span class="ss">(</span><span class="nv">http</span>:<span class="o">//</span><span class="nv">networkx</span>.<span class="nv">lanl</span>.<span class="nv">gov</span><span class="o">/</span> <span class="nv">library</span> <span class="k">for</span> <span class="nv">pathfinding</span>. <span class="nv">This</span> <span class="nv">is</span> <span class="nv">fast</span> <span class="nv">and</span> <span class="nv">flexible</span>. 
-<span class="o">-</span> <span class="k">For</span> <span class="nv">shooting</span> <span class="nv">based</span> <span class="nv">on</span> <span class="nv">line</span><span class="o">-</span><span class="nv">of</span><span class="o">-</span><span class="nv">sight</span>, <span class="nv">the</span> <span class="nv">Vec2d</span> <span class="nv">library</span> <span class="nv">above</span> <span class="nv">is</span> <span class="nv">useful</span> <span class="nv">because</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">easily</span> <span class="nv">use</span> <span class="nv">get_angle_between</span> <span class="nv">and</span> <span class="nv">get_distance</span> <span class="nv">to</span> <span class="nv">work</span> <span class="nv">out</span> <span class="k">if</span> <span class="nv">your</span> <span class="nv">enemies</span> <span class="nv">can</span> <span class="nv">see</span> <span class="nv">the</span> <span class="nv">player</span> <span class="nv">and</span> <span class="k">then</span> <span class="nv">decide</span> <span class="nv">on</span> <span class="nv">which</span> <span class="nv">angle</span> <span class="nv">to</span> <span class="nv">shoot</span> <span class="nv">at</span>. <span class="nv">The</span> <span class="nv">API</span> <span class="nv">reference</span> <span class="nv">is</span> <span class="nv">here</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">pymunk</span>.<span class="nv">googlecode</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">s</span>...
-<span class="o">-</span> <span class="nv">In</span> <span class="nv">your</span> <span class="nv">blog</span> <span class="nv">posts</span> <span class="nv">you</span> <span class="nv">mentioned</span> <span class="nv">more</span> <span class="nv">general</span> <span class="nv">physics</span> <span class="k">for</span> <span class="nv">particle</span> <span class="nv">simulation</span>. <span class="nv">The</span> <span class="nv">pymunk</span> <span class="nv">library</span> <span class="nv">is</span> <span class="nv">very</span> <span class="nv">powerful</span>. <span class="nv">http</span>:<span class="o">//</span><span class="nv">code</span>.<span class="nv">google</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">p</span><span class="o">/</span><span class="nv">pymun</span>...
+<div class="codehilite"><pre><span></span>- Your angle issues might be helped by using the Vec2d implementation from pymunk http://code.google.com/p/pymun.... This implements a number of useful geometric functions and in particular does all the right kind of things for angle manipulation, which can be a bit tricky.
+- For AI it looks like you considered going with an underlying grid. This worked well for me and allowed me to use the networkx (http://networkx.lanl.gov/ library for pathfinding. This is fast and flexible. 
+- For shooting based on line-of-sight, the Vec2d library above is useful because you can easily use get_angle_between and get_distance to work out if your enemies can see the player and then decide on which angle to shoot at. The API reference is here http://pymunk.googlecode.com/s...
+- In your blog posts you mentioned more general physics for particle simulation. The pymunk library is very powerful. http://code.google.com/p/pymun...
 </pre></div>
-
 
 <div class="codehilite"><pre><span></span> <span class="sd">&#39;&#39;&#39; </span>
 <span class="sd"> SIGHT &amp; LIGHT by ncase (https://github.com/ncase/sight-and-light) </span>
@@ -717,7 +715,6 @@
 <span class="n">demo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
 </pre></div>
 
-
 <h2 id="war-of-aircraft">志哥的 war of aircraft<a class="headerlink" href="#war-of-aircraft" title="Permanent link">&para;</a></h2>
 <h3 id="_4">主文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
@@ -801,7 +798,6 @@
     <span class="n">aircraftGame</span> <span class="o">=</span> <span class="n">AircraftGame</span><span class="p">()</span>
     <span class="n">aircraftGame</span><span class="o">.</span><span class="n">start_game</span><span class="p">()</span>
 </pre></div>
-
 
 <h3 id="_5">类文件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;游戏精灵类&#39;&#39;&#39;</span>
@@ -917,7 +913,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  上一页
                 </span>
                 PBC
               </span>
@@ -929,7 +925,7 @@
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  下一页
                 </span>
                 Web Spider
               </span>
@@ -953,6 +949,13 @@
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Haulyn5" class="md-footer-social__link fa fa-github-alt"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>
@@ -960,6 +963,23 @@
     </div>
     
       <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       

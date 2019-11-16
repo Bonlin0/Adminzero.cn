@@ -3,7 +3,7 @@
 
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -13,23 +13,23 @@
       
       
       
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+        <meta name="lang:clipboard.copy" content="复制">
       
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+        <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="en">
+        <meta name="lang:search.language" content="ja">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
         <meta name="lang:search.pipeline.trimmer" content="True">
       
-        <meta name="lang:search.result.none" content="No matching documents">
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
       
-        <meta name="lang:search.result.one" content="1 matching document">
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
       
-        <meta name="lang:search.result.other" content="# matching documents">
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
       
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
@@ -76,7 +76,7 @@
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
       <a href="#_1" tabindex="1" class="md-skip">
-        Skip to content
+        跳转至
       </a>
     
     
@@ -115,7 +115,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
       <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
         &#xE5CD;
@@ -125,7 +125,7 @@
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="result">
           <div class="md-search-result__meta">
-            Type to start searching
+            键入以开始搜索
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -325,7 +325,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -575,7 +575,7 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -866,8 +866,8 @@
 <h2 id="_3">安卓部分<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="gradle-gradle-sync-project-failed">Gradle 下载依赖不稳定、Gradle Sync project failed 解决方案<a class="headerlink" href="#gradle-gradle-sync-project-failed" title="Permanent link">&para;</a></h3>
 <p><code>File</code> - <code>Settings</code> ， 搜索 <code>Remote Jar Repositories</code> ， 点击右方 <code>Add</code> 按钮，将以下两个 URL 依次加入。</p>
-<p>http://maven.oschina.net/content/groups/public/</p>
-<p>http://maven.aliyun.com/nexus/content/groups/public</p>
+<p><a href="http://maven.oschina.net/content/groups/public/">http://maven.oschina.net/content/groups/public/</a></p>
+<p><a href="http://maven.aliyun.com/nexus/content/groups/public">http://maven.aliyun.com/nexus/content/groups/public</a></p>
 <p>点击 <code>OK</code> 确认，下载速度就可以提高几个量级！感谢开源中国与阿里云的镜像服务！</p>
 <h3 id="_4">活动生命周期<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
@@ -968,49 +968,46 @@
 <li><code>intent-filter</code>元素包括强制<code>&lt;action&gt;</code>赋值<code>android.service.autofill.AutofillService</code></li>
 </ul>
 <p>以下为示例代码</p>
-<div class="codehilite"><pre><span></span>    <span class="nt">&lt;service</span>
-        <span class="na">android:name=</span><span class="s">&quot;.MyAutofillService&quot;</span>
-        <span class="na">android:label=</span><span class="s">&quot;My Autofill Service&quot;</span>
-        <span class="na">android:permission=</span><span class="s">&quot;android.permission.BIND_AUTOFILL_SERVICE&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;intent-filter&gt;</span>
-            <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.service.autofill.AutofillService&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;/intent-filter&gt;</span>
-        <span class="nt">&lt;meta-data</span>
-            <span class="na">android:name=</span><span class="s">&quot;android.autofill&quot;</span>
-            <span class="na">android:resource=</span><span class="s">&quot;@xml/service_configuration&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/service&gt;</span>
+<div class="codehilite"><pre><span></span>    &lt;service
+        android:name=&quot;.MyAutofillService&quot;
+        android:label=&quot;My Autofill Service&quot;
+        android:permission=&quot;android.permission.BIND_AUTOFILL_SERVICE&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.service.autofill.AutofillService&quot; /&gt;
+        &lt;/intent-filter&gt;
+        &lt;meta-data
+            android:name=&quot;android.autofill&quot;
+            android:resource=&quot;@xml/service_configuration&quot; /&gt;
+    &lt;/service&gt;
 </pre></div>
 
-
 <h3 id="drawable-mipmap">安卓的图像资源： drawable 和 mipmap<a class="headerlink" href="#drawable-mipmap" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="n">mipmapxxx</span><span class="o">/</span><span class="err">下放置</span><span class="n">APP启动图标</span><span class="err">，以及需要高质量缩放动画的图片。</span>
+<div class="codehilite"><pre><span></span>mipmapxxx/下放置APP启动图标，以及需要高质量缩放动画的图片。
 
-<span class="err">其他图片资源放在</span><span class="n">drawablexxx</span><span class="o">/</span><span class="err">下。</span>
+其他图片资源放在drawablexxx/下。
 </pre></div>
 
 
 <h3 id="android-material-icon">Android Material Icon<a class="headerlink" href="#android-material-icon" title="Permanent link">&para;</a></h3>
 <p>Android Material Icon 是一套很好看的ICON集合。要使用其实不需要下载，直接在 Android Studio 中 New-》Vector Asset，进行进一步配置即可使用。</p>
 <p>注意还需要在app模块下的build文件中添加如下代码：</p>
-<div class="codehilite"><pre><span></span><span class="n">android</span> <span class="err">{</span>  
-   <span class="n">defaultConfig</span> <span class="err">{</span>  
-     <span class="n">vectorDrawables</span><span class="p">.</span><span class="n">useSupportLibrary</span> <span class="o">=</span> <span class="k">true</span>  
-    <span class="err">}</span>  
- <span class="err">}</span>
+<div class="codehilite"><pre><span></span>android {  
+   defaultConfig {  
+     vectorDrawables.useSupportLibrary = true  
+    }  
+ }
 </pre></div>
-
 
 <h3 id="fonts-and-fontfamily">关于字体 fonts and fontFamily<a class="headerlink" href="#fonts-and-fontfamily" title="Permanent link">&para;</a></h3>
 <p>自从安卓8.0之后，安卓开始鼓励使用Downloadable Font，即不在APK中绑定字体资源文件，而是直接标记，在实际应用使用中，各应用发现自己需要使用字体时向手机中的Font provider请求。这样可以减少各应用共同字体的冗余提高效率，并且使得APK更加轻量化。但是我在使用过程中发现，国内的手机因为无法访问fonts.google.com，所以无法正常加载字体。故只能下载ttf文件并放置于fonts文件夹，以离线方式加载。不过一个英语字体文件大小在40K上下不算很占用空间。</p>
 <h3 id="button-onclick">button 和 onclick<a class="headerlink" href="#button-onclick" title="Permanent link">&para;</a></h3>
 <p>由于这一部分的代码经常用然而每次使用又经常记不起来，所以还是贴在这里。</p>
-<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="err">该方法必须是</span><span class="k">public</span><span class="err">，返回值</span><span class="n">void</span><span class="err">，同时有一个</span><span class="n">View类型的参数</span>
-<span class="k">public</span> <span class="n">void</span> <span class="n">onClickChooseWordsBookButton</span><span class="p">(</span><span class="k">View</span> <span class="k">view</span><span class="p">)</span>
-<span class="err">{</span>
-    <span class="o">//</span><span class="n">TODO</span> <span class="k">type</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span><span class="p">.</span>
-<span class="err">}</span>
+<div class="codehilite"><pre><span></span>// 该方法必须是public，返回值void，同时有一个View类型的参数
+public void onClickChooseWordsBookButton(View view)
+{
+    //TODO type your code here.
+}
 </pre></div>
-
 
 <h3 id="viewpager-bottomnavigationview-fragment">ViewPager, BottomNavigationView, Fragment 整合<a class="headerlink" href="#viewpager-bottomnavigationview-fragment" title="Permanent link">&para;</a></h3>
 <p>参考下面的链接，主要的工作是设置一个 Adaptor。</p>
@@ -1018,12 +1015,16 @@
 <hr />
 <h2 id="_8">操作系统实验<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="and_1">$ and $$<a class="headerlink" href="#and_1" title="Permanent link">&para;</a></h3>
-<p>NASM 编译的汇编语言中，$是当前行的地址，$$是当前段的段首地址。</p>
+<p>NASM 编译的汇编语言中，<span><span class="MathJax_Preview">是当前行的地址，</span><script type="math/tex">是当前行的地址，</script></span>$是当前段的段首地址。</p>
 <h3 id="cld-std">汇编 CLD 与 STD<a class="headerlink" href="#cld-std" title="Permanent link">&para;</a></h3>
 <p>二者均是用来操作方向标志位DF（Direction Flag）。cld使DF 复位，即是让DF=0，std使DF置位，即DF=1.这两个指令用于串操作指令中。通过执行cld或std指令可以控制方向标志DF，决定内存地址是增大（DF=0，向高地址增加）还是减小（DF=1，向地地址减小）。</p>
 <p>PS ： LODSB and LODSW</p>
 <p>这是块装入指令,把SI指向的存储单元读入累加器,LODSB就读入AL,LODSW就读入AX中,然后SI自动增加或减小1或2.</p>
-<p>$$x=y^2$$</p>
+<hr />
+<div>
+<div class="MathJax_Preview">x=y^2</div>
+<script type="math/tex; mode=display">x=y^2</script>
+</div>
 <h2 id="some-notes">Some notes<a class="headerlink" href="#some-notes" title="Permanent link">&para;</a></h2>
 <h3 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h3>
 <p>PHP int overflow: 如果给定的一个数超出了 integer 的范围，将会被解释为 float。同样如果执行的运算结果超出了 integer 范围，也会返回 float。<br />
@@ -1083,7 +1084,7 @@ PHP float to int:向下取整。</p>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Previous
+                  上一页
                 </span>
                 Web stuff
               </span>
@@ -1095,7 +1096,7 @@ PHP float to int:向下取整。</p>
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
-                  Next
+                  下一页
                 </span>
                 LanguageLearning
               </span>
@@ -1119,6 +1120,13 @@ PHP float to int:向下取整。</p>
           Material for MkDocs</a>
       </div>
       
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Haulyn5" class="md-footer-social__link fa fa-github-alt"></a>
+    
+  </div>
+
     </div>
   </div>
 </footer>
@@ -1126,6 +1134,23 @@ PHP float to int:向下取整。</p>
     </div>
     
       <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
       
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
