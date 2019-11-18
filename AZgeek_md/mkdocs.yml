@@ -31,6 +31,10 @@ nav:
 extra_javascript:
   - js/calculator.js
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js'
+
+extra_css:
+    - 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css'
 
 extra:
   social:
