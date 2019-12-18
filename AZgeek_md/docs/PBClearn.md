@@ -2,6 +2,8 @@
 
 一些关于PBC（paring based crptography）库学习使用的笔记，以方便日后查阅。
 
+<a href="http://www-cs-students.stanford.edu/~blynn//" target="_blank">Homepage of A  Stanford computer science student Ben Lynn</a>
+
 ## 引言
 
 [PBC库](https://crypto.stanford.edu/pbc/download.html)是一位斯坦福大学的密码学家Ben Lynn所开发维护的一个C语言库。该库需要使用GMP支持。

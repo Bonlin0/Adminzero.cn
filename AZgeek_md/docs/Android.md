@@ -117,6 +117,16 @@ public void onClickChooseWordsBookButton(View view)
 
 [https://blog.csdn.net/qq_33198758/article/details/82753062](https://blog.csdn.net/qq_33198758/article/details/82753062)
 
+## ListView 的 OnItemClickListener 不响应
+
+这个问题困扰了许久，在网络上也搜索了许多资料大多都没有什么意义。起初是怀疑在Fragment中的缘故。导致屡屡搜索不到正确的缘由。
+
+[https://www.cnblogs.com/xilinch/archive/2012/11/07/2759265.html](https://www.cnblogs.com/xilinch/archive/2012/11/07/2759265.html)
+
+[https://www.cnblogs.com/yilongm/p/4742775.html](https://www.cnblogs.com/yilongm/p/4742775.html)
+
+上面的链接才真正解决了我的困惑，原来是因为ListView的条目中有Button,所以抢占了OnClick的响应和焦点。
+
 
 ---
 

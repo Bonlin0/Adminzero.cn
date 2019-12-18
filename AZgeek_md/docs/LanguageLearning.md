@@ -4,6 +4,9 @@
 
 ## 俄语
 
+http://learnrussian.rt.com/lessons/
+
+
 ### 俄语词典
 
 [千亿词霸](http://w.qianyix.com/)
@@ -53,7 +56,11 @@
 уже already
 
 
-##日语
+## 日语
+
+https://www3.nhk.or.jp/nhkworld/zh/learnjapanese/
+http://www.imabi.net/beginnersi.htm
+
 
 ### 日语五十音表
 

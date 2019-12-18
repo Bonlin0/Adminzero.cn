@@ -22,13 +22,14 @@ Carpe diem.
 * <a href="https://www.codecademy.com/" target="_blank">Codecademy</a>		
 * <a href="https://developer.mozilla.org/zh-CN/docs/learn" target="_blank">MDN Learn Web</a>
 * <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" target="_blank">MDN CORS</a>
+* <a href="https://seedsecuritylabs.org/" target="_blank">SEED Project : Hands-on Labs for Security Education</a>
 * <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank">MDN CORS_cn</a>	
 * <a href="https://coolshell.cn/articles/5426.html" target="_blank">Learn Vim</a>
 * <a href="https://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank">Javascript Tutorial from Liaoxuefeng</a>
 * <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank">Python3 Tutorial from Liaoxuefeng</a>
 * <a href="http://linux.vbird.org/" target="_blank">Linux Vbird</a>
 * <a href="https://www.jianshu.com/p/191d1e21f7ed" target="_blank">MarkDown grammer</a>
-* <a href="http://www-cs-students.stanford.edu/~blynn//" target="_blank">Homepage of A  Stanford computer science student Ben Lynn</a>
+* <a heref="http://introtodeeplearning.com/2019/index.html" target="_blank">MIT 2019 Intro to DeepLearning
 * <a href="https://docker_practice.gitee.io/" target="_blank">Docker Practice book</a>
 * <a href="http://php.net/manual/zh/" target="_blank">PHP manual</a>
 

@@ -44,7 +44,23 @@ Java Random类的nextInt(x)是前闭后开，即可能会返回0，但最大为x
 
 ---
 
-## 操作系统实验
+## Windows
+
+### 查看本机端口占用
+
+`netstat -ano`
+
+---
+
+## PHP
+
+### at symbol
+
+at符号（@）在PHP中用作错误控制操作符。当表达式附加@符号时，将忽略该表达式可能生成的错误消息。如果启用了track_errors功能，则表达式生成的错误消息将保存在变量$ php_errormsg中。每个错误都会覆盖此变量。
+
+---
+
+## 汇编语言
 
 ### $ and $$
 
@@ -72,6 +88,8 @@ PHP float to int:向下取整。
 PHP 7.0.0 起，NaN 和 Infinity 在转换成 integer 时，不再是 undefined 或者依赖于平台，而是都会变成零。  
 
 发现url中有?file=字样时可以修改后面为?file=php://filter/convert.base64-encode/resource=xxx.php来查看对应文件源码。  
+
+
 
 ### Javascript
 
