@@ -14,16 +14,28 @@
 
 [https://www.jianshu.com/p/16c03bfbef29](https://www.jianshu.com/p/16c03bfbef29) 这篇文章可以解决问题。但是明显感觉鼠标移动卡顿且呈跳跃性移动。但是总比没有鼠标要强。
 
-### Oracle NUMBER类型
+---
 
-类型：NUMBER （ precision， scale）
+## 通信与编码
 
-* precision表示数字中的有效位;如果没有指定precision的话，Oracle将使用38作为精度。如果scale大于零，表示数字精确到小数点右边的位数；scale默认设置为0；如果scale小于零，Oracle将把该数字取舍到小数点左边的指定位数。
-* Precision的取值范围为【1---38】；Scale的取值范围为【-84---127】。
+### 循环冗余校验（CRC, Cyclical Redundancy Check)
 
-例如NUMBER(38,3)中总位数是38，小数点后精确到3位，
+举简单例子说明，不做通用概括的解释。
 
-参考网址 [https://www.cnblogs.com/oumyye/p/4448656.html](https://www.cnblogs.com/oumyye/p/4448656.html)
+例我们以多项式$g(x)=x^4+x^3+x^2+1$作为生成多项式，即二进制表示11101.
+
+设我们要传递的消息 m = 110.
+
+有CRC冗余码计算过程如下
+
+1. 将m左移$g(x)$的最高次项位得到$m_0$。（其实就是生成多项式的二进制表示有x位就左移x-1位）
+2. 将$m_0$除以生成多项式（$GF(2)$下除法）
+3. 得到余数后与$m_0$相加（其实就是把$m_0$后面的x-1个0替换成了余数）
+4. 上一步得到的结果即完整的CRC码，包括了信息位与校验位。直接发送给接收方
+5. 接受方收到后拿完整的CRC码除以生成多项式，正常情况下为0，不为0表示数据一定发生了变化（数据位或校验位）
+
+
+---
 
 ## Java
 
@@ -226,5 +238,16 @@ git rm --cache a.java
 
 第一段叙述中最后一条所叙述的内容也是开源代码被认为更安全的原因，因为全世界使用你的代码的人们都会审视你的源代码（工厂的组织、流水线、制度）。如果有任何不合理的部分，会产生安全漏洞的部分，会很“容易”（当然有时候也不太容易）被人发现并及时公开修复。
 
+---
 
+### Oracle NUMBER类型
+
+类型：NUMBER （ precision， scale）
+
+* precision表示数字中的有效位;如果没有指定precision的话，Oracle将使用38作为精度。如果scale大于零，表示数字精确到小数点右边的位数；scale默认设置为0；如果scale小于零，Oracle将把该数字取舍到小数点左边的指定位数。
+* Precision的取值范围为【1---38】；Scale的取值范围为【-84---127】。
+
+例如NUMBER(38,3)中总位数是38，小数点后精确到3位，
+
+参考网址 [https://www.cnblogs.com/oumyye/p/4448656.html](https://www.cnblogs.com/oumyye/p/4448656.html)
 

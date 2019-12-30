@@ -81,6 +81,10 @@ http://maven.aliyun.com/nexus/content/groups/public
 
     其他图片资源放在drawablexxx/下。
 
+    使用图像资源的时候，可能会出现智能补全不工作的情况，重启可以解决。
+
+    另外图片资源中只可以出现小写字母、数组、下划线。忍住你的驼峰命名欲望。
+
 ## Android Material Icon
 
 Android Material Icon 是一套很好看的ICON集合。要使用其实不需要下载，直接在 Android Studio 中 New-》Vector Asset，进行进一步配置即可使用。
