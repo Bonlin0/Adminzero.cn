@@ -28,3 +28,7 @@
 ## Site isolation
 
 [https://www.chromium.org/Home/chromium-security/site-isolation](https://www.chromium.org/Home/chromium-security/site-isolation)
+
+## 专利搜索
+
+[http://www.soopat.com/](http://www.soopat.com/) 专利搜索网站
