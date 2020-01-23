@@ -13,6 +13,7 @@ Carpe diem.
 * <a href="https://mail.163.com/" target="_blank">163 email log in</a>
 * <a href="http://xueshu.baidu.com/" target="_blank">baidu academic</a>
 * <a href="https://github.com/" target="_blank">Github</a>
+* <a href="http://haulyn5.xyz/" target="_blank">Haulyn5's Blog</a>
 * <a href="https://translate.google.cn" target="_blank">Google translate</a>
 * <a href="https://dl.acm.org/dl.cfm" target="_blank">ACM digital library</a>
 * <a href="https://ww2.mathworks.cn/help/matlab/" target="_blank">MATLAB DOC</a>
