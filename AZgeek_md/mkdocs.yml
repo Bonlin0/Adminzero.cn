@@ -2,6 +2,12 @@ site_name: AZ_geek
 theme:
   name: 'material'
   language: 'zh'
+  logo: img/favicon.ico
+  favicon: img/favicon.ico
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/git-alt
+
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -39,7 +45,7 @@ extra_css:
 
 extra:
   social:
-    - type: github-alt
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/Haulyn5
 
 

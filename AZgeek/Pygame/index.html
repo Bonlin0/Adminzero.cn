@@ -1,38 +1,17 @@
 
 
 
-
 <!doctype html>
 <html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
       
-      
-        <meta name="lang:clipboard.copy" content="复制">
-      
-        <meta name="lang:clipboard.copied" content="已复制">
-      
-        <meta name="lang:search.language" content="ja">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
-      
-        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
-      
-        <meta name="lang:search.result.other" content="# 个符合条件的结果">
-      
-        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
-      
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <link rel="shortcut icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -40,21 +19,18 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
       
       
     
-    
-      <script src="../assets/javascripts/modernizr.74668098.js"></script>
     
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
-    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
       <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
@@ -65,69 +41,71 @@
     
   </head>
   
+  
     <body dir="ltr">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-      </defs>
-    </svg>
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#pygame" tabindex="1" class="md-skip">
-        跳转至
-      </a>
-    
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pygame" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="AZ_geek" class="md-header-nav__button md-logo">
-          
-            <i class="md-icon"></i>
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              AZ_geek
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Pygame
-              
-            </span>
-          
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="AZ_geek" class="md-header-nav__button md-logo" aria-label="AZ_geek">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            AZ_geek
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Pygame
+            
+          </span>
         </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            键入以开始搜索
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -135,31 +113,31 @@
     </div>
   </div>
 </div>
-        
-      </div>
-      
-    </div>
+    
+    
   </nav>
 </header>
     
-    <div class="md-container">
+    <div class="md-container" data-md-component="container">
       
         
       
       
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="AZ_geek" class="md-nav__button md-logo">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AZ_geek" class="md-nav__button md-logo" aria-label="AZ_geek">
       
-        <i class="md-icon"></i>
-      
+  <img src="../img/favicon.ico" alt="logo">
+
     </a>
     AZ_geek
   </label>
@@ -271,13 +249,16 @@
 
   <li class="md-nav__item md-nav__item--active">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
       
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Pygame
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
       </label>
     
     <a href="./" title="Pygame" class="md-nav__link md-nav__link--active">
@@ -285,13 +266,18 @@
     </a>
     
       
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">目录</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -320,7 +306,7 @@
     志哥的 war of aircraft
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="志哥的 war of aircraft">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -341,10 +327,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -424,13 +406,18 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">目录</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      目录
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
@@ -459,7 +446,7 @@
     志哥的 war of aircraft
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="志哥的 war of aircraft">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -481,10 +468,6 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
@@ -498,30 +481,33 @@
               
                 
                 
+                  
+                
+                
                 <h1 id="pygame">Pygame 使用笔记<a class="headerlink" href="#pygame" title="Permanent link">&para;</a></h1>
 <h2 id="_1">安装<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>略。</p>
 <h2 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.pymunk.org/en/master/pymunk.html">Pymunk API</a>
 <a href="https://www.pygame.org/docs/">Pygame Doc</a></p>
-<div class="codehilite"><pre><span></span><span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span> <span class="c1"># You need do it every time when you start a game.</span>
+<div class="highlight"><pre><span></span><code><span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span> <span class="c1"># You need do it every time when you start a game.</span>
 
 <span class="n">size</span> <span class="o">=</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">1366</span><span class="p">,</span> <span class="mi">768</span>
 <span class="n">black</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="c1"># a tuple used to clear the screen with `screen.fill(black)`</span>
 <span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="c1"># screen is a surface instance.</span>
-</pre></div>
+</code></pre></div>
 
 <h2 id="_3">光影效果<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><a href="https://ncase.me/sight-and-light/">https://ncase.me/sight-and-light/</a>一个关于光影效果的教程。
 <a href="https://www.redblobgames.com/articles/visibility/">https://www.redblobgames.com/articles/visibility/</a>一个关于光影效果的教程。</p>
 <p><a href="http://www.pygame.org/project-Overhead+Shooter-2233-.html">http://www.pygame.org/project-Overhead+Shooter-2233-.html</a> 在这个网站中可以看到以下advice:</p>
-<div class="codehilite"><pre><span></span>- Your angle issues might be helped by using the Vec2d implementation from pymunk http://code.google.com/p/pymun.... This implements a number of useful geometric functions and in particular does all the right kind of things for angle manipulation, which can be a bit tricky.
+<div class="highlight"><pre><span></span><code>- Your angle issues might be helped by using the Vec2d implementation from pymunk http://code.google.com/p/pymun.... This implements a number of useful geometric functions and in particular does all the right kind of things for angle manipulation, which can be a bit tricky.
 - For AI it looks like you considered going with an underlying grid. This worked well for me and allowed me to use the networkx (http://networkx.lanl.gov/ library for pathfinding. This is fast and flexible. 
 - For shooting based on line-of-sight, the Vec2d library above is useful because you can easily use get_angle_between and get_distance to work out if your enemies can see the player and then decide on which angle to shoot at. The API reference is here http://pymunk.googlecode.com/s...
 - In your blog posts you mentioned more general physics for particle simulation. The pymunk library is very powerful. http://code.google.com/p/pymun...
-</pre></div>
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span> <span class="sd">&#39;&#39;&#39; </span>
+<div class="highlight"><pre><span></span><code> <span class="sd">&#39;&#39;&#39; </span>
 <span class="sd"> SIGHT &amp; LIGHT by ncase (https://github.com/ncase/sight-and-light) </span>
 <span class="sd"> Ported to Python/PyGame by Marcus Møller (https://github.com/marcusmoller) </span>
 <span class="sd"> &#39;&#39;&#39;</span>
@@ -544,8 +530,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="c1"># general</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fps_clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">True</span>  <span class="c1"># only call update on mouse movement</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># only call update on mouse movement</span>
         <span class="c1"># segments</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="p">[</span>
             <span class="c1"># Border</span>
@@ -594,7 +580,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">handle_input</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">render_frame</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -627,7 +613,7 @@
                 <span class="s2">&quot; b &quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="s2">&quot; y &quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dy</span><span class="p">}</span>
             <span class="p">}</span>
             <span class="c1"># Find CLOSEST intersection</span>
-            <span class="n">closest_intersect</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="n">closest_intersect</span> <span class="o">=</span> <span class="kc">None</span>
             <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">:</span>
                 <span class="n">intersect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_intersection</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">segment</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">intersect</span><span class="p">:</span> <span class="k">continue</span>
@@ -660,17 +646,17 @@
         <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pump</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">QUIT</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
-                <span class="k">print</span><span class="p">(</span><span class="s2">&quot; quit &quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; quit &quot;</span><span class="p">)</span>
                 <span class="k">break</span>
             <span class="c1"># KEYBOARD</span>
             <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">KEYDOWN</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_ESCAPE</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">K_q</span><span class="p">:</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="bp">False</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="c1"># MOUSE</span>
             <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">pygame</span><span class="o">.</span><span class="n">MOUSEMOTION</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">mouse_pos</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">pos</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_shadows</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">def</span> <span class="nf">get_intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ray</span><span class="p">,</span> <span class="n">segment</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39; Find intersection of RAY &amp; SEGMENT &#39;&#39;&#39;</span>
@@ -689,7 +675,7 @@
         <span class="n">r_mag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r_dx</span> <span class="o">*</span> <span class="n">r_dx</span> <span class="o">+</span> <span class="n">r_dy</span> <span class="o">*</span> <span class="n">r_dy</span><span class="p">)</span>
         <span class="n">s_mag</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">s_dx</span> <span class="o">*</span> <span class="n">s_dx</span> <span class="o">+</span> <span class="n">s_dy</span> <span class="o">*</span> <span class="n">s_dy</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">r_dx</span> <span class="o">/</span> <span class="n">r_mag</span> <span class="o">==</span> <span class="n">s_dx</span> <span class="o">/</span> <span class="n">s_mag</span> <span class="ow">and</span> <span class="n">r_dy</span> <span class="o">/</span> <span class="n">r_mag</span> <span class="o">==</span> <span class="n">s_dy</span> <span class="o">/</span> <span class="n">s_mag</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>
+            <span class="k">return</span> <span class="kc">None</span>
         <span class="c1"># SOLVE FOR T1 &amp; T2</span>
         <span class="c1"># r_px+r_dx*T1 = s_px+s_dx*T2 &amp;&amp; r_py+r_dy*T1 = s_py+s_dy*T2</span>
         <span class="c1"># ==&gt; T1 = (s_px+s_dx*T2-r_px)/r_dx = (s_py+s_dy*T2-r_py)/r_dy</span>
@@ -705,8 +691,8 @@
         <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
             <span class="n">T1</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_px</span> <span class="o">+</span> <span class="n">s_dx</span> <span class="o">*</span> <span class="n">T2</span> <span class="o">-</span> <span class="n">r_px</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r_dx</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>
         <span class="c1"># Must be within parametic whatevers for RAY/SEGMENT</span>
-        <span class="k">if</span> <span class="n">T1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="bp">None</span>
-        <span class="k">if</span> <span class="n">T2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">T2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">T1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">T2</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">T2</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="kc">None</span>
         <span class="c1"># Return the POINT OF INTERSECTION</span>
         <span class="k">return</span> <span class="p">{</span>
             <span class="s2">&quot; x &quot;</span><span class="p">:</span> <span class="n">r_px</span> <span class="o">+</span> <span class="n">r_dx</span> <span class="o">*</span> <span class="n">T1</span><span class="p">,</span>
@@ -727,17 +713,17 @@
 
 <span class="n">demo</span> <span class="o">=</span> <span class="n">SightAndLight</span><span class="p">()</span>
 <span class="n">demo</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> 
-</pre></div>
+</code></pre></div>
 
 <h2 id="war-of-aircraft">志哥的 war of aircraft<a class="headerlink" href="#war-of-aircraft" title="Permanent link">&para;</a></h2>
 <h3 id="_4">主文件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pygame</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pygame</span>
 <span class="kn">from</span> <span class="nn">AircraftBattle_sprites</span> <span class="kn">import</span> <span class="o">*</span>
 
 
 <span class="k">class</span> <span class="nc">AircraftGame</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;~~游戏初始化~~&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;~~游戏初始化~~&#39;</span><span class="p">)</span>
         <span class="c1"># pygame.init()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">(</span><span class="n">SEREEN_RECT</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="c1">#该方法返回的是surface对象</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__create_sprites</span><span class="p">()</span>
@@ -746,8 +732,8 @@
         <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">set_timer</span><span class="p">(</span><span class="n">MYAIRCRAFT_FIRE</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">start_game</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;开始游戏&#39;</span><span class="p">)</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;开始游戏&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FRAME_PER_SECOND</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__event_listen</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__collide_detect</span><span class="p">()</span>
@@ -756,15 +742,15 @@
 
     <span class="k">def</span> <span class="nf">__create_sprites</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">bg1</span> <span class="o">=</span> <span class="n">Background</span><span class="p">()</span>
-        <span class="n">bg2</span> <span class="o">=</span> <span class="n">Background</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">bg2</span> <span class="o">=</span> <span class="n">Background</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bg_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="n">bg1</span><span class="p">,</span> <span class="n">bg2</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span> <span class="o">=</span> <span class="n">MyAircraft</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft_group</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__collide_detect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">groupcollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">bullet_group</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
-        <span class="n">enemy_list</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">spritecollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">groupcollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">bullet_group</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">enemy_list</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">sprite</span><span class="o">.</span><span class="n">spritecollide</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">enemy_group</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">enemy_list</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">myAircraft</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__game_over</span><span class="p">()</span>
@@ -803,18 +789,18 @@
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">__game_over</span><span class="p">():</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;游戏结束&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;游戏结束&#39;</span><span class="p">)</span>
         <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-        <span class="nb">exit</span><span class="p">()</span>
+        <span class="n">exit</span><span class="p">()</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">aircraftGame</span> <span class="o">=</span> <span class="n">AircraftGame</span><span class="p">()</span>
     <span class="n">aircraftGame</span><span class="o">.</span><span class="n">start_game</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 <h3 id="_5">类文件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="sd">&#39;&#39;&#39;游戏精灵类&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;游戏精灵类&#39;&#39;&#39;</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">pygame</span>
 
@@ -838,7 +824,7 @@
 
 <span class="k">class</span> <span class="nc">Background</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;背景精灵&#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_alt</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_alt</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;./images/background.png&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">is_alt</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
@@ -863,7 +849,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;enemy is destroyed&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;enemy is destroyed&#39;</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">MyAircraft</span><span class="p">(</span><span class="n">GameSprites</span><span class="p">):</span>
@@ -899,9 +885,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span><span class="o">.</span><span class="n">bottom</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
-</pre></div>
-                
-                  
+</code></pre></div>
                 
               
               
@@ -918,34 +902,34 @@
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../PBClearn/" title="PBC" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../PBClearn/" title="PBC" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
                 PBC
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../spider/" title="Web Spider" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../spider/" title="Web Spider" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
                 Web Spider
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -956,17 +940,22 @@
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/Haulyn5" class="md-footer-social__link fa fa-github-alt"></a>
+      
+      
+        
+        
+      
+      <a href="https://github.com/Haulyn5" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      </a>
     
   </div>
 
@@ -976,26 +965,18 @@
       
     </div>
     
-      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\uff0c\\u3002]+", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c"}</script>
       
-        
-        
-          
-          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
-          
-            
-              
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
-              
-            
-          
-          
-        
-      
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
         <script src="../js/calculator.js"></script>
       
